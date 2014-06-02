@@ -53,14 +53,23 @@
 										
 					<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
-                                           
-                                            
-					
-						<li><a  href ="#contact"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
+                                                                       
+		                          	<li><a  href ="#contact"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
 						<li><a href = "#members" data-toggle="modal"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Assign Members</a></li>
-						<li><a href = "loadMessageView"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
-						<li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
-						<li><a href = "#"><span class="glyphicon glyphicon-wrench"></span> Settings</a></li>
+						                                           
+                                                <li class = "dropdown">
+
+                                                    <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-envelope">Messages </span> <b class = "caret"></b></a>
+                                                    <ul class = "dropdown-menu">
+                                                        <li><a href = "#"><span class="badge">3</span> Inbox</a></li>
+                                                        <li><a href = "<?php echo base_url() . 'main/newmsger';?>"> New Message</a></li> 
+                                                        <li><a href="<?php echo base_url() . 'main/load_list';?>"> All Messages </a></li>
+                                                      
+                                                    </ul>
+                                                </li>
+                                             
+                                                <li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
+					
                                                 <li class = "dropdown">
 
                                                     <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"></span></a>

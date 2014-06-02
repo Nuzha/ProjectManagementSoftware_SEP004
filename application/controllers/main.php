@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -6,7 +7,7 @@ class Main extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        
+
         $this->load->model('model_chart');
     }
 
@@ -97,9 +98,9 @@ class Main extends CI_Controller {
                 $operations = array(
                     'status' => "success",
                     'message' => 'This account has being successfully activated. ');
-               $this->load->view('header');
+                $this->load->view('header');
                 $this->load->view("view_registration_account_activation_status", $operations);
-               // $this->load->view('footer');
+                // $this->load->view('footer');
             } else {
                 $operations = array(
                     'status' => 'fail',
@@ -279,11 +280,11 @@ class Main extends CI_Controller {
         $this->load->view('left_side');
         $search = $this->input->post('tot');
     }
-    
-    public function viewChart(){
-        
-        $data['graph']=  $this->model_chart->get_data();
-        
+
+    public function viewChart() {
+
+        $data['graph'] = $this->model_chart->get_data();
+
         $this->load->view('header');
         $this->load->view('left_side');
 
@@ -306,8 +307,8 @@ class Main extends CI_Controller {
         $data['headline'] = "";
         $data['include'] = 'add_uerstory_view';
         $this->load->model('Model_userStory', '', TRUE);
-        $data['email_list']=$this->Model_userStory->get_mail();
-          $this->load->view('header');
+        $data['email_list'] = $this->Model_userStory->get_mail();
+        $this->load->view('header');
         $this->load->view('left_side');
         $this->load->view('template', $data);
         $this->load->view('footer');
@@ -321,158 +322,146 @@ class Main extends CI_Controller {
         redirect('Main/userStory', 'refresh');
     }
 
-    function listing()
-  {
-    $this->load->library('table');
-    
-    $this->load->model('Model_userStory','',TRUE);
-    $userStory_qry = $this->Model_userStory->listUserStories();
+    function listing() {
+        $this->load->library('table');
 
-    // generate HTML table from query results
-    $tmpl = array (
-      'table_open' => '<table border="0" cellpadding="8" cellspacing="5" >',
-      'heading_row_start' => '<tr bgcolor="#66cc44">',
-      'row_start' => '<tr bgcolor="#dddddd">' 
-      );
-    $this->table->set_template($tmpl); 
-    
-    $this->table->set_empty("&nbsp;"); 
-  
-    $this->table->set_heading('', 'Project Id', 'User Story', 'Descrption', 
-        'Iteration', 'Plan Estimation','Status','Owner Email');
+        $this->load->model('Model_userStory', '', TRUE);
+        $userStory_qry = $this->Model_userStory->listUserStories();
 
-  
-    $table_row = array();
-    foreach ($userStory_qry ->result() as $story)
-    {
-      $table_row = NULL;
-      $table_row[] = '<nobr>' . 
-        anchor('Main/edit/' . $story->StoryId, 'edit') . ' | ' .
-        anchor('Main/delete/' . $story->StoryId, 'delete',
-          "onClick=\" return confirm('Are you sure you want to '
+        // generate HTML table from query results
+        $tmpl = array(
+            'table_open' => '<table border="0" cellpadding="8" cellspacing="5" >',
+            'heading_row_start' => '<tr bgcolor="#66cc44">',
+            'row_start' => '<tr bgcolor="#dddddd">'
+        );
+        $this->table->set_template($tmpl);
+
+        $this->table->set_empty("&nbsp;");
+
+        $this->table->set_heading('', 'Project Id', 'User Story', 'Descrption', 'Iteration', 'Plan Estimation', 'Status', 'Owner Email');
+
+
+        $table_row = array();
+        foreach ($userStory_qry->result() as $story) {
+            $table_row = NULL;
+            $table_row[] = '<nobr>' .
+                    anchor('Main/edit/' . $story->StoryId, 'edit') . ' | ' .
+                    anchor('Main/delete/' . $story->StoryId, 'delete', "onClick=\" return confirm('Are you sure you want to '
             + 'delete the record for $story->StoryId?')\"") . ' | ' .
-       anchor('Main/add_task/' .$story->StoryId,'add tasks') .
-        '</nobr>';
-      // replaced above :: $table_row[] = anchor('student/edit/' . $student->id, 'edit');
-      //$table_row[] = $student->s_name;
-      $table_row[] = $story->ProjectId;
-      //$table_row[] = $story->address;
-      $table_row[] = $story->name;
-      $table_row[] = $story->Description;
-      $table_row[] = $story->IterationId;
-      $table_row[] = $story->PlanEst;
-      $table_row[] = $story->u_status;
-      $table_row[] = mailto($story->OwnerEmail);
+                    anchor('Main/add_task/' . $story->StoryId, 'add tasks') .
+                    '</nobr>';
+            // replaced above :: $table_row[] = anchor('student/edit/' . $student->id, 'edit');
+            //$table_row[] = $student->s_name;
+            $table_row[] = $story->ProjectId;
+            //$table_row[] = $story->address;
+            $table_row[] = $story->name;
+            $table_row[] = $story->Description;
+            $table_row[] = $story->IterationId;
+            $table_row[] = $story->PlanEst;
+            $table_row[] = $story->u_status;
+            $table_row[] = mailto($story->OwnerEmail);
 
-      $this->table->add_row($table_row);
-    }    
+            $this->table->add_row($table_row);
+        }
 
-    $userStory_table = $this->table->generate();
-    
-    // generate HTML table from query results
-    // replaced above :: $students_table = $this->table->generate($students_qry);
-    
-    // display information for the view
-    $data['title'] = "user story listing";
-    $data['headline'] = "User Story Listing";
-    $data['include'] = 'userStory_listing_view';
+        $userStory_table = $this->table->generate();
 
-    $data['data_table'] = $userStory_table;
-      $this->load->view('header');
+        // generate HTML table from query results
+        // replaced above :: $students_table = $this->table->generate($students_qry);
+        // display information for the view
+        $data['title'] = "user story listing";
+        $data['headline'] = "User Story Listing";
+        $data['include'] = 'userStory_listing_view';
+
+        $data['data_table'] = $userStory_table;
+        $this->load->view('header');
         $this->load->view('left_side');
-    $this->load->view('template', $data);
-  }
+        $this->load->view('template', $data);
+    }
 
+    function edit() {
+        $this->load->helper('form');
 
-    	
- function edit()
-  {
-    $this->load->helper('form');
+        $id = $this->uri->segment(3);
+        $this->load->model('Model_userStory', '', TRUE);
+        $data['row'] = $this->Model_userStory->getStory($id)->result();
 
-    $id = $this->uri->segment(3);
-    $this->load->model('Model_userStory','',TRUE);
-    $data['row'] = $this->Model_userStory->getStory($id)->result();
+        // display information for the view
+        $data['title'] = "Edit User Story";
+        $data['headline'] = "";
+        $data['include'] = 'userStoryEdit';
 
-    // display information for the view
-    $data['title'] = "Edit User Story";
-    $data['headline'] = "";
-    $data['include'] = 'userStoryEdit';
-    
-      $this->load->view('header');
+        $this->load->view('header');
         $this->load->view('left_side');
 
-    $this->load->view('template', $data);
-  }
-  
-  function update()
-  {
-  	//$id = $this->uri->segment(3);
-    $this->load->model('Model_userStory','',TRUE);
-    $this->Model_userStory->updateStory($_POST['StoryId'], $_POST);
-    redirect('Main/listing','refresh');
-  }
- 
-  function delete()
-  {
-    $id = $this->uri->segment(3);
-    
-    $this->load->model('Model_userStory','',TRUE);
-    $this->Model_userStory->deleteStory($id);
-    redirect('Main/listing','refresh');
-  }
- //-------------------task---------------------------------------------------------------------------------- 
-  
-    function add_task()
-  {
-    $this->load->helper('form');
-	$data['base']=$this->config->item('base_url');
-    $id = $this->uri->segment(3);
-    $this->load->model('Model_userStory','',TRUE);
-    $data['row'] = $this->Model_userStory->getStory($id)->result();
-	
-	
-	$data['query']=$this->Model_userStory->get_all_task($id);
+        $this->load->view('template', $data);
+    }
 
-    // display information for the view
-    $data['title'] = "Add tasks";
-    $data['headline'] = "";
-    $data['include'] = 'add_task';
-      $this->load->view('header');
+    function update() {
+        //$id = $this->uri->segment(3);
+        $this->load->model('Model_userStory', '', TRUE);
+        $this->Model_userStory->updateStory($_POST['StoryId'], $_POST);
+        redirect('Main/listing', 'refresh');
+    }
+
+    function delete() {
+        $id = $this->uri->segment(3);
+
+        $this->load->model('Model_userStory', '', TRUE);
+        $this->Model_userStory->deleteStory($id);
+        redirect('Main/listing', 'refresh');
+    }
+
+    //-------------------task---------------------------------------------------------------------------------- 
+
+    function add_task() {
+        $this->load->helper('form');
+        $data['base'] = $this->config->item('base_url');
+        $id = $this->uri->segment(3);
+        $this->load->model('Model_userStory', '', TRUE);
+        $data['row'] = $this->Model_userStory->getStory($id)->result();
+
+
+        $data['query'] = $this->Model_userStory->get_all_task($id);
+
+        // display information for the view
+        $data['title'] = "Add tasks";
+        $data['headline'] = "";
+        $data['include'] = 'add_task';
+        $this->load->view('header');
         $this->load->view('left_side');
 
-    $this->load->view('template', $data);
-  }
-  function re_add_task()
-  {
-  	
-	$this->load->helper('form');
-	$data['base']=$this->config->item('base_url');
-	$id1 = $this->uri->segment(3);
-  	$this->load->model('Model_userStory','',TRUE);
-	$tas=$this->Model_userStory->get_Story_Id_where_taskId($id1)->result();
-	$id=$tas[0]->UStory_Id;
-    $data['row'] = $this->Model_userStory->getStory($id)->result();
-	
-	
-	$data['query']=$this->Model_userStory->get_all_task($id);
+        $this->load->view('template', $data);
+    }
 
-    // display information for the view
-    $data['title'] = "Add tasks";
-    $data['headline'] = "";
-    $data['include'] = 'add_task';
+    function re_add_task() {
 
-    $this->load->view('template', $data);
-  }
-  public function insert_Task()
-	{
-		$this->load->model('Model_userStory','',TRUE);
-		$this->Model_userStory->add_task();
-		$this->load->helper('url');
-		redirect('Main/re_add_task/'.$this->db->insert_id()); 
-	}
+        $this->load->helper('form');
+        $data['base'] = $this->config->item('base_url');
+        $id1 = $this->uri->segment(3);
+        $this->load->model('Model_userStory', '', TRUE);
+        $tas = $this->Model_userStory->get_Story_Id_where_taskId($id1)->result();
+        $id = $tas[0]->UStory_Id;
+        $data['row'] = $this->Model_userStory->getStory($id)->result();
 
 
-   
+        $data['query'] = $this->Model_userStory->get_all_task($id);
+
+        // display information for the view
+        $data['title'] = "Add tasks";
+        $data['headline'] = "";
+        $data['include'] = 'add_task';
+
+        $this->load->view('template', $data);
+    }
+
+    public function insert_Task() {
+        $this->load->model('Model_userStory', '', TRUE);
+        $this->Model_userStory->add_task();
+        $this->load->helper('url');
+        redirect('Main/re_add_task/' . $this->db->insert_id());
+    }
+
 //---------------------------------------------------------fadila---------------------------------------------------
     //Login
     public function login() {
@@ -486,17 +475,15 @@ class Main extends CI_Controller {
     public function members() {
 
         if ($this->session->userdata('is_logged_in')) {
-            
-            if($this->session->userdata('type') == "Scrum Master"){
-            $this->load->view('header');
-            $this->load->view('left_side');
-            $this->load->view('footer');
-            }
-            
-            else if($this->session->userdata('type') == "Developer"){
-            $this->load->view('dev_header');
-            $this->load->view('dev_leftside');
-            $this->load->view('footer');
+
+            if ($this->session->userdata('type') == "Scrum Master") {
+                $this->load->view('header');
+                $this->load->view('left_side');
+                $this->load->view('footer');
+            } else if ($this->session->userdata('type') == "Developer") {
+                $this->load->view('dev_header');
+                $this->load->view('dev_leftside');
+                $this->load->view('footer');
             }
         } else {
             redirect('main/restricted');
@@ -520,25 +507,28 @@ class Main extends CI_Controller {
             $temp_email = $this->input->post('email');
             //   $username['re']= $this->model_users->get_username($temp_email);
 
-            $query = "SELECT `username` ,`type` FROM member WHERE `email`='$temp_email'";
-
+            $query = "SELECT `username` ,`type`, `id` FROM member WHERE `email`='$temp_email'";
+            
             $query_run = mysql_query($query);
             $user = mysql_fetch_assoc($query_run);
             $get_user = $user['username'];
-            $type=$user['type'];
+            $type = $user['type'];
+            $id = $user['id'];
+            
             //------------------------------------------------------------------------------------------
             $data = array(
-                'type'=>$type,
+                'type' => $type,
                 'USERNAME' => $get_user,
                 'email' => $this->input->post('email'),
+                'userid' => $id,
                 'is_logged_in' => 1
             );
             $this->session->set_userdata($data);
             redirect('main/members');
         } else {
-           // $this->load->view('view_login');
-        
-           redirect('main/restricted');
+            // $this->load->view('view_login');
+
+            redirect('main/restricted');
         }
     }
 
@@ -561,30 +551,26 @@ class Main extends CI_Controller {
     //Iteration Management--------------------
 
     public function Iteration() {
-        $id['pro_id']=$this->session->flashdata('project_id');
-        
-        if($this->session->flashdata('project_id')){
-            
+        $id['pro_id'] = $this->session->flashdata('project_id');
+
+        if ($this->session->flashdata('project_id')) {
+
             $this->load->model('project');
-           $project_details=$this->project->getProject($id['pro_id'])->result();
-           var_dump($project_details);
-        $this->load->view('header');
-        $this->load->view('left_side');
-        $this->load->view('iteration_header');
-        $this->load->view('iteration', $id,$project_details);
-        $this->load->view('footer');
-        
-        
-            
-        }
-        else{
-      
+            $project_details = $this->project->getProject($id['pro_id'])->result();
+            var_dump($project_details);
             $this->load->view('header');
-        $this->load->view('left_side');
-             $this->load->view('project_not_selected');
-              
-        $this->load->view('iteration_header');
-         $this->load->view('footer');
+            $this->load->view('left_side');
+            $this->load->view('iteration_header');
+            $this->load->view('iteration', $id, $project_details);
+            $this->load->view('footer');
+        } else {
+
+            $this->load->view('header');
+            $this->load->view('left_side');
+            $this->load->view('project_not_selected');
+
+            $this->load->view('iteration_header');
+            $this->load->view('footer');
         }
     }
 
@@ -595,76 +581,69 @@ class Main extends CI_Controller {
         $this->model_iteration->add_iteration();
         redirect('Main/Iteration', 'refresh');
     }
-    function Iterationlisting()
-      {
+
+    function Iterationlisting() {
         $this->load->library('table');
 
-        $this->load->model('model_iteration','',TRUE);
+        $this->load->model('model_iteration', '', TRUE);
         $it_qry = $this->model_iteration->listIterations();
 
         // generate HTML table from query results
-        $tmpl = array (
-          'table_open' => '<table border="0" cellpadding="8" cellspacing="5">',
-          'heading_row_start' => '<tr bgcolor="#66cc44">',
-          'row_start' => '<tr bgcolor="#dddddd">' 
-          );
+        $tmpl = array(
+            'table_open' => '<table border="0" cellpadding="8" cellspacing="5">',
+            'heading_row_start' => '<tr bgcolor="#66cc44">',
+            'row_start' => '<tr bgcolor="#dddddd">'
+        );
 
-        $this->table->set_template($tmpl); 
-        $this->table->set_empty("&nbsp;"); 
-        $this->table->set_heading('', 'Project Id', 'Iteration Name', 'Start date', 'End date','Status');
+        $this->table->set_template($tmpl);
+        $this->table->set_empty("&nbsp;");
+        $this->table->set_heading('', 'Project Id', 'Iteration Name', 'Start date', 'End date', 'Status');
 
         $table_row = array();
 
-        foreach ($it_qry ->result() as $col)
-        {
-          $table_row = NULL;
-          $table_row[] = '<nobr>' . 
-            anchor('Main/editIteration/' . $col->i_id, 'edit') . ' | ' .
-            anchor('Main/delete/' . $col->i_id, 'delete',
-              "onClick=\" return confirm('Are you sure you want to '
+        foreach ($it_qry->result() as $col) {
+            $table_row = NULL;
+            $table_row[] = '<nobr>' .
+                    anchor('Main/editIteration/' . $col->i_id, 'edit') . ' | ' .
+                    anchor('Main/delete/' . $col->i_id, 'delete', "onClick=\" return confirm('Are you sure you want to '
                 + 'delete the record for $col->i_id?')\"") .
-            '</nobr>';
-          // replaced above :: $table_row[] = anchor('student/edit/' . $student->id, 'edit');
-          //$table_row[] = $student->s_name;
-          //$table_row[] = $col->i_id;
-          $table_row[] = $col->ProjectId;
-          
-          $table_row[] = $col->i_name ;
-          $table_row[] = $col->i_start_date;
-          $table_row[] = $col->i_end_date;
-          $table_row[] = $col->i_status;
-          
-          $this->table->add_row($table_row);
-        }    
+                    '</nobr>';
+            // replaced above :: $table_row[] = anchor('student/edit/' . $student->id, 'edit');
+            //$table_row[] = $student->s_name;
+            //$table_row[] = $col->i_id;
+            $table_row[] = $col->ProjectId;
+
+            $table_row[] = $col->i_name;
+            $table_row[] = $col->i_start_date;
+            $table_row[] = $col->i_end_date;
+            $table_row[] = $col->i_status;
+
+            $this->table->add_row($table_row);
+        }
 
         $userStory_table = $this->table->generate();
 
         // generate HTML table from query results
         // replaced above :: $students_table = $this->table->generate($students_qry);
-
         // display information for the view
         $data['title'] = "Iteration Listing";
         $data['headline'] = "Iteration Listing";
-       // $data['include'] = 'iteration_listing_view';
+        // $data['include'] = 'iteration_listing_view';
 
         $data['data_table'] = $userStory_table;
-        
-         $this->load->view('header');
+
+        $this->load->view('header');
         $this->load->view('left_side');
 
         $this->load->view('iteration_listing_view', $data);
-      }
+    }
 
-    
-
-     function editIteration()
-      {
+    function editIteration() {
         $this->load->helper('form');
 
         $id = $this->uri->segment(3);       //
-        $this->load->model('Model_iteration','',TRUE);
+        $this->load->model('Model_iteration', '', TRUE);
         $data['row'] = $this->Model_iteration->getIteration($id)->result(); //calling wrong function
-
         // display information for the view
         //$data['title'] = "Edit User Story";
         //$data['headline'] = "Edit User Story Information";
@@ -673,27 +652,101 @@ class Main extends CI_Controller {
         $this->load->view('left_side');
 
         $this->load->view('edit_iteration', $data);
-      }
+    }
 
-      function updateIteration()
-      {
-            //$id = $this->uri->segment(3);
-        $this->load->model('Model_iteration','',TRUE);
+    function updateIteration() {
+        //$id = $this->uri->segment(3);
+        $this->load->model('Model_iteration', '', TRUE);
         $this->Model_iteration->updateIteration($_POST['i_id'], $_POST); //
-        redirect('Main/Iterationlisting','refresh');
-      }
-      
-      //3rd iteration
-      function loadMessageView(){
-          
+        redirect('Main/Iterationlisting', 'refresh');
+    }
+
+    //3rd iteration
+    function loadMessageView() {
+        $data['obj'] = $this->session;        
         $this->load->view('header');
         $this->load->view('left_side');
-        $this->load->view('page');
+        $this->load->view('page', '$data');
         $this->load->view('footer');
-        
-        
-      }
-      
+    }
 
+    public function users() {
+        $data['obj'] = $this->session;
+        $this->load->view('header');
+        $this->load->view('left_side');
+        $this->load->view('users', $data);
+        $this->load->view('footer');
+    }
+
+    public function load_list() {
+        $data['obj'] = $this->session;
+        $this->load->view('header');
+        $this->load->view('left_side');
+        $this->load->view('list', $data);
+        $this->load->view('footer');
+    }
+
+    public function readmsg() {
+
+        $data['obj'] = $this->session;
+        $this->load->view('header');
+        $this->load->view('left_side');
+        $this->load->view('read', $data);
+        $this->load->view('footer');
+    }
+
+    public function newmsger($msg = NULL) {
+
+        $data['msg'] = $msg;
+        $this->load->helper(array('form', 'url'));
+        $data['obj'] = $this->session;
+        $this->load->view('header');
+        $this->load->view('left_side');
+        $this->load->view('new_msg', $data);
+        $this->load->view('footer');
+    }
+
+    function newmsgs() {
+
+        $userid = $this->session->userdata['userid'];
+        $username = $this->session->userdata['USERNAME'];
+
+        //This method will have the credentials validation
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('title', 'Title', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('recip', 'Recip', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('message', 'Message', 'trim|required|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->newmsger();
+        } else {
+
+            $this->load->model('test_msg');
+
+            // echo "Go to private area";
+            $result = $this->test_msg->msg_dbs();
+            echo $result;
+            if ($result) {
+                $msg = '<div class="alert alert-success">message delivered successfuly. </div>';
+                $this->newmsger($msg);
+            } else {
+                $msg = '<div class="alert alert-error"><font color=red>server error.</font><br/></div>';
+                $this->newmsger($msg);
+            }
+        }
+    }
+
+        public function profile()
+	{
+             
+             $data['obj']=  $this->session;
+             $this->load->view('header');
+             $this->load->view('left_side');
+             $this->load->view('profile',$data);
+             $this->load->view('footer');
+                    
+	}
 }
+
 ?>
