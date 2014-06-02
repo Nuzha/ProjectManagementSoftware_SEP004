@@ -44,11 +44,11 @@
                     
                     
       			<?php
-      				$typeattributes = array('scrum_master' =>'Scrum Master',
-                                    
-                                                        'developer' =>'Developer'
-                                    );
-      				echo form_dropdown('type_of_member',$typeattributes,'Scrum Master');
+      				echo'<select class="form-control" name="type_of_member">
+                        <option value="scrum master">scrum master</option>
+                        <option value="developer">developer</option>
+                        
+                        </select>';
                                         
 //					if(form_error('type')!=null)
 //						echo '<div class="alert alert-danger">'.form_error('type').'</div>';

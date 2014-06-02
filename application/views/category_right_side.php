@@ -129,10 +129,10 @@ $(document).ready(function() {
                                 <br>
                                 <div class="" >
                                 <p class="h5"><b>Discussion Categories</b></p>
-                                <li><a class ="active" href ='<?php echo base_url()."c_discuss/select_category/General" ?>'>--------------General-------------</a></li><br>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/select_category/Bugs" ?>'>---------------Bugs---</a></li><br>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/select_category/Other" ?>'>---------------Other---</a></li><br>
-                                <li><a  class ="menuItem" href ='<?php echo base_url()."c_discuss/select_category" ?>'>----------Projects problem---</a></li>
+                                <li><a class ="active" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'>--------------General-------------</a></li><br>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/bugs" ?>'>---------------Bugs---</a></li><br>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/other" ?>'>---------------Other---</a></li><br>
+                                <li><a  class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'>----------Projects problem---</a></li>
                                 
                                 </div>
                             </ul>

@@ -1,5 +1,17 @@
- <script type="text/javascript">
-    $(document).ready(function() {
+   
+
+
+
+
+
+
+        
+<div class="col-md-7 col-md-offset-2"> 
+
+ 
+
+<!--<script type="text/javascript">
+    $(function() {
             $('#popy').popover({
                
                 placement: "bottom",
@@ -7,7 +19,7 @@
                 title: "Create Iteration",
                 });
         });   
-  </script>
+  </script>-->
   
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   	<script>
@@ -19,46 +31,18 @@ $(document).ready(function(){
 </script>-->
         
    
-       <div class="container">
-          <div class="col-lg-offset-9  ">
-              <h4>Project Details</h4>
-              
-              <table>
-                  <td>
-                  <tr>Project Name:</tr>
-                  <tr><?php echo $project_name; ?></tr>
-                  </td>
-                  <td>
-                  <tr>Start Date</tr>
-                  <tr><?php echo $start_date;  ?></tr>
-                  </td>
-                  
-                  <td>
-                  <tr>End Date</tr>
-                  <tr><?php echo $end_date; ?></tr>
-                  </td>
-              </table>
-          </div>
-	<div class="col-md-7 col-md-offset-2">
-             
-			
-            <script>      
-                $(this.document).ready(function(){
-                $(".datepicker").datepicker({
-                format: "mm-dd-yyyy"
-
-                });
-                }); </script>
+     
+   
 
                                 
                                 
                                 
                                 <?php
                             $formattributes = array('class' => 'form-horizontal', 'role' => 'form', 'id'=>'tryitForm');
-                            echo form_open('main/create_validate', $formattributes);
+                            echo form_open('main/createIteration', $formattributes);
                             ?>
                                 <div class="form-group">
-                                <label for="iterationName" class="control-label">Iteration Name </label>
+                                <label for="iterationName" class="control-label">&nbsp;&nbsp; Iteration Name </label>
                                 <div class="col-sm-11">
                                 <?php
                                 $iterationattributes = array('class' => 'form-control', 'name' => 'iterationname');
@@ -71,7 +55,7 @@ $(document).ready(function(){
                                 
                                 
                                  <div class="form-group">
-                                <label for="start_date" class="control-label">Start Date </label>
+                                <label for="start_date" class="control-label">&nbsp;&nbsp; Start Date </label>
                                 <div class="col-sm-11">
                                 <?php
                                 $StartDateattributes = array('class' => 'datepicker', 'name' => 'I_start_date', 'id'=>'dp1');
@@ -84,7 +68,7 @@ $(document).ready(function(){
                               
                                 
                                  <div class="form-group">
-                                <label for="end_date" class="control-label">End Date </label>
+                                <label for="end_date" class="control-label">&nbsp;&nbsp; End Date </label>
                                 <div class="col-sm-11">
                                 <?php
                                 $EndDateattributes = array('class' => 'datepicker', 'name' => 'I_end_date', 'id'=>'dp2');
@@ -114,11 +98,7 @@ $(document).ready(function(){
                                 echo form_close();
                                 ?>
                                
-          
-        </div>
-                                  
-                         </div>
-                             
-                             
+                    
+</div>                       
 
                 

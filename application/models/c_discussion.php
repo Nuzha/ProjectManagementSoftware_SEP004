@@ -6,8 +6,9 @@ class C_discussion extends CI_Model{
         
           $data = array(
             'dis_topic' => $this->input->post('discussion'),
-            'category'  =>$this->input->post('category'),
+           
               'username'=>  $this->session->userdata('USERNAME'),
+               'category'  =>$this->input->post('category'),
             'discription' =>$this->input->post('discription'),
             
         );
@@ -49,6 +50,16 @@ class C_discussion extends CI_Model{
             return false;
         }
        
+        }
+        
+        
+        public function get_discussion($id){
+            
+            $this->db->where('category', $id);
+          $query=$this->db->get('discussion');
+          
+          return $query;
+            
         }
         
       

@@ -12,14 +12,14 @@ class Model_iteration extends CI_Model {
     
     
 
-    public function add_iteration()
+    public function add_iteration($id)
     {
             $data=array(
-                    'ProjectId'=>$_POST['project_id'],
+                    'ProjectId'=>$id,
                     
-                    'i_name'=>$_POST['name'],
-                    'i_start_date'=>$_POST['s_date'],
-                    'i_end_date'=>$_POST['e_date'],
+                    'i_name'=>$this->input->post('iterationname'),
+                    'i_start_date'=>$this->input->post('I_start_date'),
+                    'i_end_date'=>$this->input->post('I_end_date'),
                      'i_status'=>'Defined'
                     );
             $this->db->insert('iteration',$data);

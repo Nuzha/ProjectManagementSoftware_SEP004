@@ -47,7 +47,7 @@
       
                                        <button type="submit" class="btn btn-success">Sign In</button>
                                         Or 
-                                        <a href="<?php echo base_url() . 'main/registere';?>" class="btn btn-primary"> Register </a>
+                                        <a href="<?php echo base_url() . 'main/registration_form';?>" class="btn btn-primary"> Register </a>
                                         <br> <br>
                                         <a href="<?php echo base_url() . 'main/forgotPassword';?>"> Forgot Password</a>
                                     </div>

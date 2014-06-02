@@ -1,4 +1,3 @@
-
 <div class="col-md-10 col-sm-offset-2"> 
              
              <!-- BEGIN: XHTML for example 1.3 -->
@@ -6,14 +5,14 @@
 			<div id="example-1-3">
 
 				<div class="column left first">
-                                    <center><h4>User Stories</h4></center>
+                                    <center><h4>Assigned User Stories</h4></center>
 
 					<ul class="sortable-list">
 						
 					
                                 <?php
-                           
-                            $sql = "SELECT `Description` FROM `user_stories` WHERE ProjectId=$pro_id  ";
+                                    $user=$this->session->userdata('USERNAME');
+                            $sql = "SELECT `Description` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail=$user ";
                             $query_resource = mysql_query($sql);
                             while ($project = mysql_fetch_assoc($query_resource)):
                                
@@ -30,21 +29,7 @@
                             
                             
                             
-                             <?php
-                                $tot_duration=0;
-                            $sql1 = "SELECT `i_name`,`i_start_date`,`i_end_date` FROM `iteration` WHERE ProjectId=$pro_id ";
-                            $query_resource1 = mysql_query($sql1);
-                            while ($project1 = mysql_fetch_assoc($query_resource1)):
-                                $s_date=strtotime($project1['i_start_date']);
-                                $e_date=strtotime($project1['i_end_date']);
-                                $duration= $e_date-$s_date ;
-                                $duration= round($duration/86400);
-                                
-                                $tot_duration=$tot_duration+$duration;
-                              
-                             // $this->session->set_userdata('tot_duration', $tot_duration);
-                               
-                                ?>
+                             
                                 
                             <div class="column left">
                                 <center><h4><?php echo $project1['i_name'];?></h4></center>
@@ -57,8 +42,7 @@
                             </div>
                           
                             
-                            <?php endwhile;  ?>
-                            <?php ?>
+                            
 				
 				<div class="clearer">&nbsp;</div>
 

@@ -17,10 +17,12 @@ class Main extends CI_Controller {
 
 //-------------------------------------------shamil----------------------------------------------------------
     public function registration_form() {
+        $this->load->view('register_header');
         $this->load->view("view_registration");
     }
 
     public function signup_validate() {
+        $this->load->view('register_header');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('fname', 'Full Name', 'required|trim|xss_clean|alpha');
         $this->form_validation->set_rules('type', 'Last Name', 'trim|xss_clean|alpha');
@@ -70,7 +72,8 @@ class Main extends CI_Controller {
                     $this->load->view('login');
 //					$this->load->view('footer');			
                 } else {
-                    show_error($this->email->print_debugger());
+                    $this->load->view('c_General_fail');
+                    //show_error($this->email->print_debugger());
                     //email not send';
 //					$this->load->view('header',$data);
                     $this->load->view('view_registration');
@@ -551,26 +554,37 @@ class Main extends CI_Controller {
     //Iteration Management--------------------
 
     public function Iteration() {
-        $id['pro_id'] = $this->session->flashdata('project_id');
-
-        if ($this->session->flashdata('project_id')) {
-
-            $this->load->model('project');
-            $project_details = $this->project->getProject($id['pro_id'])->result();
-            var_dump($project_details);
+         $id['pro_id']=$this->session->userdata('project_id');
+        
+         $this->load->model('project');
+         
+          
+        if($this->session->userdata('project_id')){
+            
+           
+          $id['row_i']=$this->project->getProject($id['pro_id'])->result();
+        $this->load->view('header');
+        $this->load->view('left_side');
+       $this->load->view('footer');
+        $this->load->view('iteration_header');
+        
+        $this->load->view('iteration',$id);
+         $this->load->view('c_iteration_project_header',$id);
+        
+        
+        
+            
+        }
+        else{
+            $id['row_i']="NULL";
             $this->load->view('header');
-            $this->load->view('left_side');
-            $this->load->view('iteration_header');
-            $this->load->view('iteration', $id, $project_details);
-            $this->load->view('footer');
-        } else {
-
-            $this->load->view('header');
-            $this->load->view('left_side');
-            $this->load->view('project_not_selected');
-
-            $this->load->view('iteration_header');
-            $this->load->view('footer');
+        $this->load->view('left_side');
+        $this->load->view('footer');
+         $this->load->view('project_not_selected');
+         
+        $this->load->view('iteration_header');
+         $this->load->view('c_iteration_project_header',$id);
+         
         }
     }
 
@@ -700,10 +714,11 @@ class Main extends CI_Controller {
         $data['msg'] = $msg;
         $this->load->helper(array('form', 'url'));
         $data['obj'] = $this->session;
+        $this->load->view('footer');
         $this->load->view('header');
         $this->load->view('left_side');
         $this->load->view('new_msg', $data);
-        $this->load->view('footer');
+        
     }
 
     function newmsgs() {

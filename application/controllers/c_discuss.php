@@ -7,11 +7,11 @@ class C_discuss extends CI_Controller{
     public $username;
     
     
-    public function view_discuss(){
-        
+    public function view_discuss($cateogry){
+        $cat['category']=$cateogry;
         $this->load->view('header');
         $this->load->view('left_side');
-        $this->load->view('discussion_Home');
+        $this->load->view('discussion_Home', $cat);
         $this->load->view('category_right_side');
     }
     
@@ -39,8 +39,8 @@ class C_discuss extends CI_Controller{
         }else{
           $this->load->view('discussion_fail');
       }
-        
-      $this->load->view('discussion_Home');
+      $cat['category']=  $this->input->post('category');
+      $this->load->view('discussion_Home',$cat);
        $this->load->view('category_right_side');
         
     }
@@ -76,21 +76,12 @@ class C_discuss extends CI_Controller{
     
     public function save_comment(){
         
-         $myvar=  $this->session->flashdata('id');   
-       
-        
-        
-      $ID=$this->discussion_id;
+        $myvar=  $this->session->flashdata('id');   
+        $ID=$this->discussion_id;
         $this->username=$this->session->userdata('USERNAME');
-        
         $this->load->library('form_validation');
         $this->form_validation->set_rules('comment', 'required');
-       
-      
-        
-        
- 
-       
+             
         if($this->form_validation->run()){
             $this->load->model('c_discussion');
                
@@ -101,16 +92,18 @@ class C_discuss extends CI_Controller{
         }else{
           $this->load->view('discussion_fail');
       }
-       
-         
-         
-        
-        
-    }
+       }
     
     public function select_category($id){
         
-        echo $id;
+        $this->load->model('c_discussion');
+        $data['row_d']=$this->c_discussion->get_discussion($id)->result();
+        
+        $this->load->view('header');
+        $this->load->view('left_side');
+        $this->load->view('discussion_Home', $data);
+        $this->load->view('category_right_side');
+        
         
         
     }

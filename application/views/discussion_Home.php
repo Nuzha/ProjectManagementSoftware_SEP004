@@ -6,7 +6,7 @@
         //Create the query
        
         
-        $sql = "SELECT `dis_id`,`dis_topic`, `category`, `discription` FROM discussion";
+        $sql = "SELECT `dis_id`,`dis_topic`, `category`, `discription` FROM discussion WHERE `category`='$category'";
 
         //Run the query
         $query_resource = mysql_query($sql);

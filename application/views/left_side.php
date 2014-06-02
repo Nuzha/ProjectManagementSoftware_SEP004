@@ -10,7 +10,7 @@
                                 <li><a  class ="menuItem" href ='<?php echo base_url()."main/project_listing" ?>'>View current Projects</a></li>
                                 
                                 <li><a class ="menuItem" href ='<?php echo base_url()."welcome/index" ?>'>View current Progress Of User Story</a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss" ?>'>Discussions</a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'>Discussions</a></li>
                             </ul>
                         </div>
                        
