@@ -8,7 +8,13 @@
         <link href="<?php echo base_url() . 'css/styles.css' ?>" rel = "stylesheet">
         <link href="<?php echo base_url() . 'css/dashboardNew.css' ?>" rel = "stylesheet">
         <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
+        <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap.js"></script>
+        <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap-datepicker.js"></script>
+        <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap-popover.js"></script>
+        <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap-tooltip.js"></script>
+        <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap-twispy.js"></script>
+        <link href="<?php echo base_url() . 'css/style.css' ?>" rel = "stylesheet">
+        
         <script>
             function myFunction()
             {
@@ -47,24 +53,24 @@
 
                         <li class = "active"><a href = "#projects" data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
                         <li><a href = "#teams" data-toggle="modal"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Teams</a></li>
-                         <li class = "dropdown">
+                        <li class = "dropdown">
 
-                                                    <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-envelope"> Messages </span> <b class = "caret"></b></a>
-                                                    <ul class = "dropdown-menu">
-                                                        <li><a href = ""><span class="badge">3</span> Inbox</a></li>
-                                                        <li><a href = "">New Message</a></li> 
-                                                        <li><a href = "">All messages</a></li> 
-                                                        <li><a href="<?php echo base_url() . 'main/load_list';?>"> All Messages </a></li>
-                                                    </ul>
-                                                </li>
-                                             
+                            <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge">3</span>  Messages </span> <b class = "caret"></b></a>
+                            <ul class = "dropdown-menu">
+                                <li><a href = "<?php echo base_url() . 'msg/inbox'; ?>"><span class="badge">3</span> Inbox</a></li>
+                                <li><a href = "<?php echo base_url() . 'msg/newmsger'; ?>"> New Message</a></li> 
+                                <li><a href="<?php echo base_url() . 'msg/load_list'; ?>"> All Messages </a></li>
+
+                            </ul>
+                        </li>
+
                         <li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
                         <li class = "dropdown">
 
                             <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"></span></a>
                             <ul class = "dropdown-menu">
-                                <li><a href = "#">My Profile</a></li>
-                                <li><a href = "#">Sign Off</a></li>
+                                <li><a href = "<?php echo base_url() . 'msg/profile'; ?>">My Profile</a></li>
+                                <li><a href = "<?php echo base_url() . 'main/logout'; ?>">Sign Off</a></li>
                             </ul>
                         </li>
                     </ul>

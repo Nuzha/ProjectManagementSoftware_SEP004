@@ -30,7 +30,7 @@
                         ?>
                         <div class="message">The message has successfully been sent.<br />
                             <a href="list_pm.php">List of my personal messages</a></div>
-                            <a href="<?php echo base_url() . 'main/load_list';?>">My personal messages(<?php echo $nb_new_pm; ?> unread)</a><br/>
+                            <a href="<?php echo base_url() . 'msg/load_list';?>">My personal messages(<?php echo $nb_new_pm; ?> unread)</a><br/>
                         <?php
                         $form = false;
                     } else {

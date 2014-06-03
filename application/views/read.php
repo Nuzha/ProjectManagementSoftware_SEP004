@@ -84,7 +84,7 @@
                                                 <label for="message" class="center">Message</label><br />
                                                 <textarea cols="40" rows="5" name="message" id="message"></textarea><br />
                                                 <input class="btn btn-small" type="submit" value="Send" />
-                                                <a href="<?php echo base_url() . 'main/load_list'; ?>"> Back</a><br/>
+                                                <a href="<?php echo base_url() . 'msg/load_list'; ?>"> Back</a><br/>
 
                                             </form>
                                         </div>

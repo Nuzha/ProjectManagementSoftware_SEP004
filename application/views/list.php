@@ -14,7 +14,7 @@
      ?>
 
         <h4>This is the list of your messages:</h4><br />
-        <a href="<?php echo base_url() . 'main/newmsger'; ?>" class="btn btn-large btn-primary"> New Message </a>
+        <a href="<?php echo base_url() . 'msg/newmsger'; ?>" class="btn btn-large btn-primary"> New Message </a>
 
         <?php
         if ($req1 === FALSE) {

@@ -36,7 +36,7 @@
 
      <div class="panel-body">
     
-    <a href="<?php echo base_url() . 'main/users';?>"> See the list of users</a>. <br> <br>
+    <a href="<?php echo base_url() . 'masg/users';?>"> See the list of users</a>. <br> <br>
         
        <?php
        
@@ -54,11 +54,11 @@
          //We display the links
       }
       else {
-          redirect('main/restricted');
+          redirect('msg/restricted');
       }
       ?>
     
-      <a href="<?php echo base_url() . 'main/load_list';?>">My personal messages(<?php echo $nb_new_pm; ?> unread)</a><br/>
+      <a href="<?php echo base_url() . 'msg/load_list';?>">My personal messages(<?php echo $nb_new_pm; ?> unread)</a><br/>
 
     </div>
 </div>

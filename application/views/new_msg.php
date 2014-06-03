@@ -16,7 +16,7 @@ if ($msg) {
 
     <h3><span class="label label-default">New Message</span></h3>
     <?php echo validation_errors(); ?>
-    <?php echo form_open('main/newmsgs'); ?> <br/>
+    <?php echo form_open('msg/newmsgs'); ?> <br/>
     
     <label for="title">Title</label> <br>
     <input type="text" value="" id="title" name="title" /><br /><br>

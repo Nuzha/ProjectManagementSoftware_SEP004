@@ -25,6 +25,8 @@ Class Newmsg_db extends CI_Model {
 
 }
 
+
+
 //We check if the recipient exists
     $dn1 = mysql_fetch_array(mysql_query('select count(id) as recip, id as recipid, (select count(*) from pm) as npm from users where username="' . $recip . '"'));
 
