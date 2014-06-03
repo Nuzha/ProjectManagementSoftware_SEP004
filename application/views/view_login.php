@@ -6,10 +6,28 @@
         <link href="<?php echo base_url() . 'css/bootstrap.min.css' ?>" rel="stylesheet">
         <link href="<?php echo base_url() . 'css/bootstrap.css' ?>" rel="stylesheet">
         <script src="<?= base_url();?>js/jquery.js"></script>
-        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src = "<?php echo base_url() . 'js/jquery-1.4.2.min.css' ?>"></script>
     </head>
 
     <body>
+        
+    <!--Navigation bar-->
+            <div class = "navbar navbar-inverse navbar-static-top">
+                <div class = "container">
+
+                    <div class="navbar-brand"><h4 style="color: white">Agile Project Management Software</h4></div>
+                    <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+        
+            <br>
+        
+            
+        
      <form class="form-horizontal" role="form" action='<?= base_url();?>main/login_validation' method="post">
 
             <div class="container">
@@ -61,6 +79,13 @@
                     </div>
                 </div>
             </div>
+         
+         <div class = "navbar navbar-inverse navbar-fixed-bottom">
+                    <div class = "container">
+                        <p class = "navbar-text pull-left">Site Built by Curtin SEP-004</p>
+                    </div>
+        </div>
+                
         </form>	
     </body>
 

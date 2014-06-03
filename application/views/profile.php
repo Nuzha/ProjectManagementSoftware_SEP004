@@ -16,14 +16,15 @@
             </style>
             <?php
 //We check if the users ID is defined
-            if (isset($_GET['id'])) {
-                $id = intval($_GET['id']);
+       if ($this->session->userdata('is_logged_in')) {
+                $id = $this->session->userdata['userid'];
+            
                 //We check if the user exists
-                $dn = mysql_query('select username, email, avatar, signup_date from member where id="' . $id . '"');
+                $dn = mysql_query('select username, email, signup_date from member where id="' . $id . '"');
 
                 if (mysql_num_rows($dn) > 0) {
                     $dnn = mysql_fetch_array($dn);
-                    //We display the user datas
+                    //We display the user data
                     ?>
 
                     This is the profile of "<?php echo htmlentities($dnn['username']); ?>" :

@@ -70,7 +70,7 @@
                             <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"></span></a>
                             <ul class = "dropdown-menu">
                                 <li><a href = "<?php echo base_url() . 'msg/profile'; ?>">My Profile</a></li>
-                                <li><a href = "<?php echo base_url() . 'main/logout'; ?>">Sign Off</a></li>
+                                <li><a href = "<?php echo base_url() . 'main/logout'; ?>">Update Profile</a></li>
                             </ul>
                         </li>
                     </ul>
