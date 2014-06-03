@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/S_VdevIteration.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/models/s_dev_iterationModel.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/controllers/s_dev_iteration.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/controllers/c_project.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/models/model_iteration.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/iteration.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/controllers/main.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/header.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/template.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/models/project.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/c_iteration_project_header.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/create_project.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/discussion_sucessfull_message.php</file>
+        <file>file:/C:/xampp/htdocs/ProjectManagementSoftware_SEP004/application/views/c_Iteration_create_sucessfull.php</file>
+    </open-files>
 </project-private>

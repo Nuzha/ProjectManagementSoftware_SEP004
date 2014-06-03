@@ -6,12 +6,8 @@
 			<div id="example-1-3">
 
 				<div class="column left first">
-                                    <center><h4>User Stories</h4></center>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
+                                    <h3><center><span class="label label-primary">User Stories</center></span></h3><br>
+                             
 					<ul class="sortable-list">
 						
 					
@@ -51,9 +47,10 @@
                                 ?>
                                 
                             <div class="column left" >
-                                <center><h4><?php echo $project1['i_name'];?></h4></center>
-                                <p style="color: #51a351">Start Date:<?php echo $project1['i_start_date'];?></p><p style="color: #51a351">End Date: <?php echo $project1['i_end_date'];?> </p>
-                                <p style="color: #51a351">Duration:<?php echo $duration;?></p>
+                                <h3><center><span class="label label-primary"><?php echo $project1['i_name'];?></center></span></h3>
+                                <h5><center><span class="label label-warning">Start Date:<?php echo $project1['i_start_date'];?></center></span></h5>
+                                <h5><center><span class="label label-primary">End Date: <?php echo $project1['i_end_date'];?></center></span></h5>
+                                <h5><center><span class="label label-warning">Duration:<?php echo $duration;?></center></span></h5>
                                 <ul class="sortable-list">
 						
 					</ul>
