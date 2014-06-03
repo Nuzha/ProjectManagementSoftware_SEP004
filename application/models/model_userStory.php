@@ -11,7 +11,7 @@ class Model_userStory extends CI_Model {
     public function add_userStory()
     {
             $data=array(
-                    'ProjectId'=>$_POST['project_id'],
+                    'ProjectId'=>$this->session->userdata('project_id'),
                     'name'=>$_POST['user_story'],
                     'Description'=>$_POST['description'],
                     'IterationId'=>$_POST['iteration'],
@@ -23,9 +23,9 @@ class Model_userStory extends CI_Model {
             $this->db->insert('user_stories',$data);
     }
 	
-    function listUserStories()
+    function listUserStories($pro_id)
     {
-      return $this->db->get('user_stories');
+      return $this->db->get_where('user_stories',array('ProjectId'=> $pro_id));
     }
 
     function getStory($id)
@@ -73,6 +73,21 @@ class Model_userStory extends CI_Model {
              return $finalDropDown;
   }
   
+  public function get_iteration($pid)
+  {
+		
+		
+		$query = $this->db->query("select `IterationId`  from user_stories where ProjectId='$pid'");
+  		$dropdowns = $query->result();
+            foreach($dropdowns as $dropdown)
+            {
+             $dropDownList[$dropdown->IterationId] = $dropdown->IterationId;
+             }
+   //$dropDownOptions = array('' => 'SELECT', '0' => 'None');
+            //$finalDropDown = $dropDownOptions + $dropDownList;
+    $finalDropDown = $dropDownList;
+             return $finalDropDown;
+  }
     
 //------------------------------------------------------------task---------------------------------------------------------------
     public function add_task()

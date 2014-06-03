@@ -13,22 +13,17 @@ class C_discuss extends CI_Controller{
         $this->load->view('left_side');
         $this->load->view('discussion_Home', $cat);
         $this->load->view('category_right_side');
+        $this->load->view('footer');
     }
     
     public function discuss_validate(){
         
          $this->load->view('header');
-        $this->load->view('left_side');
-      
-        
-        
+         $this->load->view('left_side');
+        $this->load->view('footer');
+               
         $this->load->library('form_validation');
         $this->form_validation->set_rules('discussion', 'Discussion Topic', 'required|trim|xss_clean|is_unique[discussion.dis_topic]');
-       
-      
-        
-        
-        
        
         if($this->form_validation->run()){
             $this->load->model('c_discussion');
@@ -70,7 +65,7 @@ class C_discuss extends CI_Controller{
         $this->load->view('post_comment', $data);
         $this->load->view('category_right_side');
      $this->load->view('left_side');
-       
+      $this->load->view('footer'); 
         
     }
     
@@ -103,8 +98,7 @@ class C_discuss extends CI_Controller{
         $this->load->view('left_side');
         $this->load->view('discussion_Home', $data);
         $this->load->view('category_right_side');
-        
-        
+        $this->load->view('footer');    
         
     }
     

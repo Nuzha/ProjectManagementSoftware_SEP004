@@ -1,7 +1,8 @@
 
-<div class="col-md-7 col-md-offset-2">
-    <div class="panel panel-default ">
+<div class="col-md-6 col-md-offset-2">
+    <div class="well well-sm">
 
+        <h3><center><span class="label label-primary">Current Discussions</center></span></h3><br>
         <?php
         //Create the query
        
@@ -16,7 +17,7 @@
              $id=$project['dis_id'];
             ?>
            
-        <a href="<?php echo base_url()."c_discuss/select_topic/$id" ?>" id="<?php echo $project['dis_id']; ?>"  class="bg-success" onclick=""><h4><?php echo $project['dis_topic']; ?>?</h4></a>
+        <a href="<?php echo base_url()."c_discuss/select_topic/$id" ?>" id="<?php echo $project['dis_id']; ?>"  class="bg-success" onclick=""><h4><?php echo $project['dis_topic']; ?></h4></a>
             
             
         <label style="font-size: small"id="<?php echo $project['dis_id']; ?>"  class="col-md-7"><?php echo $project['discription']; ?></label><br />

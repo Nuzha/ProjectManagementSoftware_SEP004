@@ -1,5 +1,5 @@
 
-<div class="col-md-10 col-sm-offset-2"> 
+<div class="col-md-7 col-md-offset-2"> 
              
              <!-- BEGIN: XHTML for example 1.3 -->
 
@@ -7,7 +7,11 @@
 
 				<div class="column left first">
                                     <center><h4>User Stories</h4></center>
-
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
 					<ul class="sortable-list">
 						
 					
@@ -46,10 +50,10 @@
                                
                                 ?>
                                 
-                            <div class="column left">
+                            <div class="column left" >
                                 <center><h4><?php echo $project1['i_name'];?></h4></center>
-                                <p>Start Date:<?php echo $project1['i_start_date'];?></p><p>End Date: <?php echo $project1['i_end_date'];?> </p>
-                                <p>Duration:<?php echo $duration;?></p>
+                                <p style="color: #51a351">Start Date:<?php echo $project1['i_start_date'];?></p><p style="color: #51a351">End Date: <?php echo $project1['i_end_date'];?> </p>
+                                <p style="color: #51a351">Duration:<?php echo $duration;?></p>
                                 <ul class="sortable-list">
 						
 					</ul>

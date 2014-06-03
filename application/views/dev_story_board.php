@@ -12,10 +12,11 @@
 					
                                 <?php
                                     $user=$this->session->userdata('USERNAME');
-                            $sql = "SELECT `Description` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail=$user ";
+                            $sql = "SELECT `Description` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail='$owner' ";
                             $query_resource = mysql_query($sql);
+                            
                             while ($project = mysql_fetch_assoc($query_resource)):
-                               
+                            
                                 ?>
                                  <li class="sortable-item"><?php echo $project['Description']; ?></li>
 				
@@ -24,23 +25,27 @@
                                     </ul>
 
 				</div>
-                            
-                            
-                            
-                            
-                            
-                             
+     
+                             <div class="column left">
+                                <center><h4>TO DO</h4></center>
+                                 <ul class="sortable-list">	
+					</ul>
                                 
-                            <div class="column left">
-                                <center><h4><?php echo $project1['i_name'];?></h4></center>
-                                <p>Start Date:<?php echo $project1['i_start_date'];?></p><p>End Date: <?php echo $project1['i_end_date'];?> </p>
-                                <p>Duration:<?php echo $duration;?></p>
-                                <ul class="sortable-list">
-						
+                            </div>
+                            
+                             <div class="column left">
+                                <center><h4>IN PROGRESS</h4></center>
+                                 <ul class="sortable-list">	
 					</ul>
                                 
                             </div>
                           
+                             <div class="column left">
+                                <center><h4>COMPLETED</h4></center>
+                                 <ul class="sortable-list">	
+					</ul>
+                                
+                            </div>
                             
                             
 				

@@ -3,7 +3,7 @@
 <div class="alert alert-warning">
     
     <a href="" class="close" data-dismiss="alert">&times; </a>
-    <strong>FAIL!</strong>No project selected SELECT PROJECT FIRST.
+    <b>No project selected. Please select a project first!!</b>
     
     </br>
     

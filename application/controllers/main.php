@@ -133,13 +133,14 @@ class Main extends CI_Controller {
         $this->load->view('header');
         $this->load->view('left_side');
         $this->load->view('create_project');
+        $this->load->view('footer');
     }
 
     public function create_validate() {
 
         $this->load->view('header');
         $this->load->view('left_side');
-
+        $this->load->view('footer');
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('projectname', 'Project Name', 'required|trim|xss_clean|alpha|is_unique[project_summary.project_name]');
@@ -161,62 +162,20 @@ class Main extends CI_Controller {
             $this->load->view('create_project');
         }
     }
+    
+    function Project_listing()
+      {
+        //$this->load->library('table');
 
-    public function project_listing() {
-
+        $this->load->model('project','',TRUE);
+        $data['it_qry'] = $this->project->list_project();        
         $this->load->view('header');
         $this->load->view('left_side');
-
-
-        $this->load->library('table');
-
-        $this->load->model('project');
-        $project_qry = $this->project->list_project();
-
-        //generating a html page from query result
-        $tmpl = array(
-            'table_open' => '<table border="0" cellpadding="3" cellspacing="0">',
-            'heading_row_start' => '<tr bgcolor="#66cc44">',
-            'row_start' => '<tr bgcolor="#dddddd">'
-        );
-        $this->table->set_template($tmpl);
-
-        $this->table->set_empty("&nbsp;");
-
-        $this->table->set_heading('', 'Project Name', 'Start Date', 'End Date', 'no of Iterations');
-
-        $table_row = array();
-        foreach ($project_qry->result() as $project) {
-
-            $table_row = NULL;
-
-            $table_row[] = '<nobr>' .
-                    anchor('main/project_edit/' . $project->id, 'edit') . ' | ' .
-                    anchor('main/project_delete/' . $project->id, 'delete', "onClick=\" return confirm('Are you sure you want to '
-            + 'delete the record for $project->project_name?')\"") .
-                    '</nobr>';
-            // replaced above :: $table_row[] = anchor('student/edit/' . $student->id, 'edit');
-            $table_row[] = $project->project_name;
-            $table_row[] = $project->start_date;
-            $table_row[] = $project->end_date;
-            $table_row[] = $project->no_of_iterations;
-            $table_row[] = '<nobr>' .
-                    anchor('main/project_assign_developer/' . $project->id, 'Assign Members') .
-                    '</nobr>';
-
-            $this->table->add_row($table_row);
-        }
-        $project_table = $this->table->generate();
-
-
-//         $data['title'] = "project Listing";
-//    $data['headline'] = "project Listing";
-        //$data['include'] = 'view_available_projects';
-
-        $data['data_table'] = $project_table;
-
+        $this->load->view('footer');
         $this->load->view('view_available_projects', $data);
-    }
+      }
+
+   
 
     public function project_edit() {
         $this->load->helper('form');
@@ -310,7 +269,10 @@ class Main extends CI_Controller {
         $data['headline'] = "";
         $data['include'] = 'add_uerstory_view';
         $this->load->model('Model_userStory', '', TRUE);
+        
         $data['email_list'] = $this->Model_userStory->get_mail();
+        $pid=$this->session->userdata('project_id');
+        $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
         $this->load->view('header');
         $this->load->view('left_side');
         $this->load->view('template', $data);
@@ -566,7 +528,7 @@ class Main extends CI_Controller {
         $this->load->view('header');
         $this->load->view('left_side');
        $this->load->view('footer');
-        $this->load->view('iteration_header');
+       
         
         $this->load->view('iteration',$id);
          $this->load->view('c_iteration_project_header',$id);
@@ -582,7 +544,7 @@ class Main extends CI_Controller {
         $this->load->view('footer');
          $this->load->view('project_not_selected');
          
-        $this->load->view('iteration_header');
+      
          $this->load->view('c_iteration_project_header',$id);
          
         }

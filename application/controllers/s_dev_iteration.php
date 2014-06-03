@@ -24,7 +24,7 @@ class S_dev_iteration extends CI_Controller {
         
         $this->load->view('header');
         $this->load->view('left_side');
-
+        $this->load->view('footer');
         $this->load->view('S_VdevIteration', $data);
       }
 
@@ -34,9 +34,10 @@ class S_dev_iteration extends CI_Controller {
 
         $this->load->model('s_dev_iterationModel','',TRUE);
         $data['userStory_qry'] = $this->s_dev_iterationModel->listUserStories();
-        $this->load->view('header');
-        $this->load->view('left_side');
+        $this->load->view('dev_header');
+        $this->load->view('dev_leftside');
         $this->load->view('S_VdevBacklog', $data);
+        $this->load->view('footer');
       }
       
       function update_u_status() {

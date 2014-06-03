@@ -59,15 +59,14 @@
 
                             <li class = "dropdown">
 
-                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-envelope">Messages </span> <b class = "caret"></b></a>
-                                <ul class = "dropdown-menu">
-                                    <li><a href = "#"><span class="badge">3</span> Inbox</a></li>
-                                    <li><a href = "<?php echo base_url() . 'msg/newmsger'; ?>"> New Message</a></li> 
-                                    <li><a href="<?php echo base_url() . 'msg/load_list'; ?>"> All Messages </a></li>
+                            <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge">3</span>  Messages </span> <b class = "caret"></b></a>
+                            <ul class = "dropdown-menu">
+                                <li><a href = "<?php echo base_url() . 'msg/inbox'; ?>"><span class="badge">3</span> Inbox</a></li>
+                                <li><a href = "<?php echo base_url() . 'msg/newmsger'; ?>"> New Message</a></li> 
+                                <li><a href="<?php echo base_url() . 'msg/load_list'; ?>"> All Messages </a></li>
 
-                                </ul>
-                            </li>
-
+                            </ul>
+                          </li>
                             <li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
 
                             <li class = "dropdown">

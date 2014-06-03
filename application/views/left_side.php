@@ -4,13 +4,13 @@
                         <div class="col-sm-5 col-md-2 sidebar">
                             <ul id="leftsidemenu" class="nav nav-sidebar">
                                 
-                                <li><a class ="menuItem" href ='<?php echo base_url()."main/create_new_project" ?>'>Create Project</a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."main/Iteration" ?>'>Iteration Plan</a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."main/userStory" ?>'>Backlog</a></li>
-                                <li><a  class ="menuItem" href ='<?php echo base_url()."main/project_listing" ?>'>View current Projects</a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."main/create_new_project" ?>'><b>Create Project</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."main/Iteration" ?>'><b>Iteration Plan</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."main/userStory" ?>'><b>Backlog</b></a></li>
+                                <li><a  class ="menuItem" href ='<?php echo base_url()."main/project_listing" ?>'><b>View current Projects</b></a></li>
                                 
-                                <li><a class ="menuItem" href ='<?php echo base_url()."welcome/index" ?>'>View current Progress Of User Story</a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'>Discussions</a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."welcome/index" ?>'><b>View current Progress Of User Story</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'><b>Discussions</b></a></li>
                             </ul>
                         </div>
                        

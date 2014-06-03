@@ -69,7 +69,7 @@ class Project extends CI_Model{
       
       
       
-         $sql = "SELECT `project_id` FROM project_summary WHERE project_name='$id'";
+         $sql = "SELECT `project_id`, `project_name` FROM project_summary WHERE project_name='$id'";
 
         //Run the query
         $query_resource = mysql_query($sql);

@@ -1,7 +1,6 @@
-<div class="container">
 
 <div class="col-md-7 col-md-offset-2">
-    <div class="panel panel-default ">
+    <div class="well well-sm">
 		
                     	<div class="panel-heading">
                              <?php $username=$this->session->userdata['USERNAME']; ?>
@@ -11,7 +10,7 @@
                             $topic=  mysql_fetch_assoc($query_resource);
                             ?>
                             
-                            <center><h3 class="panel-title"><strong><?php echo $topic['dis_topic'];  ?></strong></h3></center>
+                            <center><h3 class="label-default"><strong><?php echo $topic['dis_topic'];  ?></strong></h3></center>
     		</div>
                             <?php
                     //Create the query
@@ -34,8 +33,7 @@
 
                     <?php endwhile; ?>
 
-                        
-   
+    
     
                      
 

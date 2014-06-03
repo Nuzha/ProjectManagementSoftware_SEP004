@@ -1,37 +1,10 @@
-<!DOCTYPE html>
- 
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="description">
-  <meta content="" name="author">
-  <link href="" rel="shortcut icon">
- 
-  <title>List of Iterations</title><!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.css" rel="stylesheet">
-  
-  <script>
-    
 
-    $(document).ready(function() {
-            $('#example').popover({
-               
-                placement: "bottom",
-                
-                title: "Discussion Forum",
-                });
-        });
-  </script>
-</head>
- 
-<body>
-  <div class="container">
-    
+<div class="col-md-8 col-md-offset-2">
+
+    <h3><center><span class="label label-default"> List of User Stories</span></center></h3>
    <table class="table table-striped">
    
-   
-      <thead>
+         <thead>
         <tr>
          <th>Project ID</th>
  

@@ -51,7 +51,7 @@
                 <div class = "collapse navbar-collapse navHeaderCollapse">
                     <ul class = "nav navbar-nav navbar-right">
 
-                        <li class = "active"><a href = "#projects" data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
+                        <li class = "active"><a href = "#project" data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
                         <li><a href = "#teams" data-toggle="modal"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span> Teams</a></li>
                         <li class = "dropdown">
 
@@ -78,35 +78,56 @@
             </div>
         </div>
 
-        <!--Left side menu-->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-5 col-md-2 sidebar">
-                    <ul id="leftsidemenu" class="nav nav-sidebar">
-                        <li class="active"><a href="#">My work</a></li>
-                        <li><a href="#">Backlog</a></li>
-                        <li><a href="#">User Stories</a></li>
-                        <li><a class ="menuItem" href ='<?php echo base_url() . "main/Iteration" ?>'>Iteration Plan</a></li>
-                        <li><a href="#">Release Plan</a></li>
-                        <li><a href="#">Task Board</a></li>
-                        <li><a href="#">User Story Progress</a></li>
-                        <li><a href="#">Team Members</a></li>
-                    </ul>
+           <div class = "modal fade" id = "project">
+                <div class = "modal-dialog">
+                    <div class = "modal-content">
+                        <div class = "modal-header">
+                            <p><b>Current Available Projects</b></p>
+
+                        </div>
+                        <p class="h4" style="color: #5bb75b">Please select a project</p>
+                        <div class = "modal-body">
+
+
+
+                            <!--                                                       ------------------------------------------------------>
+                            <?php
+                            $formattributes = array('class' => 'form-horizontal', 'role' => 'form');
+                            echo form_open('c_project/project_select', $formattributes);
+                            ?>
+                            <?php
+                            //Create the query
+                            $sql = "SELECT `project_id`,`project_name` FROM project_summary";
+
+                            //Run the query
+                            $query_resource = mysql_query($sql);
+
+                            //Iterate over the results that you've gotten from the database (hopefully MySQL)
+                            while ($project = mysql_fetch_assoc($query_resource)):
+                                ?>
+
+
+                                <input type="radio" name="project" value="<?php echo $project['project_name']; ?>" />
+                                <span>
+                                    <?php echo $project['project_name']; ?></span><br />
+
+                            <?php endwhile; ?>
+
+
+                            <!--                                                       ------------------------------------------------------->
+                        </div>
+                        <div class = "modal-footer">
+
+                            <?php
+                            $registerbtnattributes = array('class' => 'btn btn-primary', 'name' => 'project_submit', 'value' => 'show project');
+                            echo form_submit($registerbtnattributes);
+                            ?>
+
+                            <?php
+                            echo form_close();
+                            ?>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-        </div>
-
-        <!--Footer-->
-        <div class = "navbar navbar-default navbar-fixed-bottom">
-            <div class = "container">
-                <p class = "navbar-text pull-left">Site Built by Curtin SEP-004</p>
-                <a href="<?php echo base_url() . 'main/logout' ?>" class="navbar-btn btn-info btn pull-right">Sign Off</a>
-                <div id="ajax_container"></div>
-            </div>
-        </div>
-
-        <script src = "js/bootstrap.js"></script>
-    </body>
-
-</html>
+                        
