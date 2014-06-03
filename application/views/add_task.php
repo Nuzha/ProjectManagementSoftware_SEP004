@@ -44,7 +44,7 @@ echo form_label($row[0]->name,'Story_n') ;
 <p>
 <input type="submit" value="Submit" />
 </p>
-<?php echo form_reset('set','Reset')?>
+
 <?php echo form_close(); ?>
 
 

@@ -46,7 +46,10 @@
             
 
  
-            foreach ($it_qry ->result() as $col) {
+            foreach ($it_qry ->result() as $col):
+                
+            ?> 
+                <?php
                 // Print out the contents of the entry 
                 echo '<tr class="'.$col->i_status.'">';
                 
@@ -54,51 +57,88 @@
                 echo '<td>' . $col->i_name . '</td>';
                 echo '<td>' . $col->i_start_date . '</td>';
                 echo '<td>' . $col->i_end_date . '</td>';
-                echo '<td>'.'<a href = "#u_status" data-toggle="modal">' . $col->i_status . '</a>'.'</td>';
-            }
-            ?>      
- 
-      </tbody>
- 
-      <tbody></tbody>
-    </table>
-      
-               <div class = "modal fade" id = "u_status">
+                echo '<td>'.'<a href = "#u_status_'.$col->i_id.'" data-toggle="modal" >' . $col->i_status . '</a>'.'</td>';
+                 
+             ?>    
+<!--                ------------------------------------------------------------------------------------------------------------>
+                    <div class = "modal fade" id ="u_status_<?php echo $col->i_id; ?>" >
                                             <div class = "modal-dialog">
                                                 <div class = "modal-content">
                                                     <div class = "modal-header">
                                                         <p><b>Change User Story Status</b></p>
                                                     </div>
-                                                    <div class = "modal-body">
+                                                    <div class = "modal-body" > 
                                                         
-                                                        <?php
+                                                      <?php
+                                                        $id=$col->i_id;
+                                                      
                                                         $formattributes = array('class' => 'form-horizontal', 'role' => 'form');
                                                         echo form_open('s_dev_iteration/update_u_status', $formattributes);
                                                         
-                                                        
-                                                        $dd_list = array(
-                                                                        'sucess'   => 'success',
-                                                                        'active'   => 'active',
-                                                                        'warning'   => 'warning',
-                                                                      );
-                                                            echo form_dropdown('status', $dd_list,$col->i_status); 
+                                                        ?>
+                                                       
+                                                        <div class="form-group">
+                                                            <div class="col-md-2"> 
+                                                                 Iteration ID
+                                                            </div>
+                                                                <div class="col-md-3">  
+                                                                    <?php
+                                                                    $discussionattributes = array('class' => 'form-control', 'name' => 'ID', 'value'=>$id);
+                                                                    echo form_input($discussionattributes, $this->input->post('discussion'));
+                                                                    
+                                                                    ?>
+                                                           
                                                             
-                                                                                                   ?>
+                                                                </div>
+                                                         <div class="col-md-4"> 
+                                                          
+                                                          <?php
+                                                                    echo '<select class="form-control" name="category">
+                                                                    <option value="sucess">Sucess</option>
+                                                                    <option value="Warning">Warning</option>
+                                                                    <option value="Active">Active</option>
+                                                                    </select> ';
+                                                                    
+                                                              ?>  
+                                                        </div>
+                                                             </div>
+                                                        
+                                               
 
-                                                   
-                                                        
-                                                        
-                                                    
+                                             
                                                     
                                                     <div class = "modal-footer">
-                                                        <a class ="btn btn-default" href="#test" data-dismiss= "modal">Submit</a>
+                                                        <?php
+                                                        $registerbtnattributes = array('class' => 'btn btn-primary', 'name' => 's_submit', 'value' => 'submit');
+                                                        echo form_submit($registerbtnattributes);
+                                                        ?>
+
+                                                        <?php
+                                                         
+                                                        echo form_close();
+                                                        ?>
                                                         <a class ="btn btn-primary" data-dismiss = "modal">Close</a>
                                                     </div>
-                                                     <?php   echo form_close();?>
+                                                    </form>
                                                     </div>    
                                                 </div>
                                             </div>
-                                        </div>
-  </div><!-- /container -->
+                                        </div> 
+     
+<!--                -------------------------------------------------------------------------------------------------------------->
+            
+            <?php endforeach;?>      
+           
+      </tbody>
+ 
+      <tbody></tbody>
+    </table>
+      
+      
+         
+      
+  </div>
+    <!-- /container -->
+    
 </body>
 </html>

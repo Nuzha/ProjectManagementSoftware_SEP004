@@ -38,8 +38,9 @@
 |
 */
 
-$route['default_controller'] = "main";
+$route['default_controller'] = "scrum_master";
 $route['controller']="s_dev_iteration";
+$route['controller']="scrum_master";
 $route['404_override'] = '';
 
 

@@ -404,7 +404,7 @@ class Main extends CI_Controller {
         //$id = $this->uri->segment(3);
         $this->load->model('Model_userStory', '', TRUE);
         $this->Model_userStory->updateStory($_POST['StoryId'], $_POST);
-        redirect('Main/listing', 'refresh');
+        redirect('scrum_master/UserStorylisting', 'refresh');
     }
 
     function delete() {
@@ -412,7 +412,7 @@ class Main extends CI_Controller {
 
         $this->load->model('Model_userStory', '', TRUE);
         $this->Model_userStory->deleteStory($id);
-        redirect('Main/listing', 'refresh');
+        redirect('scrum_master/UserStorylisting', 'refresh');
     }
 
     //-------------------task---------------------------------------------------------------------------------- 

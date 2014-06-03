@@ -11,7 +11,7 @@ class S_dev_iteration extends CI_Controller {
     }
     
     function index() {
-        $this->Iterationlisting();
+        $this->UserStorylisting();
     }
 
     function Iterationlisting()
@@ -30,7 +30,7 @@ class S_dev_iteration extends CI_Controller {
 
       function UserStorylisting()
      {
-        $this->load->library('table');
+        //$this->load->library('table');
 
         $this->load->model('s_dev_iterationModel','',TRUE);
         $data['userStory_qry'] = $this->s_dev_iterationModel->listUserStories();
@@ -41,10 +41,25 @@ class S_dev_iteration extends CI_Controller {
       
       function update_u_status() {
         $this->load->helper('url');
+        $id=  $this->input->post('ID');
+        $status=  $this->input->post('category');
 
         $this->load->model('s_dev_iterationModel', '', TRUE);
-        $this->s_dev_iterationModel->update_u_status();
-        //redirect('Main/userStory', 'refresh');
+       $this->s_dev_iterationModel->update_status($id, $status);
+     
+        redirect('s_dev_iteration/Iterationlisting', 'refresh');
+       
+    }
+    function update_userstory_status() {
+        $this->load->helper('url');
+        $id=  $this->input->post('ID');
+        $status=  $this->input->post('category');
+
+        $this->load->model('s_dev_iterationModel', '', TRUE);
+       $this->s_dev_iterationModel->update_u_story_status($id, $status);
+     
+        redirect('s_dev_iteration/UserStorylisting', 'refresh');
+       
     }
     
 

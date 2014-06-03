@@ -5,7 +5,7 @@
   echo anchor('Main/userStory', 'Add User Story');
   echo (' | ');
   
-  echo anchor('Main/listing', 'List All User Stories');
+  echo anchor('scrum_master/UserStorylisting', 'List All User Stories');
 ?></center>
 </div>
 
