@@ -38,6 +38,17 @@
             </script>            
         </head>
 	
+             <?php
+                 if ($this->session->userdata('is_logged_in')) {
+                        $id = $this->session->userdata['userid'];
+        
+                            $req1 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps, member.id as userid, member.username from pm as m1, pm as m2,member where ((m1.user1="' . $id . '" and m1.user1read="no" and member.id=m1.user2) or (m1.user2="' . $id . '" and m1.user2read="no" and member.id=m1.user1)) and m1.id2="1" and m2.id=m1.id group by m1.id order by m1.id desc');
+                 }
+                
+                 if ($req1 === FALSE) {
+                    die(mysql_error());
+                }
+        ?>
 	<body >
             
             <!--Navigation bar-->
@@ -59,7 +70,7 @@
 
                             <li class = "dropdown">
 
-                            <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge">3</span>  Messages </span> <b class = "caret"></b></a>
+                            <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span>  Messages </span> <b class = "caret"></b></a>
                             <ul class = "dropdown-menu">
                                 <li><a href = "<?php echo base_url() . 'msg/inbox'; ?>"><span class="badge">3</span> Inbox</a></li>
                                 <li><a href = "<?php echo base_url() . 'msg/newmsger'; ?>"> New Message</a></li> 

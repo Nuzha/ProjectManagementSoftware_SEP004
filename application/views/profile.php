@@ -16,9 +16,9 @@
             </style>
             <?php
 //We check if the users ID is defined
-       if ($this->session->userdata('is_logged_in')) {
+            if ($this->session->userdata('is_logged_in')) {
                 $id = $this->session->userdata['userid'];
-            
+
                 //We check if the user exists
                 $dn = mysql_query('select username, email, signup_date from member where id="' . $id . '"');
 
@@ -27,9 +27,8 @@
                     //We display the user data
                     ?>
 
-                    This is the profile of "<?php echo htmlentities($dnn['username']); ?>" :
+            <h4>Profile of <?php echo htmlentities($dnn['username']); ?> </h4> 
                     <div class="well well-large">
-                        <a  class="btn btn-primary" href="<?php echo base_url() . 'msg/users'; ?>">Go to the users list</a>
                         <table class ="table"style="width:500px;">
                             <tr>
                                 <td><?php /* if ($dnn['avatar'] != '') {
@@ -45,10 +44,11 @@
                         </table>
                         <?php
 //We add a link to send a pm to the user
-                        if (isset($obj->userdata['username'])) {
+                        if($this->session->userdata('is_logged_in')){
                             ?>
                             <br /><a  class="btn btn-primary" href="newmsger" class="big">Send a message to "<?php echo htmlentities($dnn['username'], ENT_QUOTES, 'UTF-8'); ?>"</a>
-                            <?php
+                             <a  class="btn btn-primary" href="<?php echo base_url() . 'msg/users'; ?>">Go to the users list</a>
+                                <?php
                         }
                     } else {
                         echo 'This user dont exists.';

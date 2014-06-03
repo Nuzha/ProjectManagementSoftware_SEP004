@@ -182,26 +182,18 @@ class Main extends CI_Controller {
     public function project_edit() {
         $this->load->helper('form');
         $id = $this->uri->segment(3);
-
         $this->load->model('project');
         $data['row'] = $this->project->getProject($id)->result();
-
         $this->load->view('header');
         $this->load->view('left_side');
-
-
-
         $this->load->view('view_edit_project', $data);
     }
 
     public function project_update() {
         $this->load->model('project');
         $this->project->updateProject($_POST['id'], $_POST);
-
         $this->load->view('header');
         $this->load->view('left_side');
-
-
         redirect('main/project_listing', 'refresh');
     }
 
@@ -209,11 +201,8 @@ class Main extends CI_Controller {
         $id = $this->uri->segment(3);
         $this->load->model('project');
         $this->project->deleteProject($id);
-
         $this->load->view('header');
         $this->load->view('left_side');
-
-
         redirect('main/project_listing', 'refresh');
     }
 
@@ -221,9 +210,7 @@ class Main extends CI_Controller {
 
         $this->load->helper('form');
         $id = $this->uri->segment(3);
-
         $this->load->model('project');
-
         $data['row'] = $this->project->getProject($id)->result();
         $data['developers'] = $this->project->get_All_developers();
 
@@ -231,7 +218,6 @@ class Main extends CI_Controller {
 
         $this->load->view('header');
         $this->load->view('left_side');
-
         $this->load->view('view_assign_developer', $data);
     }
 
@@ -248,10 +234,8 @@ class Main extends CI_Controller {
     public function viewChart() {
 
         $data['graph'] = $this->model_chart->get_data();
-
         $this->load->view('header');
         $this->load->view('left_side');
-
         $this->load->view('view_chart', $data);
     }
 

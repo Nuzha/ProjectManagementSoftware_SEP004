@@ -1,22 +1,25 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class Msg extends CI_Controller {
 
 //3rd iteration
     function loadMessageView() {
-        $data['obj'] = $this->session;        
+        $data['obj'] = $this->session;
         $this->load->view('dev_header');
         $this->load->view('dev_leftside');
         $this->load->view('page', '$data');
         $this->load->view('footer');
     }
 
-    function inbox(){
+    function inbox() {
         $data['obj'] = $this->session;
         $this->load->view('dev_header');
         $this->load->view('dev_leftside');
         $this->load->view('inbox', $data);
-        $this->load->view('footer');        
+        $this->load->view('footer');
     }
 
     public function users() {
@@ -53,7 +56,6 @@ class Msg extends CI_Controller {
         $this->load->view('dev_header');
         $this->load->view('dev_leftside');
         $this->load->view('new_msg', $data);
-        
     }
 
     function newmsgs() {
@@ -76,7 +78,7 @@ class Msg extends CI_Controller {
 
             // echo "Go to private area";
             $result = $this->test_msg->msg_dbs();
-           
+
             if ($result) {
                 $msg = '<div class="alert alert-success">message delivered successfuly. </div>';
                 $this->newmsger($msg);
@@ -87,13 +89,22 @@ class Msg extends CI_Controller {
         }
     }
 
-        public function profile()
-	{
-             $data['obj']=  $this->session;
-             $this->load->view('dev_header');
-             $this->load->view('dev_leftside');;
-             $this->load->view('profile',$data);
-             $this->load->view('footer');
-                    
-	}
+    public function profile() {
+        $data['obj'] = $this->session;
+        $this->load->view('dev_header');
+        $this->load->view('dev_leftside');
+        $this->load->view('profile', $data);
+        $this->load->view('footer');
+    }
+
+    public function edit($msg = NULL) {
+        $data['msg'] = $msg;
+        $this->load->helper(array('form', 'url'));
+        $data['obj'] = $this->session;
+        $this->load->view('dev_header');
+        $this->load->view('dev_leftside');
+        $this->load->view('edit', $data);
+        $this->load->view('footer');
+    }
+
 }

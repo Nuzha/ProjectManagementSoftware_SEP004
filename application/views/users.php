@@ -3,7 +3,7 @@
 <div class="contents">
     <style>
         .contents{
-            background: url('images/bluec_30p.png');
+            /*background: url('images/bluec_30p.png');*/
             width: 84%;
             -moz-border-radius: 20px;
             -webkit-border-radius: 20px;
@@ -28,7 +28,7 @@
         </tr>
         <?php
 //We get the IDs, usernames and emails of users
-        $req = mysql_query('select id, username, email from member');
+        $req = mysql_query('select username, email from member');
         while ($dnn = mysql_fetch_array($req)) {
             ?>
             <tr>
