@@ -1,3 +1,9 @@
+<style>
+.column {
+	margin-left: 2%;
+	width: 22%;
+}
+</style>
 <div class="col-md-10 col-sm-offset-2"> 
              
              <!-- BEGIN: XHTML for example 1.3 -->
@@ -5,7 +11,7 @@
 			<div id="example-1-3">
 
 				<div class="column left first">
-                                    <center><h4>Assigned User Stories</h4></center>
+                                   <h3><center><span class="label label-info">Assigned User Stories</center></span></h3>
 
 					<ul class="sortable-list">
 						
@@ -27,21 +33,21 @@
 				</div>
      
                              <div class="column left">
-                                <center><h4>TO DO</h4></center>
+                                <h3><center><span class="label label-danger">To Do</center></span></h3>
                                  <ul class="sortable-list">	
 					</ul>
                                 
                             </div>
                             
                              <div class="column left">
-                                <center><h4>IN PROGRESS</h4></center>
+                               <h3><center><span class="label label-warning">In Progress</center></span></h3>
                                  <ul class="sortable-list">	
 					</ul>
                                 
                             </div>
                           
                              <div class="column left">
-                                <center><h4>COMPLETED</h4></center>
+                                <h3><center><span class="label label-success">Completed</center></span></h3>
                                  <ul class="sortable-list">	
 					</ul>
                                 
