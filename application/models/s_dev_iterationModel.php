@@ -14,9 +14,9 @@ class S_dev_iterationModel  extends CI_Model {
       return $this->db->get('iteration');
     }
     
-    function listUserStories()
+    function listUserStories($mail)
     {
-      return $this->db->get('user_stories');
+      return $this->db->get_where('user_stories',array('OwnerEmail'=>$mail));
     }
     
     public function update_status($id, $status)

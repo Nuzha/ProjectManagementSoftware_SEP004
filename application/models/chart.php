@@ -34,6 +34,8 @@ class Chart extends CI_Model {
     $finalDropDown = $dropDownList;
              return $finalDropDown;
   }
+  
+  
     
 }
 ?>

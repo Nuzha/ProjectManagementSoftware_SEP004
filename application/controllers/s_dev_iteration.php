@@ -31,16 +31,16 @@ class S_dev_iteration extends CI_Controller {
       function UserStorylisting()
      {
         //$this->load->library('table');
-
+        $mail = $this->session->userdata['email'];
         $this->load->model('s_dev_iterationModel','',TRUE);
-        $data['userStory_qry'] = $this->s_dev_iterationModel->listUserStories();
+        $data['userStory_qry'] = $this->s_dev_iterationModel->listUserStories($mail);
         $this->load->view('dev_header');
         $this->load->view('dev_leftside');
         $this->load->view('S_VdevBacklog', $data);
         $this->load->view('footer');
       }
       
-      function update_u_status() {
+      function update_iteration_status() {
         $this->load->helper('url');
         $id=  $this->input->post('ID');
         $status=  $this->input->post('category');

@@ -73,7 +73,7 @@
                                                         $id=$col->i_id;
                                                       
                                                         $formattributes = array('class' => 'form-horizontal', 'role' => 'form');
-                                                        echo form_open('s_dev_iteration/update_u_status', $formattributes);
+                                                        echo form_open('s_dev_iteration/update_iteration_status', $formattributes);
                                                         
                                                         ?>
                                                        

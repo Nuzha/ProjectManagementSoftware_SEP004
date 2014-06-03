@@ -9,7 +9,7 @@
                                 <li><a class ="menuItem" href ='<?php echo base_url()."main/userStory" ?>'><b>Backlog</b></a></li>
                                 <li><a  class ="menuItem" href ='<?php echo base_url()."main/project_listing" ?>'><b>View current Projects</b></a></li>
                                 
-                                <li><a class ="menuItem" href ='<?php echo base_url()."welcome/index" ?>'><b>View current Progress Of User Story</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/scrum_master_chk_u_status" ?>'><b>View current Progress Of User Story</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'><b>Discussions</b></a></li>
                             </ul>
                         </div>
