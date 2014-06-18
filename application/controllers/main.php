@@ -23,59 +23,58 @@ class Main extends CI_Controller {
         $this->load->view("view_registration");
     }
 
-    public function signup_validate() {
-        $this->load->view('register_header');
+   public function signup_validate() {
+    //    $this->load->view('register_header');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('fname', 'Full Name', 'required|trim|xss_clean|alpha');
-        $this->form_validation->set_rules('type', 'Last Name', 'trim|xss_clean|alpha');
-        /* $this->form_validation->set_rules('email','Email','required|trim|xss_clean|valid_email|callback_valid_email'); */
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|valid_email|is_unique[temp_users.email]|is_unique[member.email]');
+       // $this->form_validation->set_rules('type', 'Last Name', 'trim|xss_clean|alpha');
+        /* $this->form_validation->set_rules('email','Email','required|trim|xss_clean|valid_email|callback_valid_email'); 
+*/
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|valid_email|is_unique
+[temp_users.email]|is_unique[member.email]');
         /* $this->form_validation->set_rules('username','Username','required|trim|xss_clean|callback_valid_username'); */
-        $this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean|is_unique[temp_users.tusername]|is_unique[member.username]');
+        $this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean|is_unique
+[temp_users.tusername]|is_unique[member.username]');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         $this->form_validation->set_rules('confirmpassword', 'Confirm password', 'required|trim|matches[password]');
 
         $data['title'] = 'Signup';
         if ($this->form_validation->run()) {
-            $key = md5(uniqid());
+            $config = Array(
+				'protocol' => 'smtp',
+			  	'smtp_host' => 'ssl://smtp.googlemail.com',
+			  	'smtp_port' => 465,
+			  	'smtp_user' => 'clementshamil@gmail.com',
+			  	'smtp_pass' => '0715773474',
+			  	'mailtype' => 'html',
+			  	'charset' => 'iso-8859-1',
+			  	'wordwrap' => TRUE
+			);
+			$key=md5(uniqid());
+                        $message="<h3><b>Agile Project Management Software</h3></b><br />";
+			$message.="Thank you for registering on our agile web tool .<br /><br />";
+			$message.="<a href='" . base_url() . "main/activate/$key'><i>click here</i></a> to activate your 
+account.";
+			
+                        $this->load->library('email', $config);
+                        $this->email->set_newline("\r\n");
+                        $this->email->from('jojocitytwo@gmail.com'); 
+                        $this->email->to($this->input->post('email'));
+                        $this->email->subject('E - Marketing portal');
+			$this->email->message($message);
 
-            /* $config = Array(
-              'protocol' => 'smtp',
-              'smtp_host' => 'ssl://smtp.googlemail.com',
-              'smtp_port' => 465,
-              'smtp_user' => 'jojocitytwo@gmail.com',
-              'smtp_pass' => 'jojocity',
-              'mailtype' => 'html',
-              'charset' => 'iso-8859-1',
-              'wordwrap' => TRUE
-              );
-
-              $message = '';
-              $this->load->library('email', $config);
-              $this->email->set_newline("\r\n");
-              $this->email->from('xxx@gmail.com');
-              $this->email->to('kasunganegala@gmail.com');
-              $this->email->subject('Resume from JobsBuddy for your Job posting');
-              $this->email->message($message);
-             */
-
-            $this->load->model('users');
-            $this->load->library('email', array('mailtype' => 'html'));
-            $this->email->from('userregistration@emarketingportal.com', 'Admin');
-            $this->email->to($this->input->post('email'));
-            $this->email->subject('Account confirmation');
-            $message = "<a href='" . base_url() . "main/activate/$key'>click here</a> to activate your account.";
-            $this->email->message($message);
+                        $this->load->model('users');
+           
             //methana inne
             if ($this->users->add_user_to_waiting($key)) {
                 if ($this->email->send()) {
 //					$this->load->view('header',$data);
                     $this->load->view('view_registration_success');
-                    $this->load->view('login');
+                    $this->load->view('view_login');
 //					$this->load->view('footer');			
                 } else {
-                    $this->load->view('c_General_fail');
-                    //show_error($this->email->print_debugger());
+                    $this->load->view('c_General_fail_msg');
+                    show_error($this->email->print_debugger());
                     //email not send';
 //					$this->load->view('header',$data);
                     $this->load->view('view_registration');
@@ -103,30 +102,33 @@ class Main extends CI_Controller {
                 $operations = array(
                     'status' => "success",
                     'message' => 'This account has being successfully activated. ');
-                $this->load->view('header');
+                //$this->load->view('header');
                 $this->load->view("view_registration_account_activation_status", $operations);
                 // $this->load->view('footer');
             } else {
                 $operations = array(
                     'status' => 'fail',
                     'message' => 'Error activating this account. Please try again later.');
-                $this->load->view('header');
+               // $this->load->view('header');
                 $this->load->view("view_registration_account_activation_status", $operations);
-                $this->load->view('footer');
+             //   $this->load->view('footer');
             }
         } else {
             $operations = array(
                 'status' => 'invalid-key',
                 'message' => 'Invalid activation-key. Please specify a valid activation-key to activate an account.
-									<br /><br /> This error might have being occurred because,
+									<br /><br /> This error might have being occurred 
+because,
 									<br /> 
 									<ul>
-										<li> This profile is already being activated.</li>
-										<li> There\'s no user with this activation-key in the user waiting list.</li>
+										<li> This profile is already being 
+activated.</li>
+										<li> There\'s no user with this 
+activation-key in the user waiting list.</li>
 									</ul>');
-            $this->load->view('header', $data);
+          //  $this->load->view('header', $data);
             $this->load->view("view_registration_account_activation_status", $operations);
-            $this->load->view('footer');
+         //  $this->load->view('footer');
         }
     }
 
@@ -145,13 +147,13 @@ class Main extends CI_Controller {
         $this->load->view('footer');
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('projectname', 'Project Name', 'required|trim|xss_clean|alpha|is_unique[project_summary.project_name]');
+        $this->form_validation->set_rules('projectname', 'Project Name', 'required|trim|xss_clean|is_unique[project_summary.project_name]');
         $this->form_validation->set_rules('startdate', 'Start Date', 'required|trim|xss_clean');
         /* $this->form_validation->set_rules('email','Email','required|trim|xss_clean|valid_email|callback_valid_email'); */
         $this->form_validation->set_rules('enddate', 'End Date', 'required|trim|xss_clean');
         /* $this->form_validation->set_rules('username','Username','required|trim|xss_clean|callback_valid_username'); */
         $this->form_validation->set_rules('owner', 'Owner', 'required|trim|xss_clean');
-        $this->form_validation->set_rules('no_of_iteration', 'Number Of Iteration', 'required|trim');
+       // $this->form_validation->set_rules('no_of_iteration', 'Number Of Iteration', 'required|trim');
 
         if ($this->form_validation->run()) {
             $this->load->model('project');
@@ -228,7 +230,20 @@ class Main extends CI_Controller {
     public function add_developer() {
         $this->load->view('header');
         $this->load->view('left_side');
-        $search = $this->input->post('tot');
+         $this->load->view('footer');
+        $developer = $this->input->post('tot');
+        $project_id=$this->session->userdata('project_id');
+        $this->load->model('project');
+        
+        if($this->project->assign_developers($developer, $project_id)){
+            $this->load->view('assign_successfull');
+            
+        }
+        else{
+             $this->load->view('c_General_fail_msg');
+        }
+        
+        
     }
 
     public function viewChart() {
@@ -238,6 +253,13 @@ class Main extends CI_Controller {
         $this->load->view('left_side');
         $this->load->view('view_chart', $data);
     }
+public function assign_member(){
+     $this->load->view('header');
+        $this->load->view('left_side');
+         $this->load->view('view_assign_developer');
+        $this->load->view('footer');
+    
+}
 
     //finishing my other function
 //-------------------------------------------Surani---------------------------------------------------------- 

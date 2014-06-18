@@ -3,7 +3,7 @@
 
 <div class="alert alert-success">
     <h3 class="panel-title"><strong>Your Project have been created</strong></h3>
-    <a href="create_project.php">create a new project </a>
+    <a href="<?php echo base_url()."main/create_new_project" ?>">create a new project </a>
     
     </br>
     <?php

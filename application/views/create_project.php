@@ -1,7 +1,7 @@
 <script>
 $(function(){
    $('.datepicker').datepicker({
-      format: 'mm-dd-yyyy'
+      format: 'yyyy-mm-dd'
     });
 });
 
@@ -9,8 +9,10 @@ $(function(){
 
 </script>
 
+
 <div class="container">
-	<div class="col-md-7 col-md-offset-2">
+    
+	<div class="row col-md-offset-2">
 		<div class="panel panel-default ">
 			<div class="panel-heading">
     			<center><h3 class="panel-title"><strong>Create Project</strong></h3></center>
@@ -21,10 +23,10 @@ $(function(){
 		echo form_open('main/create_validate',$formattributes);
 	?>
 		<div class="form-group">
-    		<label for="inputProjectName" class="col-sm-3 control-label">Project Name &nbsp;&nbsp;</label>
+                    <label for="inputProjectName" class="col-sm-3 control-label" style="color: #0088cc">Project Name &nbsp;&nbsp;</label>
     		<div class="col-sm-7">
       			<?php
-					$projectnameattributes = array('class' => 'form-control','name'=>'projectname');
+					$projectnameattributes = array('class' => 'form-control','name'=>'projectname', 'placeholder'=>'Project Name ');
       				echo form_input($projectnameattributes,$this->input->post('fname'));
 					if(form_error('projectname')!=null)
 						echo '<div class="alert alert-danger">'.form_error('projectname').'</div>';
@@ -33,10 +35,10 @@ $(function(){
   		</div>
   		<br />
   		<div class="form-group">
-    		<label for="inputStartDate" class="col-sm-3 control-label">Start Date &nbsp;&nbsp;</label>
+    		<label for="inputStartDate" class="col-sm-3 control-label" style="color: #0088cc">Start Date &nbsp;&nbsp;</label>
     		<div class="col-sm-7">
       			<?php
-      				$StartDateattributes = array('class' => 'datepicker','name'=>'startdate','id'=>'dp1');
+      				$StartDateattributes = array('class' => 'datepicker','name'=>'startdate','id'=>'dp1','placeholder'=>'mm-dd-yyyy');
       				echo form_input($StartDateattributes,$this->input->post('startdate'));
 					if(form_error('startdate')!=null)
 						echo '<div class="alert alert-danger">'.form_error('startdate').'</div>';
@@ -45,10 +47,10 @@ $(function(){
   		</div>
   		<br />
   		<div class="form-group">
-    		<label for="inputEndDate" class="col-sm-3 control-label">End Date &nbsp;&nbsp;</label>
+    		<label for="inputEndDate" class="col-sm-3 control-label" style="color: #0088cc">End Date &nbsp;&nbsp;</label>
     		<div class="col-sm-7">
       			<?php
-      				$emailattributes = array('class' => 'datepicker','name'=>'enddate', 'id'=>'dp2');
+      				$emailattributes = array('class' => 'datepicker','name'=>'enddate', 'id'=>'dp2', 'placeholder'=>'mm-dd-yyyy');
       				echo form_input($emailattributes,$this->input->post('enddate'));
 					if(form_error('enddate')!=null)
 						echo '<div class="alert alert-danger">'.form_error('enddate').'</div>';
@@ -57,7 +59,9 @@ $(function(){
   		</div>
   		<br />
   		<div class="form-group">
-    		<label for="inputOwner" class="col-sm-3 control-label">Owner &nbsp;&nbsp;</label>
+    		<label for="inputOwner" class="col-sm-3 control-label" style="color: #0088cc">Owner &nbsp;&nbsp;</label>
+                
+                
     		<div class="col-sm-7">
       			<?php
                                 $username=$this->session->userdata('USERNAME');
@@ -91,12 +95,12 @@ $(function(){
   		<div class="form-group">
     		<div class="col-sm-offset-7 col-sm-5">
       			<?php
-      				$clearbtnattributes = array('class' => 'btn btn-default','name'=>'clear','value'=>'Clear','type'=>'reset','content'=>'Clear','data-toggle'=>'tooltip', 'data-original-title'=>'this button will reset all the values in the text feilds');
+      				$clearbtnattributes = array('class' => 'btn btn-primary','name'=>'clear','value'=>'Clear','type'=>'reset','content'=>'Clear','data-toggle'=>'tooltip', 'data-original-title'=>'this button will reset all the values in the text feilds');
       				echo form_button($clearbtnattributes);
       			?>
       			&nbsp;
       			<?php
-      				$registerbtnattributes = array('class' => 'btn btn-primary','name'=>'create_project_submit','value'=>'create project');
+      				$registerbtnattributes = array('class' => 'btn btn-success','name'=>'create_project_submit','value'=>'create project');
 					echo form_submit($registerbtnattributes);
       			?>
     		</div>
@@ -109,6 +113,15 @@ $(function(){
 		</div>
 	</div>
 	</div>
+    
+ 
+    
+    
+  
+    
+    
+    
+    
 </div>
 </body>
 </html>

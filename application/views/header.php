@@ -35,7 +35,24 @@
                  });
                }
               $(document).ready(myFunction);
-            </script>            
+            </script> 
+      
+          
+            <script>
+    
+
+    $(document).ready(function() {
+            $('#assign_members').popover({
+                
+                placement: "bottom",
+              
+                title: "Assign Members",
+                content:' <h5><b>Selected Project:</b></h5> <h5 class="label label-success"><b><?php echo $this->session->userdata('project_name'); ?></b></h5> <h5><b>Assign Members:</b></h5>\n\
+                <h5><b>Selected Project:</b></h5> ',
+			 
+                });
+        });
+  </script>
         </head>
 	
              <?php
@@ -44,12 +61,16 @@
         
                             $req1 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps, member.id as userid, member.username from pm as m1, pm as m2,member where ((m1.user1="' . $id . '" and m1.user1read="no" and member.id=m1.user2) or (m1.user2="' . $id . '" and m1.user2read="no" and member.id=m1.user1)) and m1.id2="1" and m2.id=m1.id group by m1.id order by m1.id desc');
                  }
+                 else{
+                     $this->load->view('restricted');
+                 }
                 
                  if ($req1 === FALSE) {
                     die(mysql_error());
                 }
         ?>
-	<body >
+        <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/new.jpg'); ">
+            
             
             <!--Navigation bar-->
             <div class = "navbar navbar-inverse navbar-static-top">
@@ -66,7 +87,7 @@
                         <ul class = "nav navbar-nav navbar-right">
 
                             <li><a  href ="#contact"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
-                            <li><a href = "#members" data-toggle="modal"><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Assign Members</a></li>
+                            <li ><a   id="" href='<?php echo base_url()."main/assign_member" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Assign Members</a></li>
 
                             <li class = "dropdown">
 

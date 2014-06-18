@@ -44,9 +44,9 @@
                     
                     
       			<?php
-      				echo'<select class="form-control" name="type_of_member">
-                        <option value="scrum master">scrum master</option>
-                        <option value="developer">developer</option>
+      				echo'<select class="form-control" name="type">
+                        <option value="Scrum Master">scrum master</option>
+                        <option value="Developer">developer</option>
                         
                         </select>';
                                         

@@ -3,7 +3,7 @@
              
              <!-- BEGIN: XHTML for example 1.3 -->
 
-			<div id="example-1-3">
+			<div id="1">
 
 				<div class="column left first">
                                     <h3><center><span class="label label-primary">User Stories</center></span></h3><br>
@@ -74,22 +74,12 @@
  <script type="text/javascript">
 
 $(document).ready(function(){
-
-	// Example 1.1: A single sortable list
-	
-
-	// Example 1.2: Sortable and connectable lists
-	
-
 	// Example 1.3: Sortable and connectable lists with visual helper
-	$('#example-1-3 .sortable-list').sortable({
-		connectWith: '#example-1-3 .sortable-list',
+	$('#1 .sortable-list').sortable({
+		connectWith: '#1 .sortable-list',
 		placeholder: 'placeholder',
 	});
-
-	// Example 1.4: Sortable and connectable lists (within containment)
-	
-
+        
 });
 
 </script>

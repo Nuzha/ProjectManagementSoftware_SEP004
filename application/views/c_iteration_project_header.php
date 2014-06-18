@@ -1,7 +1,10 @@
 
 <div class="col-lg-offset-9  ">
       <div class="">
-            <a href = "#iteration" class="btn btn-group-justified btn-primary" data-toggle="modal">Create Iteration</a><br>
+          
+<!--          <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#iteration">Click to open Modal</a>-->
+          
+            <a href="#" class="btn btn-group-justified btn-primary"data-toggle="modal" data-target="#iteration">Create Iteration</a><br>
             
    
              <table class="table table-striped">     
@@ -36,12 +39,22 @@
             
           </div>
 
-   <div class = "modal fade" id = "iteration">
+   <div class = "modal fade" id = "iteration" tabindex="-1" role="dialog" aria-hidden="true" >
                                             <div class = "modal-dialog">
                                                 <div class = "modal-content">
                                                     <div class = "modal-header">
-                                                        <p><b>Create Iteration</b></p>
-                                                    </div>
+                                                        <script>
+                                                                $(function(){
+                                                                   $('.datepicker').datepicker({
+                                                                      format: 'mm-dd-yyyy'
+                                                                    });
+                                                                });
+                                                     
+
+                                                                </script>
+                                                              
+                                                              <p><b>Create Iteration</b></p>
+                                                                    </div>
                                                     <div class = "modal-body">
                                                    
                                                         

@@ -46,7 +46,22 @@ class Project extends CI_Model{
     $this->db->delete('project_summary'); 
   }
   
-  public function assign_developers(){
+  public function assign_developers($dev, $pro_id){
+      $data =array(
+          'project_id'=>$pro_id,
+          'member_email'=>$dev,
+          
+      );
+      
+      
+        $query = $this->db->insert('assign_members',$data);
+        
+        if($query){
+            return TRUE;
+        }
+        else  {
+            return false;
+        }
       
   }
   public function get_All_developers(){

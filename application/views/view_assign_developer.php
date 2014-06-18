@@ -1,7 +1,7 @@
 
 
 <div class="container">
-	<div class="col-md-7 col-md-offset-2">
+	<div class="row col-md-offset-2">
 		<div class="panel panel-default ">
 			<div class="panel-heading">
     			<center><h3 class="panel-title"><strong>Assign Members to Project</strong></h3></center>
@@ -10,14 +10,14 @@
 	<?php
 		$formattributes = array('class' => 'form-horizontal', 'role' => 'form');
 		echo form_open('main/add_developer',$formattributes);
-                echo form_hidden('id', $row[0]->id);
+              
 	?>
 		<div class="form-group">
-    		<label for="inputProjectName" class="col-sm-3 control-label">Project Name &nbsp;&nbsp;</label>
+    		<label for="inputProjectName" class="col-sm-3 control-label" style="color: #0088cc">Project Name &nbsp;&nbsp;</label>
     		<div class="col-sm-7">
       			<?php
 					$projectnameattributes = array('class' => 'form-control','name'=>'project_name');
-      				echo form_input($projectnameattributes,$row[0]->project_name);
+      				echo form_input($projectnameattributes,$this->session->userdata('project_name'));
 					if(form_error('project_name')!=null)
 						echo '<div class="alert alert-danger">'.form_error('project_name').'</div>';
       			?>
@@ -28,78 +28,73 @@
       			
   		<br />
   		<div class="form-group">
-    		<label for="inputNoOfIteration" class="col-sm-3 control-label">Available Developers &nbsp;&nbsp;</label>
+    		<label for="inputNoOfIteration" class="col-sm-3 control-label" style="color: #0088cc">Available Developers &nbsp;&nbsp;</label>
     		<div class="col-sm-7">
-                    <select name="tot" class="form-control" onchange="<?php $this->main->get_dropdown ?>">
+                    <select name="tot" class="form-control" onchange="">
                         <?php
-                            foreach($developers as $row){
-                                echo '<option value="'.$row->Full_name.'">'.$row->Full_name.'</option>';
-                            }
-                        ?>
-                        
+                         $sql = "SELECT `id`,`username`, `type`, `email` FROM member WHERE `type`='Developer'";
+                          $query_resource = mysql_query($sql);
+                          
+                          while ($developer = mysql_fetch_assoc($query_resource)):
+                              
+                          ?>
+         
+                             <option value="<?php echo $developer['email']; ?>"><?php echo $developer['email'] ?></option>
+                         
+                        <?php endwhile; ?>
                     </select>
-                    <div class="form-group">
-                        <label for="inputAdddev" class="col-sm-3 control-label">Added Developers &nbsp;&nbsp;</label>
-    		<div class="col-sm-offset-7 col-sm-5">
+                </div>
+                </div>
+                    <br>
+                    <br>
+                  <div class="form-group">
+    		<div class="col-sm-offset-8 col-sm-5">
       			<?php
-      				$selectbtnattributes = array('class' => 'btn btn-default','name'=>'Add','value'=>'Add','type'=>'Add','content'=>'Add','data-toggle'=>'tooltip', 'data-original-title'=>'');
+      				$selectbtnattributes = array('class' => 'btn btn-success','name'=>'Add','value'=>'Add Developer','type'=>'Add','content'=>'Add Developer','data-toggle'=>'tooltip', 'data-original-title'=>'');
       				echo form_button($selectbtnattributes);
       			?>
-      			<?php
-//      				$iterationattributes = array('class' => 'form-control','name'=>'no_of_iterations');
-//      				echo form_input($iterationattributes,$row[0]->no_of_iterations);
-//					if(form_error('no_of_iterations')!=null)
-//						echo '<div class="alert alert-danger">'.form_error('no_of_iterations').'</div>';
-      			?>
+      			
     		</div>
-  		</div>
-  		<br />
-<!--  		<div class="form-group">
-    		<label for="inputConfirmPassword" class="col-sm-3 control-label">Confirm Password&nbsp;&nbsp;</label>
-    		<div class="col-sm-7">
-      			//<?php
-//      				$confirmpasswordattributes = array('class' => 'form-control','name'=>'confirmpassword');
-//      				echo form_password($confirmpasswordattributes);
-//					if(form_error('confirmpassword')!=null)
-//						echo '<div class="alert alert-danger">'.form_error('confirmpassword').'</div>';
-//      			?>
-    		</div>
-  		</div>-->
-  		<br />
-<!--  		<div class="form-group">
-  			<div class="col-sm-12 col-sm-offset-3">
-  				<p class="text-muted">By signingup you accept these <a href="#" class="text-primary">terms and conditions.</a></p>
-  			</div>
-  		</div>-->
-                        <?php
-      				$addedattributes = array('class' => 'form-control','name'=>'addeddev');
-      				echo form_textarea($addedattributes,$this->input->post('tot'));
-					if(form_error('no_of_iterations')!=null)
-						echo '<div class="alert alert-danger">'.form_error('no_of_iterations').'</div>';
-      			?>
-
-
-  		<div class="form-group">
-    		<div class="col-sm-offset-7 col-sm-5">
-      			<?php
-//      				$clearbtnattributes = array('class' => 'btn btn-default','name'=>'clear','value'=>'Clear','type'=>'reset','content'=>'Clear','data-toggle'=>'tooltip', 'data-original-title'=>'this button will reset all the values in the text feilds');
-//      				echo form_button($clearbtnattributes);
-      			?>
-      			&nbsp;
-      			<?php
-      				$registerbtnattributes = array('class' => 'btn btn-primary','name'=>'','value'=>'update project');
-					echo form_submit($registerbtnattributes);
-      			?>
-    		</div>
-  		</div>
-  		
+                  </div>
+  	
   		<?php
   			echo form_close();
   		?>
   		
+	
+	
 		</div>
 	</div>
 	</div>
-</div>
-</body>
-</html>
+    
+    
+    
+    <div class="row col-md-offset-2">
+		<div class="panel panel-default ">
+			<div class="panel-heading">
+    			<center><h3 class="panel-title"><strong><?php echo $this->session->userdata('project_name');?> Assigned Member Details</strong></h3></center>
+    		</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="developers" class="col-sm-3 control-label">Assigned Developers :</label>
+            <div class="col-sm-7">
+             <?php
+                        $id=$this->session->userdata('project_id');
+                         $sql2 = "SELECT `project_id`,`member_email` FROM assign_members WHERE `project_id`='$id'";
+                          $query_resource2 = mysql_query($sql2);
+                          
+                          while ($list = mysql_fetch_assoc($query_resource2)):
+                              
+                          ?>
+            
+            <a href="" id="<?php echo $list['member_email']; ?>"  class="bg-success" onclick=""><h4><?php echo $list['member_email']; ?></h4></a>
+            <?php endwhile; ?>
+            </div>
+        </div>
+    </div>
+                </div>
+    </div>
+    
+		</div>
+
+
