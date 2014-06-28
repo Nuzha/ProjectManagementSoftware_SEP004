@@ -4,7 +4,7 @@
 <div class="alert alert-warning">
     
     <a href="" class="close" data-dismiss="alert">&times; </a>
-    <strong>FAIL!</strong> Ops Something Went wrong try AGAIN!!!.
+    <strong>FAILED!</strong> Oops Something Went wrong try AGAIN!!!.
     
     </br>
     

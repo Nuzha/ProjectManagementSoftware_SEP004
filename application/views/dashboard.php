@@ -27,10 +27,11 @@
                 });
             }
             $(document).ready(myFunction);
-        </script>            
+        </script>                 
+     
     </head>
+      <body>
 
-    <body>
         <!--Navigation bar-->
         <div class = "navbar navbar-inverse navbar-static-top ">
             <div class = "container">
