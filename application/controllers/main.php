@@ -163,7 +163,7 @@ activation-key in the user waiting list.</li>
     }
       public function show_profile(){
          $this->load->view('header');
-        $this->load->view('left_side');
+        //$this->load->view('left_side');
         $this->load->model('users');
         $data['profile']=  $this->users->get_profile_details();
          $this->load->view('User_profile', $data);

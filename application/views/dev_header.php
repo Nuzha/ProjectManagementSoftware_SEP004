@@ -36,7 +36,7 @@
         </script>            
     </head>
 
-    <body>
+    <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/images.jpg'); ">
         <!--Navigation bar-->
         <div class = "navbar navbar-inverse navbar-static-top ">
             <div class = "container">

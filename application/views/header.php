@@ -58,8 +58,8 @@
              <?php
                  if ($this->session->userdata('is_logged_in')) {
                         $id = $this->session->userdata['userid'];
-        
-                            $req1 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps, member.id as userid, member.username from pm as m1, pm as m2,member where ((m1.user1="' . $id . '" and m1.user1read="no" and member.id=m1.user2) or (m1.user2="' . $id . '" and m1.user2read="no" and member.id=m1.user1)) and m1.id2="1" and m2.id=m1.id group by m1.id order by m1.id desc');
+                        $username = $this->session->userdata['USERNAME'];
+                        $req1 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps, member.id as userid, member.username from pm as m1, pm as m2,member where ((m1.user1="' . $id . '" and m1.user1read="no" and member.id=m1.user2) or (m1.user2="' . $id . '" and m1.user2read="no" and member.id=m1.user1)) and m1.id2="1" and m2.id=m1.id group by m1.id order by m1.id desc');
                  }
                  else{
                      $this->load->view('restricted');
@@ -69,7 +69,7 @@
                     die(mysql_error());
                 }
         ?>
-        <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/new.jpg'); ">
+        <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/images.jpg'); ">
             
             
             <!--Navigation bar-->
@@ -87,26 +87,25 @@
                         <ul class = "nav navbar-nav navbar-right">
 
                             <li><a  href ="#contact"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
-                            <li ><a   id="" href='<?php echo base_url()."main/assign_member" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Assign Members</a></li>
+                            <li ><a   id="" href='<?php echo base_url() . "main/assign_member" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Assign Members</a></li>
 
                             <li class = "dropdown">
+                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span>  Messages </span> <b class = "caret"></b></a>
+                                <ul class = "dropdown-menu">
+                                    <li><a href = "<?php echo base_url() . 'msg/inbox'; ?>"><span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span> Inbox</a></li>
+                                    <li><a href = "<?php echo base_url() . 'msg/newmsger_master'; ?>"> New Message</a></li> 
+                                    <li><a href="<?php echo base_url() . 'msg/load_list_master'; ?>"> All Messages </a></li>
+                                </ul>
+                            </li>
 
-                            <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span>  Messages </span> <b class = "caret"></b></a>
-                            <ul class = "dropdown-menu">
-                                <li><a href = "<?php echo base_url() . 'msg/inbox'; ?>"><span class="badge">3</span> Inbox</a></li>
-                                <li><a href = "<?php echo base_url() . 'msg/newmsger_master'; ?>"> New Message</a></li> 
-                                <li><a href="<?php echo base_url() . 'msg/load_list_master'; ?>"> All Messages </a></li>
-
-                            </ul>
-                          </li>
                             <li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
 
                             <li class = "dropdown">
-
-                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"></span></a>
+                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-user"> <?php echo $username;?> <b class = "caret"></b></span></a>
                                 <ul class = "dropdown-menu">
                                     <li><a href = "<?php echo base_url() . 'main/show_profile'; ?>"data-toggle="modal">My profile</a></li> 
-                                    <li><a href = "#">Sign Off</a></li>
+                                    <li><a href = "<?php echo base_url() . 'msg/edit'; ?>"data-toggle="modal">Settings</a></li> 
+                                    <li><a href = "<?php echo base_url() . 'main/logout'; ?>"> Logout</a></li>
                                 </ul>
                             </li>
                         </ul>

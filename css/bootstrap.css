@@ -27,6 +27,22 @@ section,
 summary {
   display: block;
 }
+
+  /* Side Nav */
+
+  .side-nav {
+	/*margin-left: -100px;*/
+/*	left: 225px;
+	width: 225px;
+	position: fixed;
+	top: 50px;*/
+	height: 100%;
+	border-radius: 0;
+	border: none;
+	background-color: #222222;
+	//overflow-y: auto;
+  }
+
 audio,
 canvas,
 progress,
