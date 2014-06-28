@@ -37,12 +37,28 @@ class Msg extends CI_Controller {
         $this->load->view('list', $data);
         $this->load->view('footer');
     }
+    public function load_list_master() {
+        $data['obj'] = $this->session;
+        $this->load->view('header');
+        $this->load->view('left_side');
+        $this->load->view('list', $data);
+        $this->load->view('footer');
+    }
 
     public function readmsg() {
 
         $data['obj'] = $this->session;
         $this->load->view('dev_header');
         $this->load->view('dev_leftside');
+        $this->load->view('read', $data);
+        $this->load->view('footer');
+    }
+    
+     public function readmsg_master() {
+
+        $data['obj'] = $this->session;
+        $this->load->view('header');
+        $this->load->view('leftside');
         $this->load->view('read', $data);
         $this->load->view('footer');
     }
@@ -55,6 +71,17 @@ class Msg extends CI_Controller {
         $this->load->view('footer');
         $this->load->view('dev_header');
         $this->load->view('dev_leftside');
+        $this->load->view('new_msg', $data);
+    }
+    
+      public function newmsger_master($msg = NULL) {
+
+        $data['msg'] = $msg;
+        $this->load->helper(array('form', 'url'));
+        $data['obj'] = $this->session;
+        $this->load->view('footer');
+        $this->load->view('header');
+        $this->load->view('left_side');
         $this->load->view('new_msg', $data);
     }
 

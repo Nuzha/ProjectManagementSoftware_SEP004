@@ -12,7 +12,7 @@
 	<title><?php if(isset($title)) echo $title;?></title>
 </head>
 
-<body>
+<body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/new.jpg');">
 
 
 <div class="container">
@@ -104,6 +104,13 @@
     		</div>
   		</div>
   		<br />
+                   <div class="form-group">
+                   <label for="inputConfirmPassword" class="col-sm-3 control-label">Profile Image&nbsp;&nbsp;</label> 
+                   <div class="col-sm-7">
+                      <input name="userfile" name="userfile" type="file"
+                class="input-xlarge">
+                   </div>
+                </div>
   		<div class="form-group">
   			<div class="col-sm-12 col-sm-offset-3">
   				<p class="text-muted">By signingup you accept these <a href="#" class="text-primary">terms and conditions.</a></p>

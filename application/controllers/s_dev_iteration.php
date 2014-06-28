@@ -63,6 +63,34 @@ class S_dev_iteration extends CI_Controller {
        
     }
     
+    
+    //----------------------defects--------------------------------------------------------------------------------------------
+    
+    function add_defects()
+     {
+        //$this->load->library('table');
+        $mail = $this->session->userdata['email'];
+        $this->load->model('s_dev_iterationModel','',TRUE);
+        $data['userStory_qry'] = $this->s_dev_iterationModel->listUserStories($mail);
+        $this->load->view('dev_header');
+        $this->load->view('dev_leftside');
+        $this->load->view('add_defects', $data);
+        $this->load->view('footer');
+      }
+      
+      function add_defects_c() {
+        $this->load->helper('url');
+        $id=  $this->input->post('ID');
+        $des=  $this->input->post('defect_des');
+        $stat=  $this->input->post('defect_stat');
+
+        $this->load->model('s_dev_iterationModel', '', TRUE);
+       $this->s_dev_iterationModel->add_defects_m($id, $des,$stat);
+     
+        redirect('s_dev_iteration/add_defects', 'refresh');
+       
+    }
+    
 
 }
 ?>

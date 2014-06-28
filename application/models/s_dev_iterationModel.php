@@ -59,5 +59,19 @@ class S_dev_iterationModel  extends CI_Model {
       
     }
     
+    function add_defects_m($id, $des,$stat)
+    {
+        $data = array(
+            'story_id' =>$id ,
+            'defect_des' =>$des ,
+            'defect_stat' =>$stat
+           
+        );
+        
+      
+    $this->db->insert('defect_log', $data); 
+        
+    }
+    
 }
 ?>

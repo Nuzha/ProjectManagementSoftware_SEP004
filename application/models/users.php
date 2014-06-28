@@ -4,13 +4,18 @@ class Users extends CI_Model{
 
 	/*when a user sign up. this function will add them to the user waiting list. */
 	public function add_user_to_waiting($key){
+                    $upload_data = $this->upload->data();
 		$data = array (
 			'email' => $this->input->post('email'),
+                        'tusername'=>$this->input->post('username'),
+                        'full_name'=>$this->input->post('fname'),
+                        'type'=>$this->input->post('type'),
 			'password'=>md5($this->input->post('password')),
-			'tusername'=>$this->input->post('username'),
-			'full_name'=>$this->input->post('fname'),
-			'type'=>$this->input->post('type'),
-			'key'=>$key);
+			
+			
+			
+			'key'=>$key,
+                        'img_path'=>$upload_data['file_name']);
 		$query = $this->db->insert('temp_users',$data);
 		if($query){	return true;} 
 		else {return false;	}
@@ -35,7 +40,8 @@ class Users extends CI_Model{
 				'type'=>$info->type,
 				'email'=>$info->email,
 				'username'=>$info->tusername,
-				'password'=>$info->password);
+				'password'=>$info->password,
+                                'img_path'=>$info->img_path);
 			$query = $this->db->insert('member',$data);
 			if($query){
 				$this->db->where('key',$key);
@@ -82,5 +88,11 @@ class Users extends CI_Model{
 //			$query = $this->db->insert('user_details',$data);
 //		}
 //	}
+        
+    public function get_profile_details(){
+        
+        return $this->db->get_where('member', array('email'=> $this->session->userdata('email')));
+        
+    }
 
 }

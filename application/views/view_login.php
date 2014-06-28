@@ -9,7 +9,7 @@
         <script src = "<?php echo base_url() . 'js/jquery-1.4.2.min.css' ?>"></script>
     </head>
 
-    <body>
+    <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/new.jpg');">
         
     <!--Navigation bar-->
             <div class = "navbar navbar-inverse navbar-static-top">

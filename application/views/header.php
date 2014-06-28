@@ -94,8 +94,8 @@
                             <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span>  Messages </span> <b class = "caret"></b></a>
                             <ul class = "dropdown-menu">
                                 <li><a href = "<?php echo base_url() . 'msg/inbox'; ?>"><span class="badge">3</span> Inbox</a></li>
-                                <li><a href = "<?php echo base_url() . 'msg/newmsger'; ?>"> New Message</a></li> 
-                                <li><a href="<?php echo base_url() . 'msg/load_list'; ?>"> All Messages </a></li>
+                                <li><a href = "<?php echo base_url() . 'msg/newmsger_master'; ?>"> New Message</a></li> 
+                                <li><a href="<?php echo base_url() . 'msg/load_list_master'; ?>"> All Messages </a></li>
 
                             </ul>
                           </li>
@@ -105,7 +105,7 @@
 
                                 <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"></span></a>
                                 <ul class = "dropdown-menu">
-                                    <li><a href = "#profile"data-toggle="modal">My profile</a></li> 
+                                    <li><a href = "<?php echo base_url() . 'main/show_profile'; ?>"data-toggle="modal">My profile</a></li> 
                                     <li><a href = "#">Sign Off</a></li>
                                 </ul>
                             </li>

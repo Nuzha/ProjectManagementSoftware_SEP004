@@ -24,12 +24,16 @@ class Main extends CI_Controller {
     }
 
    public function signup_validate() {
-    //    $this->load->view('register_header');
+   
+        $this->load->view('register_header');
+       
+       
+   
+  
         $this->load->library('form_validation');
         $this->form_validation->set_rules('fname', 'Full Name', 'required|trim|xss_clean|alpha');
-       // $this->form_validation->set_rules('type', 'Last Name', 'trim|xss_clean|alpha');
-        /* $this->form_validation->set_rules('email','Email','required|trim|xss_clean|valid_email|callback_valid_email'); 
-*/
+     
+
         $this->form_validation->set_rules('email', 'Email', 'required|trim|xss_clean|valid_email|is_unique
 [temp_users.email]|is_unique[member.email]');
         /* $this->form_validation->set_rules('username','Username','required|trim|xss_clean|callback_valid_username'); */
@@ -41,37 +45,63 @@ class Main extends CI_Controller {
         $data['title'] = 'Signup';
         if ($this->form_validation->run()) {
             $config = Array(
-				'protocol' => 'smtp',
-			  	'smtp_host' => 'ssl://smtp.googlemail.com',
-			  	'smtp_port' => 465,
-			  	'smtp_user' => 'clementshamil@gmail.com',
-			  	'smtp_pass' => '0715773474',
-			  	'mailtype' => 'html',
-			  	'charset' => 'iso-8859-1',
-			  	'wordwrap' => TRUE
+//				'protocol' => 'smtp',
+//			  	'smtp_host' => 'ssl://smtp.googlemail.com',
+//			  	'smtp_port' => 465,
+//			  	'smtp_user' => 'clementshamil@gmail.com',
+//			  	'smtp_pass' => '0715773474',
+//			  	'mailtype' => 'html',
+//			  	'charset' => 'iso-8859-1',
+//			  	'wordwrap' => TRUE
 			);
 			$key=md5(uniqid());
-                        $message="<h3><b>Agile Project Management Software</h3></b><br />";
+                        $message="<h3><b>Agile Project Management Software</h3></b><br/>";
 			$message.="Thank you for registering on our agile web tool .<br /><br />";
 			$message.="<a href='" . base_url() . "main/activate/$key'><i>click here</i></a> to activate your 
 account.";
 			
-                        $this->load->library('email', $config);
+                        $this->load->library('email');
                         $this->email->set_newline("\r\n");
-                        $this->email->from('jojocitytwo@gmail.com'); 
+                        $this->email->from('clementshamil@gmail.com'); 
                         $this->email->to($this->input->post('email'));
-                        $this->email->subject('E - Marketing portal');
+                        $this->email->subject('Agile Project Management Software');
 			$this->email->message($message);
 
                         $this->load->model('users');
+                        
+    //       -----------------------------------------------image upload---------------------------------------------------------
+                        $config_arr = array(
+                'upload_path'   => './uploads/',
+                'allowed_types' => 'gif|jpg|png',
+                'max_size'      => '2048',
+                'max_width'     => '1024',
+                'max_height'    => '768',
+                'encrypt_name'  => true,
+                );         
+            $this->load->library('upload', $config_arr);
+            if (!$this->upload->do_upload()) {
+                $data['errors'] = $this->upload->display_errors(); // this isn't working
+            } else {
+                $upload_data = $this->upload->data();
+               
+            }
+//       --------------------------------------------------------------------------------------------------------
            
-            //methana inne
+          
             if ($this->users->add_user_to_waiting($key)) {
                 if ($this->email->send()) {
 //					$this->load->view('header',$data);
+                    var_dump($this->upload->data());
                     $this->load->view('view_registration_success');
                     $this->load->view('view_login');
-//					$this->load->view('footer');			
+//					$this->load->view('footer');
+                    
+
+                    
+                    
+                    
+                    
+                    
                 } else {
                     $this->load->view('c_General_fail_msg');
                     show_error($this->email->print_debugger());
@@ -130,6 +160,15 @@ activation-key in the user waiting list.</li>
             $this->load->view("view_registration_account_activation_status", $operations);
          //  $this->load->view('footer');
         }
+    }
+      public function show_profile(){
+         $this->load->view('header');
+        $this->load->view('left_side');
+        $this->load->model('users');
+        $data['profile']=  $this->users->get_profile_details();
+         $this->load->view('User_profile', $data);
+         $this->load->view('footer');
+        
     }
 
     //starting my other function
