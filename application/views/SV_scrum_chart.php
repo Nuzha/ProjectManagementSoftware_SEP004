@@ -1,10 +1,5 @@
 
     
-       
-            
-
-
-    
     <script type="text/javascript" src="js/jquery.js"></script>
      <script type="text/javascript" src="js/chart.js"></script>
     <!--<script type="text/javascript" src="js/chart.js"></script> 
@@ -44,7 +39,7 @@
                         
                         
                         <a  href ="#chartp"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a>
-                         <?php echo anchor('s_scrum_chart/getchart', 'Ge Chart');    ?>
+                         <?php echo anchor('s_scrum_chart/getchart', 'Get Chart');    ?>
                         
                         
                         

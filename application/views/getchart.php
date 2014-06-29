@@ -1,7 +1,4 @@
 
-
-
-
 <?php
 //$con=mysql_connect("localhost","root","") or die("Failed to connect with database!!!!");
 //mysql_select_db("chart", $con); 
