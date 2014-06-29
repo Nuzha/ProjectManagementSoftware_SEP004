@@ -13,9 +13,11 @@ class Main extends CI_Controller {
 
     function index() {
         
+        //$this->load->view('welcom');
         $this->login();
     }
 
+    
     
 //-------------------------------------------shamil----------------------------------------------------------
     public function registration_form() {
