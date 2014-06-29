@@ -32,7 +32,7 @@
       
     <!--this is the div that will hold the pie chart-->
     
-    <a href="#" id="hid">Hide</a>
+   
     <div class="col-md-7 col-md-offset-2">
 		<div class="panel panel-default ">
                     <div class="panel-heading">
