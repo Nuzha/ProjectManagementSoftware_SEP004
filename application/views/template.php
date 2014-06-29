@@ -1,13 +1,5 @@
 
-<div class="navigation">
-<center><?php 
-  // nav bar
-  echo anchor('Main/userStory', 'Add User Story');
-  echo (' | ');
-  
-  echo anchor('scrum_master/UserStorylisting', 'List All User Stories');
-?></center>
-</div>
+
 
 
 

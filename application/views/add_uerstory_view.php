@@ -1,6 +1,23 @@
-
-<div class="container">
-	<div class="col-md-9 col-md-offset-2">
+<div id="page-wrapper">
+    <div class="row">
+        <h3>Backlog</h3>
+        <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+            </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="navigation">
+<center><?php 
+  // nav bar
+  echo anchor('Main/userStory', 'Add User Story');
+  echo (' | ');
+  
+  echo anchor('scrum_master/UserStorylisting', 'List All User Stories');
+?></center>
+</div>
 		<div class="panel panel-default ">
 			<div class="panel-heading">
     			<center><h3 class="panel-title"><strong>Add User Story To Backlog</strong></h3></center>
@@ -62,7 +79,6 @@
              
 </div>
 	</div>
-	</div>
+        </div>
+    </div>
 </div>
-    </body>
-</html>

@@ -71,18 +71,48 @@
         ?>
         <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/images.jpg'); ">
             
-            
+            <div id="wrapper">
             <!--Navigation bar-->
-            <div class = "navbar navbar-inverse navbar-static-top">
-                <div class = "container">
-
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                
+                      <div class="navbar-header">
                     <div class="navbar-brand">Agile Project Management Software</div>
                     <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
                         <span class = "icon-bar"></span>
                         <span class = "icon-bar"></span>
                         <span class = "icon-bar"></span>
                     </button>
-
+                      </div>
+                
+                
+<!--                ------------------------------------------------------------------->
+ <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse ">
+          <ul class="nav navbar-nav side-nav">
+       <li><a class ="menuItem" href ='<?php echo base_url()."main/create_new_project" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Create Project</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."main/Iteration" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Iteration Plan</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."main/userStory" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Backlog</b></a></li>
+                                <li><a  class ="menuItem" href ='<?php echo base_url()."main/project_listing" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  View current Projects</b></a></li>
+                                <li><a  class ="menuItem" href ='<?php echo base_url().""?>'><span class="glyphicon glyphicon-th-large"></span><b>  Work By Person</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/scrum_master_chk_u_status" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  View current Progress Of User Story</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Discussions</b></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Dropdown Item</a></li>
+                <li><a href="#">Another Item</a></li>
+                <li><a href="#">Third Item</a></li>
+                <li><a href="#">Last Item</a></li>
+              </ul>
+            </li>
+          </ul>
+<!--                ====================================================================-->
+                
+                
+                
+                
+                
+                
                     <div class = "collapse navbar-collapse navHeaderCollapse">
                         <ul class = "nav navbar-nav navbar-right">
 
@@ -114,8 +144,8 @@
 
 
 
-                </div>
-            </div>
+                
+            </nav>
 
 
 

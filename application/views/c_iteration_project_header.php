@@ -1,5 +1,13 @@
-
-<div class="col-lg-offset-9  ">
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-7" >
+            <h3>Iteration Plan</h3>
+            <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+            </div>
+        </div>
+<div class="col-lg-5">
       <div class="">
           
 <!--          <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#iteration">Click to open Modal</a>-->
@@ -38,6 +46,8 @@
       </div>
             
           </div>
+    </div>
+</div>
 
    <div class = "modal fade" id = "iteration" tabindex="-1" role="dialog" aria-hidden="true" >
                                             <div class = "modal-dialog">

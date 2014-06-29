@@ -174,15 +174,16 @@ activation-key in the user waiting list.</li>
     //starting my other function
     public function create_new_project() {
         $this->load->view('header');
-        $this->load->view('left_side');
+       // $this->load->view('left_side');
         $this->load->view('create_project');
+       //  $this->load->view('Right_side');
         $this->load->view('footer');
     }
 
     public function create_validate() {
 
         $this->load->view('header');
-        $this->load->view('left_side');
+       // $this->load->view('left_side');
         $this->load->view('footer');
 
         $this->load->library('form_validation');
@@ -199,6 +200,7 @@ activation-key in the user waiting list.</li>
 
             if ($this->project->add_project()) {
                 $this->load->view('view_create_project_sucessfull');
+                 $this->load->view('create_project');
             }
         } else {
 
@@ -321,7 +323,7 @@ public function assign_member(){
         $pid=$this->session->userdata('project_id');
         $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
         $this->load->view('header');
-        $this->load->view('left_side');
+      //  $this->load->view('left_side');
         $this->load->view('template', $data);
         $this->load->view('footer');
     }
@@ -573,12 +575,12 @@ public function assign_member(){
            
           $id['row_i']=$this->project->getProject($id['pro_id'])->result();
         $this->load->view('header');
-        $this->load->view('left_side');
+      //  $this->load->view('left_side');
        $this->load->view('footer');
-       
+        $this->load->view('c_iteration_project_header',$id);
         
         $this->load->view('iteration',$id);
-         $this->load->view('c_iteration_project_header',$id);
+        
         
         
         
@@ -587,7 +589,7 @@ public function assign_member(){
         else{
             $id['row_i']="NULL";
             $this->load->view('header');
-        $this->load->view('left_side');
+    //    $this->load->view('left_side');
         $this->load->view('footer');
          $this->load->view('project_not_selected');
          
@@ -601,8 +603,10 @@ public function assign_member(){
         $this->load->helper('url');
 
         $this->load->model('model_iteration', '', TRUE);
-        $this->model_iteration->add_iteration();
-        redirect('Main/Iteration', 'refresh');
+        $this->model_iteration->add_iteration($this->session->userdata('project_id'));
+       
+        redirect('main/Iteration', 'refresh');
+         $this->load->view('c_Iteration_create_sucessfull');
     }
 
     function Iterationlisting() {

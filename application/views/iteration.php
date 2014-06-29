@@ -1,10 +1,12 @@
 
-<div class="col-md-7 col-md-offset-2"> 
+<div id="page-wrapper"> 
+    <div class="row">
+        <div class="col-lg-12">
              
              <!-- BEGIN: XHTML for example 1.3 -->
 
-			<div id="1">
-
+		
+             <div id="1">
 				<div class="column left first">
                                     <h3><center><span class="label label-primary">User Stories</center></span></h3><br>
                              
@@ -63,8 +65,8 @@
 				
 				<div class="clearer">&nbsp;</div>
 
-			</div>
-
+			
+             </div>
                
   
              
@@ -83,8 +85,10 @@ $(document).ready(function(){
 });
 
 </script>
-
+        </div>
     </div>
+</div>
+   
                                   
                          
 

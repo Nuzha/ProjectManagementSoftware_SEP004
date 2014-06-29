@@ -1,15 +1,10 @@
+  <div id="page-wrapper">
 
-   <div id="workingspace" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
-
-<div class="alert alert-success">
-    <h3 class="panel-title"><strong>Your Project have been created</strong></h3>
-    <a href="<?php echo base_url()."main/create_new_project" ?>">create a new project </a>
-    
-    </br>
-    <?php
-    echo anchor('main/project_listing', 'List All created projects');
-    ?>
+<div class="row">
+        <div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+             <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Your Project have been created.</a> To Choose the created project click on projects !
+            </div>
     </div>
-   </div>
-</body>
-</html>
+  
+  </div>
