@@ -1,5 +1,5 @@
-<div class="col-md-7 col-md-offset-2">
-
+<div id="page-wrapper">
+    <div class="row">
 <div class="alert alert-success">
     
     <a href="" class="close" data-dismiss="alert">&times; </a>
@@ -7,5 +7,6 @@
     
     </br>
     
+    </div>
     </div>
    </div>
