@@ -22,7 +22,7 @@ class scrum_master extends CI_Controller {
         $this->load->model('model_userStory','',TRUE);
         $data['userStory_qry'] = $this->model_userStory->listUserStories($pro_id);
        $this->load->view('header');
-       $this->load->view('left_side');
+       //$this->load->view('left_side');
         $this->load->view('scrum_backlog', $data);
       }
 }

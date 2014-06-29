@@ -1,6 +1,6 @@
-
-    <div class="col-md-7 col-md-offset-2">
-
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
         <h3><center> <span class="label label-default">List of User Stories</span></center></h3>
         <table class="table table-striped">
 
@@ -42,8 +42,8 @@
           </table>
 
 
-
-
+        </div>
+    </div>
     </div>
 <!--</div>-->
 <!-- /container -->

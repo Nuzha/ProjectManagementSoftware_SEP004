@@ -333,7 +333,10 @@ public function assign_member(){
 
         $this->load->model('Model_userStory', '', TRUE);
         $this->Model_userStory->add_userStory();
-        redirect('Main/userStory', 'refresh');
+          $this->load->view('header');
+          $this->load->view('add_user_story_sucess');
+        $this->load->view('footer');
+      //  redirect('Main/userStory', 'refresh');
     }
 
     function listing() {
