@@ -1,9 +1,4 @@
-
-
-
-
-
-    <h3><strong><?php echo $headline;?></strong></h3>
+<h3><strong><?php echo $headline;?></strong></h3>
 
 <?php $this->load->view($include);?>
 

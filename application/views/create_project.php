@@ -13,8 +13,8 @@ $(function(){
     <div class="row">
         <h3>Create Project</h3>
         <div class="alert alert-info alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              You can create a new project here. Please fill your project details here.
             </div>
     </div>
     
