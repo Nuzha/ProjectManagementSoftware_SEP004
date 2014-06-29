@@ -1,6 +1,6 @@
 
 <div class="col-md-7 col-md-offset-2">
-    <h3><center><span class="label label-default">List of Iterations</span></center></h3>
+    <h3><center><span class="label label-default">List of Available Projects</span></center></h3>
   
   <script>
     

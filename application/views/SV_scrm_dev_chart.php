@@ -56,7 +56,7 @@
                             <!--                                                       ------------------------------------------------------>
                             <?php
                             $formattributes = array('class' => 'form-horizontal', 'role' => 'form');
-                            echo form_open('s_scrum_chart/drop_select_sm', $formattributes);
+                            echo form_open('s_scrum_chart/drop_select', $formattributes);
                             ?>
                             <?php
                             //Create the query
@@ -96,5 +96,6 @@
             </div>
 </html>    
         
+
 
 

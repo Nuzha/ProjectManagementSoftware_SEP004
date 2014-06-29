@@ -32,7 +32,7 @@ class S_scrum_chart extends CI_Controller {
         
          $this->load->view('dev_header');
         //$this->load->view('dev_leftside');
-         $this->load->view('SV_scrum_chart');
+         $this->load->view('SV_scrm_dev_chart');
          $this->load->view('dev_leftside');
          
         
@@ -43,7 +43,7 @@ class S_scrum_chart extends CI_Controller {
         
         $this->load->view('dev_header');
         $this->load->view('dev_leftside');
-         $this->load->view('SV_scrum_chart');
+         $this->load->view('SV_scrm_dev_chart');
          
      if($this->input->post('project')){
         $data['selected']=  $this->input->post('project');

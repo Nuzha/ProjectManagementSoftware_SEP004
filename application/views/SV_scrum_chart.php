@@ -38,7 +38,7 @@
                     <div class="panel-heading">
                         
                         
-                        <a  href ="#chartp"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a>
+<!--                        <a  href ="#chartp"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a>-->
                          <?php echo anchor('s_scrum_chart/getchart', 'Get Chart');    ?>
                         
                         
