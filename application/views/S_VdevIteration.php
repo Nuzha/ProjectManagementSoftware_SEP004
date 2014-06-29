@@ -51,6 +51,7 @@
             ?> 
                 <?php
                 // Print out the contents of the entry 
+                
                 echo '<tr class="'.$col->i_status.'">';
                 
                 echo '<td>' . $col->ProjectId . '</td>';

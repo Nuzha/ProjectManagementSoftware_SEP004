@@ -6,6 +6,7 @@
 
     
     <script type="text/javascript" src="js/jquery.js"></script>
+     <script type="text/javascript" src="js/chart.js"></script>
     <!--<script type="text/javascript" src="js/chart.js"></script> 
     
     
@@ -36,14 +37,16 @@
       
     <!--this is the div that will hold the pie chart-->
     
-    
+    <a href="#" id="hid">Hide</a>
     <div class="col-md-7 col-md-offset-2">
 		<div class="panel panel-default ">
                     <div class="panel-heading">
                         
                         
                         <a  href ="#chartp"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a>
-                         <?php echo anchor('s_scrum_chart/getchart', 'Get Chart');    ?>
+                         <?php echo anchor('s_scrum_chart/getchart', 'Ge Chart');    ?>
+                        
+                        
                         
                     </div>
                 </div>

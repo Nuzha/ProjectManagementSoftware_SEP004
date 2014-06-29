@@ -39,6 +39,25 @@ class S_scrum_chart extends CI_Controller {
         
     }
     
+    public function drop_select(){
+        
+        $this->load->view('dev_header');
+        $this->load->view('dev_leftside');
+         $this->load->view('SV_scrum_chart');
+         
+     if($this->input->post('project')){
+        $data['selected']=  $this->input->post('project');
+       // var_dump($data);
+        $this->session->set_flashdata('set_selected',$data['selected']);
+        
+        $this->load->view('testing',$data);
+       
+     }
+     else{
+         echo 'hello';
+     }
+    }
+    
     function update_db(){
        
             //$id = $this->uri->segment(3);
@@ -68,24 +87,7 @@ class S_scrum_chart extends CI_Controller {
         $this->load->view('footer');
         
     }
-    public function drop_select(){
-        
-        $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
-         $this->load->view('SV_scrum_chart');
-         
-     if($this->input->post('project')){
-        $data['selected']=  $this->input->post('project');
-       // var_dump($data);
-        $this->session->set_flashdata('set_selected',$data['selected']);
-        
-        $this->load->view('testing',$data);
-       
-     }
-     else{
-         echo 'hello';
-     }
-    }
+    
      
     //----------------------------scrum master chart--------------------------------------------
     
