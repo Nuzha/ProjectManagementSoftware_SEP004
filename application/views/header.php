@@ -91,20 +91,22 @@
           <ul class="nav navbar-nav side-nav">
        <li><a class ="menuItem" href ='<?php echo base_url()."main/create_new_project" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Create Project</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."main/Iteration" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Iteration Plan</b></a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."main/userStory" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Backlog</b></a></li>
+                                
+                                
+                                 <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-large"></span><b>  Backlog</b></a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href='<?php echo base_url()."main/userStory" ?>'>Add User story</a></li>
+                                      <li><a href='<?php echo base_url()."scrum_master/UserStorylisting"?>'>List all user stories</a></li>
+                                      
+                                    </ul>
+                                  </li>
+                                 
                                 <li><a  class ="menuItem" href ='<?php echo base_url()."main/project_listing" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  View current Projects</b></a></li>
                                 <li><a  class ="menuItem" href ='<?php echo base_url().""?>'><span class="glyphicon glyphicon-th-large"></span><b>  Work By Person</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/scrum_master_chk_u_status" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  View current Progress Of User Story</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Discussions</b></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Dropdown Item</a></li>
-                <li><a href="#">Another Item</a></li>
-                <li><a href="#">Third Item</a></li>
-                <li><a href="#">Last Item</a></li>
-              </ul>
-            </li>
+            
           </ul>
 <!--                ====================================================================-->
                 
