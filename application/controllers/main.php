@@ -270,7 +270,7 @@ activation-key in the user waiting list.</li>
 
     public function add_developer() {
         $this->load->view('header');
-        $this->load->view('left_side');
+      //  $this->load->view('left_side');
          $this->load->view('footer');
         $developer = $this->input->post('tot');
         $project_id=$this->session->userdata('project_id');
@@ -296,7 +296,7 @@ activation-key in the user waiting list.</li>
     }
 public function assign_member(){
      $this->load->view('header');
-        $this->load->view('left_side');
+      //  $this->load->view('left_side');
          $this->load->view('view_assign_developer');
         $this->load->view('footer');
     

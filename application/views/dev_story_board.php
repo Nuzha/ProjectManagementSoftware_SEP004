@@ -1,30 +1,43 @@
 <style>
 .column {
 	margin-left: 2%;
-	width: 22%;
+	width: 30%;
 }
 </style>
-<div class="col-md-10 col-sm-offset-2"> 
+<div id="page-wrapper"> 
+    <div class="row">
+           
+            <div class="col-lg-7">
+                 <div class="panel panel-default ">
+                    <div class="panel-heading">
+                        <h3>Story Board</h3>
+                        
+                       
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
              
              <!-- BEGIN: XHTML for example 1.3 -->
 
 			<div id="example-1-3">
 
 				<div class="column left first">
-                                   <h3><center><span class="label label-info">Assigned User Stories</center></span></h3>
+                                   <h3><center><span class="label label-info">To Do</center></span></h3>
 
 					<ul class="sortable-list">
 						
 					
                                 <?php
                                     $user=$this->session->userdata('USERNAME');
-                            $sql = "SELECT `Description` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail='$owner' ";
+                            $sql = "SELECT `name` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail='$owner' ";
                             $query_resource = mysql_query($sql);
                             
                             while ($project = mysql_fetch_assoc($query_resource)):
                             
                                 ?>
-                                 <li class="sortable-item"><?php echo $project['Description']; ?></li>
+                                 <li class="sortable-item"><?php echo $project['name']; ?></li>
 				
 
                             <?php endwhile; ?>
@@ -32,12 +45,7 @@
 
 				</div>
      
-                             <div class="column left">
-                                <h3><center><span class="label label-danger">To Do</center></span></h3>
-                                 <ul class="sortable-list">	
-					</ul>
-                                
-                            </div>
+                             
                             
                              <div class="column left">
                                <h3><center><span class="label label-warning">In Progress</center></span></h3>
