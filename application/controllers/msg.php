@@ -8,82 +8,108 @@ class Msg extends CI_Controller {
 //3rd iteration
     function loadMessageView() {
         $data['obj'] = $this->session;
+        $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
         $this->load->view('page', '$data');
         $this->load->view('footer');
     }
 
     function inbox() {
         $data['obj'] = $this->session;
+        
+          $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
+        
+      //  $this->load->view('dev_leftside');
         $this->load->view('inbox', $data);
         $this->load->view('footer');
     }
 
     public function users() {
         $data['obj'] = $this->session;
+          $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
+        
+       // $this->load->view('dev_leftside');
         $this->load->view('users', $data);
         $this->load->view('footer');
     }
 
     public function load_list() {
         $data['obj'] = $this->session;
+          $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
+       
+       // $this->load->view('dev_leftside');
         $this->load->view('list', $data);
         $this->load->view('footer');
     }
-    public function load_list_master() {
-        $data['obj'] = $this->session;
-        $this->load->view('header');
-        $this->load->view('left_side');
-        $this->load->view('list', $data);
-        $this->load->view('footer');
-    }
+ 
 
     public function readmsg() {
 
         $data['obj'] = $this->session;
+          $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
+      
+     //   $this->load->view('dev_leftside');
         $this->load->view('read', $data);
         $this->load->view('footer');
     }
     
-     public function readmsg_master() {
-
-        $data['obj'] = $this->session;
-        $this->load->view('header');
-        $this->load->view('leftside');
-        $this->load->view('read', $data);
-        $this->load->view('footer');
-    }
+   
 
     public function newmsger($msg = NULL) {
 
         $data['msg'] = $msg;
         $this->load->helper(array('form', 'url'));
         $data['obj'] = $this->session;
-        $this->load->view('footer');
+        
+          $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
+        $this->load->view('footer');
+        
+      //  $this->load->view('dev_leftside');
         $this->load->view('new_msg', $data);
     }
     
-      public function newmsger_master($msg = NULL) {
-
-        $data['msg'] = $msg;
-        $this->load->helper(array('form', 'url'));
-        $data['obj'] = $this->session;
-        $this->load->view('footer');
-        $this->load->view('header');
-        $this->load->view('left_side');
-        $this->load->view('new_msg', $data);
-    }
+    
 
     function newmsgs() {
 
@@ -118,8 +144,16 @@ class Msg extends CI_Controller {
 
     public function profile() {
         $data['obj'] = $this->session;
+          $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
+        
+     //   $this->load->view('dev_leftside');
         $this->load->view('profile', $data);
         $this->load->view('footer');
     }
@@ -128,8 +162,16 @@ class Msg extends CI_Controller {
         $data['msg'] = $msg;
         $this->load->helper(array('form', 'url'));
         $data['obj'] = $this->session;
+          $type=$this->session->userdata('type');
+        if($type == "Scrum Master"){
+            $this->load->view('header');
+        }
+        else{
         $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+       // $this->load->view('dev_leftside');
+        }
+     
+      //  $this->load->view('dev_leftside');
         $this->load->view('edit', $data);
         $this->load->view('footer');
     }

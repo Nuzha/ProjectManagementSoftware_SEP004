@@ -1,4 +1,6 @@
-<div class="col-md-7 col-md-offset-2">
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-9">
     <div class="well well-small">
 
 <?php $req1 = mysql_query('select * from member');
@@ -19,10 +21,10 @@ if ($msg) {
     <?php echo form_open('msg/newmsgs'); ?> <br/>
     
     <label for="title">Title</label> <br>
-    <input type="text" value="" id="title" name="title" /><br /><br>
+    <input type="text" value="" id="title" name="title" class="form-control"/><br /><br>
     
     <label for="recip">Recipient(Username)</label></br>
-    <select name="recip" multiple="multiple"> <br>
+    <select name="recip" multiple="multiple" class="form-control"> <br>
         <?php
         if ($req1 === FALSE) {
                     die(mysql_error()); // TODO: better error handling
@@ -44,9 +46,11 @@ if ($msg) {
     
     <br>
     <label for="message">Message</label> <br>
-    <textarea cols="30" rows="5" id="message" name="message"></textarea><br />
+    <textarea cols="30" rows="5" id="message" name="message" class="form-control"></textarea><br />
     
     <input class="navbar-btn btn-success btn" type="submit" value="Send"/>
     
+</div>
+        </div>
 </div>
 </div>

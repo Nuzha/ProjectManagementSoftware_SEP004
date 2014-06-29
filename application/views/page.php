@@ -1,4 +1,6 @@
-<div class="col-md-7 col-md-offset-2">
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-9">
 <div class="well well-large">     
 <div class="contents">
     
@@ -34,7 +36,7 @@
         } 
     </style>
 
-     <div class="panel-body">
+     <div id="panel-body">
     
     <a href="<?php echo base_url() . 'masg/users';?>"> See the list of users</a>. <br> <br>
         
@@ -62,5 +64,7 @@
 
     </div>
 </div>
-		 
+</div>
+        </div>
+    </div>
 </div>

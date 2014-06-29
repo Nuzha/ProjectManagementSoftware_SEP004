@@ -1,4 +1,7 @@
 
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-11">
         <?php
         //otherwise, we display the values of the database
         $dnn = mysql_fetch_array(mysql_query('select username,password,email from member where id="' . $this->session->userdata('userid') . '"'));
@@ -39,6 +42,6 @@
 
 
     </div>
-</body>
-</html>
+    </div>
+</div>
 

@@ -1,5 +1,7 @@
-<body>
-    <div class="col-md-7 col-md-offset-2">
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-11">
         <div class="well well-large"> 
                 <?php
                 if ($this->session->userdata('is_logged_in')) {
@@ -105,3 +107,6 @@
                 }
                 ?>
         </div>
+        </div>
+    </div>
+</div>

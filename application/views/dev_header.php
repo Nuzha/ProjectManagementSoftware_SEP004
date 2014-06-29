@@ -37,16 +37,18 @@
     </head>
 
     <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/images.jpg'); ">
+         <div id="wrapper">
         <!--Navigation bar-->
-        <div class = "navbar navbar-inverse navbar-static-top ">
-            <div class = "container">
-
+         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            
+              <div class="navbar-header">
                 <div class = "navbar-brand">Agile Project Management Software</div>
                 <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
                     <span class = "icon-bar"></span>
                     <span class = "icon-bar"></span>
                     <span class = "icon-bar"></span>
                 </button>
+              </div>
 
                 <?php
                  if ($this->session->userdata('is_logged_in')) {
@@ -59,6 +61,19 @@
                     die(mysql_error());
                 }
         ?>
+<!--             ------------------------------------------------------------------------------------------------>
+ <div class="collapse navbar-collapse ">
+     <ul id="leftsidemenu" class="nav navbar-nav side-nav">
+                                
+                                <li><a class ="menuItem" href =''><b>My Work</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."c_my_work/view_story_board" ?>'><b>Story Board</b> </a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/UserStorylisting" ?>'><b>Backlog</b></a></li>
+                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/add_defects" ?>'><b>Defect Log</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/index" ?>'><b>View current Progress Of User Story</b></a></li>
+                                <li><a class ="menuItem" href =''><b>Team Members</b></a></li>
+                            </ul>
+
+<!--             ------------------------------------------------------------------------------------------------->
        
                 <div class = "collapse navbar-collapse navHeaderCollapse">
                     <ul class = "nav navbar-nav navbar-right">
@@ -79,17 +94,16 @@
                         <li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
                         <li class = "dropdown">
 
-                            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"></span></a>
+                            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"><?php echo $this->session->userdata('USERNAME');?></span></a>
                             <ul class = "dropdown-menu">
                                 <li><a href = "<?php echo base_url() . 'msg/profile'; ?>">My Profile</a></li>
                                 <li><a href = "<?php echo base_url() . 'msg/edit'; ?>">Update Profile</a></li>
+                                <li><a href = "<?php echo base_url() . 'main/logout'; ?>"> Logout</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-
+         </nav>
            <div class = "modal fade" id = "project">
                 <div class = "modal-dialog">
                     <div class = "modal-content">
