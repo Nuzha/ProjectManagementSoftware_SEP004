@@ -103,7 +103,7 @@
                                   </li>
                                  
                                 <li><a  class ="menuItem" href ='<?php echo base_url()."main/project_listing" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  View current Projects</b></a></li>
-                                <li><a  class ="menuItem" href ='<?php echo base_url().""?>'><span class="glyphicon glyphicon-th-large"></span><b>  Work By Person</b></a></li>
+                                <li><a  class ="menuItem" href ='<?php echo base_url()."c_my_work/work_by_person"?>'><span class="glyphicon glyphicon-th-large"></span><b>  Work By Person</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/scrum_master_chk_u_status" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  View current Progress Of User Story</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Discussions</b></a></li>
             

@@ -15,12 +15,12 @@
 					
                                 <?php
                            
-                            $sql = "SELECT `Description` FROM `user_stories` WHERE ProjectId=$pro_id  ";
+                            $sql = "SELECT `Description`, `name`  FROM `user_stories` WHERE ProjectId=$pro_id  ";
                             $query_resource = mysql_query($sql);
                             while ($project = mysql_fetch_assoc($query_resource)):
                                
                                 ?>
-                                 <li class="sortable-item"><?php echo $project['Description']; ?></li>
+                                 <li class="sortable-item"><?php echo $project['name']; ?></li>
 				
 
                             <?php endwhile; ?>
@@ -34,9 +34,11 @@
                             
                              <?php
                                 $tot_duration=0;
-                            $sql1 = "SELECT `i_name`,`i_start_date`,`i_end_date` FROM `iteration` WHERE ProjectId=$pro_id ";
+                            $sql1 = "SELECT `i_name`,`i_start_date`,`i_end_date`,`i_name` FROM `iteration` WHERE ProjectId=$pro_id ";
                             $query_resource1 = mysql_query($sql1);
                             while ($project1 = mysql_fetch_assoc($query_resource1)):
+                                $itr_id=$project1['i_name'];
+                             
                                 $s_date=strtotime($project1['i_start_date']);
                                 $e_date=strtotime($project1['i_end_date']);
                                 $duration= $e_date-$s_date ;
@@ -54,7 +56,17 @@
                                 <h5><center><span class="label label-primary">End Date: <?php echo $project1['i_end_date'];?></center></span></h5>
                                 <h5><center><span class="label label-warning">Duration:<?php echo $duration;?></center></span></h5>
                                 <ul class="sortable-list">
-						
+						   <?php
+                           
+                            $sqls = "SELECT `name`  FROM `user_stories` WHERE IterationId='$itr_id ' ";
+                            $query_resources = mysql_query($sqls);
+                            while ($projects = mysql_fetch_assoc($query_resources)):
+                               
+                                ?>
+                                 <li class="sortable-item"><?php echo $projects['name']; ?></li>
+				
+
+                            <?php endwhile; ?>
 					</ul>
                                 
                             </div>

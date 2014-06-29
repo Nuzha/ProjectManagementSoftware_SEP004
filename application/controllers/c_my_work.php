@@ -16,7 +16,7 @@ class C_my_work extends CI_Controller{
          
         if($this->session->userdata('project_id')){
             $this->load->view('dev_header');
-            $this->load->view('dev_leftside');
+           // $this->load->view('dev_leftside');
             $this->load->view('footer');
             $this->load->view('dev_story_board',$id);
             
@@ -24,13 +24,19 @@ class C_my_work extends CI_Controller{
          else{
             $id['row_i']="NULL";
             $this->load->view('dev_header');
-        $this->load->view('dev_leftside');
+      //  $this->load->view('dev_leftside');
         $this->load->view('footer');
          $this->load->view('project_not_selected');
          
          }
         
         
+        
+    }
+    public function work_by_person(){
+        $this->load->view('header');
+        $this->load->view('work_by_person');
+        $this->load->view('footer');
         
     }
     

@@ -95,14 +95,14 @@ class S_scrum_chart extends CI_Controller {
            $this->load->view('header');
         //$this->load->view('dev_leftside');
          $this->load->view('SV_scrm_master_chart');
-         $this->load->view('left_side');
+        // $this->load->view('left_side');
        }
        
        
        public function drop_select_sm(){
         
         $this->load->view('header');
-        $this->load->view('left_side');
+        //$this->load->view('left_side');
          $this->load->view('SV_scrm_master_chart');
          
      if($this->input->post('project')){

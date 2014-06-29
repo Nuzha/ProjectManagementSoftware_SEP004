@@ -1,10 +1,14 @@
-<div class="col-md-7 col-md-offset-2">
-		<div class="panel panel-default ">
-                    <div class="panel-heading"> 
+<div id="page-wrapper">
+    <div class="row">
+    <div class="col-lg-6">
+		<div class="panel panel-primary ">
+                   <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Categorized user stories for selected project .</h3>
+              </div>
 
 
 
-
+ <div class="panel-body">
 
 <?php echo form_open('s_scrum_chart/update_db_sm'); ?>
             <br>
@@ -12,7 +16,7 @@
             <?php 
            
             $p_id=$selected;
-            echo $p_id;
+//            echo $p_id;
 //            $sql_o =$pid;
 //            $res_o = mysql_query($sql_o);
 //            $pid1= mysql_result($res_o,0,'project_id');
@@ -76,7 +80,7 @@
         <div class="form-group">
     	<div class="col-sm-offset-7 col-sm-5">
        <?php
-      				$registerbtnattributes = array('class' => 'btn btn-primary','name'=>'submit','value'=>'Post');
+      				$registerbtnattributes = array('class' => 'btn btn-success','name'=>'submit','value'=>'continue');
 					echo form_submit($registerbtnattributes);
       			?>
 	
@@ -91,4 +95,22 @@
             </div>
                     </div>
                 </div>
- </div>
+    </div>
+    <div class="col-lg-6">
+         <div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+            </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="row">
+        <div class="alert alert-danger alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+            </div>
+    </div>
+    </div>
+</div>
+    
+

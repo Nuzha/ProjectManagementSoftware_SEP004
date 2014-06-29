@@ -1,17 +1,44 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 
 
-<div class="col-md-7 col-md-offset-2">
+<div id="page-wrapper">
+    <div class="row">
 		<div class="panel panel-default ">
                     <div class="panel-heading">
+                        <h3>Current Progress Of User Story</h3>
                         
-                        
-                        <a  href ="#chartm"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a>
-                         <?php echo anchor('s_scrum_chart/getchart', 'Get Chart');    ?>
+                       
                         
                     </div>
                 </div>
                     </div>
+    <div class="row">
+        
+        
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Showing progress through Pie Chart.</h3>
+              </div>
+              <div class="panel-body">
+                <a  href ="#chartm"  data-toggle="modal"><span class="glyphicon glyphicon-th-list"></span><b>Click to select a Projects</b></a>
+                         <?php echo anchor('s_scrum_chart/getchart', 'Get Chart');    ?>
+                <div class="text-right">
+                  <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <div class="col-lg-8">
+             <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+            </div>
+        </div>
+    </div>
+    
+</div>
    
     <div class = "modal fade" id = "chartm">
                 <div class = "modal-dialog">
