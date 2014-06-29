@@ -119,25 +119,13 @@ $(function(){
   			echo form_close();
   		?>
   		
-		</div>
-	
- 
-    
-    
-  
-    
-    
-    
-    
+		</div>   
 </div>
 </div>
     
     
-    <div class="col-lg-4">
-
-
-
-<div class="panel panel-primary">
+ <div class="col-lg-4">
+    <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
               </div>
