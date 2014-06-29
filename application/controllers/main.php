@@ -400,6 +400,11 @@ public function assign_member(){
 
     function edit() {
         $this->load->helper('form');
+        $this->load->model('Model_userStory', '', TRUE);
+        
+        $data['email_list'] = $this->Model_userStory->get_mail();
+        $pid=$this->session->userdata('project_id');
+        $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
 
         $id = $this->uri->segment(3);
         $this->load->model('Model_userStory', '', TRUE);

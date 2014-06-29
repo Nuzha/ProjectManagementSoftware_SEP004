@@ -66,15 +66,45 @@ $jsonTable = json_encode($table);
     }
     </script>
     </head>
+     <body>
+        <div id="page-wrapper">
+        <div class="row">
+        <div class="col-lg-8">
  
-  <body>
-       <div class="col-md-7 col-md-offset-2">
+        <div class="col-md-7 col-md-offset-2">
 		
                    
 
-    <div id="chart_div"></div>
+        <div id="chart_div"></div>
                     </div>
               
-       </div>
-      </body>
+        </div>
+        
+         <div class="col-lg-4">
+             <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-clock-o"></i> Chart Labels</h3>
+              </div>
+              <div class="panel-body">
+                <div class="list-group">
+                  
+                  <a href="#" class="list-group-item">
+                    <span class="badge">Active</span>
+                    <i class="fa fa-comment"></i>The user stories which are in progress.
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">Success</span>
+                    <i class="fa fa-truck"></i>The user stories which are completed.
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">Warning</span>
+                    <i class="fa fa-money"></i>The user stories which are blocked and cannot proceed further because of problems.
+                  </a>
+                </div>
+              </div>
+         </div>
+        </div>
+        </div>
+        
+     </body>
     </html>
