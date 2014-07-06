@@ -3,8 +3,8 @@
         <div class="col-lg-7" >
             <h3>Iteration Plan</h3>
             <div class="alert alert-info alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              Here you can create iterations and manage the backlog by dragging and dropping the user stories to the iterations.
             </div>
         </div>
 <div class="col-lg-5">
@@ -114,8 +114,13 @@
                                 </div>
                                 
                                 
-                                <div class="form-group">
-                                <div class="col-sm-offset-1">
+                                
+                               
+<!--                                                       ------------------------------------------------------->
+                                                    </div>
+                                                    <div class = "modal-footer">
+                                                     <div class="form-group">
+                                <div class="col-sm-offset-0">
                                 <?php
                                 $clearbtnattributes = array('class' => 'btn btn-default', 'name' => 'clear', 'value' => 'Clear', 'type' => 'reset', 'content' => 'Clear', 'data-toggle' => 'tooltip', 'data-original-title' => 'this button will reset all the values in the text feilds');
                                 echo form_button($clearbtnattributes);
@@ -125,18 +130,14 @@
                                 $registerbtnattributes = array('class' => 'btn btn-primary', 'name' => 'create_iteration_submit', 'value' => 'create iteration');
                                 echo form_submit($registerbtnattributes);
                                 ?>
+                                <a class ="btn btn-primary" data-dismiss = "modal">Close</a>
                                 </div>
                                 </div>
 
                                 <?php
                                 echo form_close();
                                 ?>
-                               
-<!--                                                       ------------------------------------------------------->
-                                                    </div>
-                                                    <div class = "modal-footer">
-                                                     
-                                                        <a class ="btn btn-primary" data-dismiss = "modal">Close</a>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

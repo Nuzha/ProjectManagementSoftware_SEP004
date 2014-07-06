@@ -30,9 +30,10 @@
              $id=$project['dis_id'];
             $user=$project['username'];
              $sql_image="SELECT `img_path` FROM member WHERE username='$user'";
+             
              $query_resource2 = mysql_query($sql_image);
              $img = mysql_fetch_assoc($query_resource2);
-
+            
             ?>
            <img width="50" height="50" src="http://localhost/ProjectManagementSoftware_SEP004/uploads/<?php echo $img['img_path']; ?>"/>
 

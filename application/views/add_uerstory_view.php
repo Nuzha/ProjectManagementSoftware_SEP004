@@ -3,8 +3,8 @@
         <div class="col-lg-8">
         <h3>Backlog</h3>
         <div class="alert alert-info alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">Ã—</button>
-              There are two options for charts: <a href="http://www.flotcharts.org/" target="_blank" class="alert-link">Flot charts</a> and <a href="http://www.oesmith.co.uk/morris.js/" class="alert-link" target="_blank">morris.js</a>. Choose which one best suits your needs, and make sure to master the documentation to get the most out of these charts!
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              You can create the backlog by adding new user stories.
             </div>
         
         <div class="panel panel-default ">
@@ -75,11 +75,8 @@
 	</div>
         </div>
         
-         <div class="col-lg-4">
-
-
-
-<div class="panel panel-primary">
+        <div class="col-lg-4">
+    <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
               </div>
@@ -91,31 +88,39 @@
                   </a>
                   <a href="#" class="list-group-item">
                     <span class="badge">4 minutes ago</span>
-                    <i class="fa fa-comment"></i> Commented on a post
+                    <i class="fa fa-comment"></i> You commented on a post
                   </a>
                   <a href="#" class="list-group-item">
                     <span class="badge">23 minutes ago</span>
-                    <i class="fa fa-truck"></i> Order 392 shipped
+                    <i class="fa fa-truck"></i> User Story #10 of Project 01 modified
                   </a>
                   <a href="#" class="list-group-item">
                     <span class="badge">46 minutes ago</span>
-                    <i class="fa fa-money"></i> Invoice 653 has been paid
+                    <i class="fa fa-money"></i> New user stories has been added for Project 02
                   </a>
                   <a href="#" class="list-group-item">
                     <span class="badge">1 hour ago</span>
-                    <i class="fa fa-user"></i> A new user has been added
+                    <i class="fa fa-user"></i> A new user has been added for Project 02
                   </a>
                   <a href="#" class="list-group-item">
                     <span class="badge">2 hours ago</span>
-                    <i class="fa fa-check"></i> Completed task: "pick up dry cleaning"
+                    <i class="fa fa-check"></i> Completed task: "create Administrator login"
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">1 hour ago</span>
+                    <i class="fa fa-globe"></i> Completed user story: "As scrum master I need to add copy or delete work items when...."
                   </a>
                   <a href="#" class="list-group-item">
                     <span class="badge">yesterday</span>
-                    <i class="fa fa-globe"></i> Saved the world
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">two days ago</span>
                     <i class="fa fa-check"></i> Completed task: "fix error on sales page"
+                  </a>
+                   <a href="#" class="list-group-item">
+                    <span class="badge">two days ago</span>
+                    <i class="fa fa-check"></i> Completed task: "fix error on login page"
+                  </a>
+                   <a href="#" class="list-group-item">
+                    <span class="badge">two days ago</span>
+                    <i class="fa fa-check"></i> New user story assigned: "As scrum master I want to view reports so that I can track ..."
                   </a>
                 </div>
                 <div class="text-right">

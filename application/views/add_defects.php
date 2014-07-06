@@ -1,5 +1,5 @@
-<div class="col-md-8 col-md-offset-2">
-
+<div id="page-wrapper">
+    <div class="row">
     <h3><center><span class="label label-default"> Add Defects </span></center></h3>
    <table class="table table-striped">
    
@@ -21,7 +21,7 @@
  
       <tbody>
         
-        
+          
                 <?php
             
 
@@ -98,10 +98,12 @@
                                                
 
                                              
-                                                    
+                                                    </div>
                                                     <div class = "modal-footer">
+                                                         <div class="form-group">
+                                                      <div class="col-sm-offset-0">
                                                         <?php
-                                                        $registerbtnattributes = array('class' => 'btn btn-primary', 'name' => 's_submit', 'value' => 'submit');
+                                                        $registerbtnattributes = array('class' => 'btn btn-success', 'name' => 's_submit', 'value' => 'submit');
                                                         echo form_submit($registerbtnattributes);
                                                         ?>
 
@@ -116,6 +118,7 @@
                                                 </div>
                                             </div>
                                         </div> 
+                    </div>
      
 <!--                -------------------------------------------------------------------------------------------------------------->
             
@@ -131,7 +134,7 @@
       
   </div>
     <!-- /container -->
-    
+</div>
 </body>
 </html>
 

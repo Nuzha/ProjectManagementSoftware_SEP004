@@ -1,7 +1,7 @@
 <style>
 .column {
 	margin-left: 2%;
-	width: 30%;
+	width: 22%;
 }
 </style>
 <div id="page-wrapper"> 
@@ -49,7 +49,19 @@
                             
                              <div class="column left">
                                <h3><center><span class="label label-warning">In Progress</center></span></h3>
-                                 <ul class="sortable-list">	
+                                 <ul class="sortable-list">
+                                              <?php
+                                    $user=$this->session->userdata('USERNAME');
+                            $sql = "SELECT `name` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail='$owner' AND u_status='Active' ";
+                            $query_resource = mysql_query($sql);
+                            
+                            while ($project = mysql_fetch_assoc($query_resource)):
+                            
+                                ?>
+                                 <li class="sortable-item"><?php echo $project['name']; ?></li>
+				
+
+                            <?php endwhile; ?>
 					</ul>
                                 
                             </div>
@@ -57,6 +69,37 @@
                              <div class="column left">
                                 <h3><center><span class="label label-success">Completed</center></span></h3>
                                  <ul class="sortable-list">	
+                                      <?php
+                                    $user=$this->session->userdata('USERNAME');
+                            $sql = "SELECT `name` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail='$owner' AND u_status='Success' ";
+                            $query_resource = mysql_query($sql);
+                            
+                            while ($project = mysql_fetch_assoc($query_resource)):
+                            
+                                ?>
+                                 <li class="sortable-item"><?php echo $project['name']; ?></li>
+				
+
+                            <?php endwhile; ?>
+					</ul>
+                                
+                            </div>
+                            
+                                        <div class="column left">
+                                <h3><center><span class="label label-danger">Blocked</center></span></h3>
+                                 <ul class="sortable-list">	
+                                      <?php
+                                    $user=$this->session->userdata('USERNAME');
+                            $sql = "SELECT `name` FROM `user_stories` WHERE ProjectId=$pro_id AND OwnerEmail='$owner' AND u_status='Warning' ";
+                            $query_resource = mysql_query($sql);
+                            
+                            while ($project = mysql_fetch_assoc($query_resource)):
+                            
+                                ?>
+                                 <li class="sortable-item"><?php echo $project['name']; ?></li>
+				
+
+                            <?php endwhile; ?>
 					</ul>
                                 
                             </div>

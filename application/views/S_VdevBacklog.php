@@ -14,8 +14,8 @@
  
           <th>Iteration</th>
           <th>Plan Estimation</th>
-          <th>Status</th>
           <th>Owner Email</th>
+          <th>Status</th>
         </tr>
        
       </thead>

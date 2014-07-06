@@ -1,5 +1,14 @@
-<div class="container">
-    <div class="col-md-7 col-md-offset-2">
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-5">
+            <nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr></nobr>
+                                                                </nobr>
+                                                                <nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr><nobr></nobr>
+                                                                </nobr>
+        </div>
+        
+        
+        <div class="col-lg-8">
 
 <?php
 
@@ -74,7 +83,7 @@ if ($this->session->userdata('is_logged_in')) {
 
             </div>
         </div>
-
+        </div>
     </div>
 
 </div>
