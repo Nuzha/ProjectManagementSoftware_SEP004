@@ -44,5 +44,20 @@
                 return FALSE;
             }
         }
+        
+        public function recordLoggedInTime(){
+           
+            $email = $this->input->post('email');               
+            $date = time();
+            
+            $data = array(
+               'loginTime' => $date
+            );
+            
+            $this->db->where('email', $email);
+            $this->db->update('member', $data); 
+            return TRUE;
+            
+        }
    }
 ?>
