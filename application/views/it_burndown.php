@@ -1,8 +1,8 @@
 <html>
   <head>
     <!--Load the AJAX API-->
+   
     
-    <?php echo 'test'; $query['query']?>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 

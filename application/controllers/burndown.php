@@ -11,7 +11,7 @@ class Burndown extends CI_Controller {
 
     public function get_it_burndown(){
         $this->load->model('model_burndown'); 
-        $data['query'] = $this->model->getDays();
+        $data['query'] = $this->model_burndown->getDays();
         $this->load->view('it_burndown', $data);
     }
     
