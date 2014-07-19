@@ -2,7 +2,11 @@
   <head>
     <!--Load the AJAX API-->
     
-    <?php echo 'test'; $query['query']?>
+    <?php 
+    //echo 'test'; $query['query'];
+    //echo($data[0]['age']);
+    $final = $userStory_qry[0]['num_of_userstories'];
+    echo $final;?>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 

@@ -73,7 +73,8 @@
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/index" ?>'><b>View current Progress Of User Story</b></a></li>
                                 <li><a class ="menuItem" href =''><b>Team Members</b></a></li>
                                  <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/defect_status_chart" ?>'><b>defect status chart</b></a></li>
-                            </ul>
+                                <li><a  class ="menuItem" href ='<?php echo base_url()."burndown/get_it_burndown" ?>'><b>Burndown</b></a></li>
+     </ul>
 
 <!--             ------------------------------------------------------------------------------------------------->
        

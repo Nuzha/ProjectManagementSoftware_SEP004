@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Chart extends CI_Model {
+class model_burndown extends CI_Model {
 
     public function __construct() {
         parent::__construct();
@@ -11,14 +11,15 @@ class Chart extends CI_Model {
 
     public function getDays() {
 
-       $query = $this->db->query("SELECT  `num_of_userstories` 
-                                  FROM  `iteration` 
-                                  WHERE `i_name` = 'Iteration 01'");
-        if ($query->num_rows() > 0) {
-            return $query->row_array();
-        } else {
-            return NULL;
-        }
+//       $query = $this->db->query("SELECT  `num_of_userstories` 
+//                                  FROM  `iteration` 
+//                                  WHERE `i_name` = 'Iteration 01'");
+//        if ($query->num_rows() > 0) {
+//            return $query->row_array();
+//        } else {
+//            return NULL;
+//        }
+        return $this->db->query("SELECT  num_of_userstories FROM  iteration WHERE i_name = 'Iteration 01'");
     }
 
 }

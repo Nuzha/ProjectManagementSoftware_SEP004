@@ -1,29 +1,6 @@
 <div id="page-wrapper">
     <div class="row">
 
-        <h3><center><span class="label label-default"> Add Defects </span></center></h3>
-        <table class="table table-striped">
-
-            <thead>
-                <tr>
-                    <th>Project ID</th>
-
-                    <th>User Story</th>
-
-                    <th>Description</th>
-
-                    <th>Iteration</th>
-                    <th>Plan Estimation</th>
-                    <th> </th>
-
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-
-
     <h3><center><span class="label label-default"> Add Defects </span></center></h3>
    <table class="table table-striped">
    
