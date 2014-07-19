@@ -13,7 +13,7 @@ class Main extends CI_Controller {
 
     function index() {
         
-        //$this->load->view('welcom');
+        //$this->load->view('it_burndown');
         $this->login();
     }
 
@@ -27,11 +27,7 @@ class Main extends CI_Controller {
 
    public function signup_validate() {
    
-        $this->load->view('register_header');
-       
-       
-   
-  
+        $this->load->view('register_header');  
         $this->load->library('form_validation');
         $this->form_validation->set_rules('fname', 'Full Name', 'required|trim|xss_clean|alpha');
      
@@ -47,14 +43,14 @@ class Main extends CI_Controller {
         $data['title'] = 'Signup';
         if ($this->form_validation->run()) {
             $config = Array(
-//				'protocol' => 'smtp',
-//			  	'smtp_host' => 'ssl://smtp.googlemail.com',
-//			  	'smtp_port' => 465,
-//			  	'smtp_user' => 'clementshamil@gmail.com',
-//			  	'smtp_pass' => '0715773474',
-//			  	'mailtype' => 'html',
-//			  	'charset' => 'iso-8859-1',
-//			  	'wordwrap' => TRUE
+				'protocol' => 'smtp',
+			  	'smtp_host' => 'ssl://smtp.googlemail.com',
+			  	'smtp_port' => 465,
+			  	'smtp_user' => 'fadilanuzha@gmail.com',
+			  	'smtp_pass' => 'mt1891mt1891',
+			  	'mailtype' => 'html',
+			  	'charset' => 'iso-8859-1',
+			  	'wordwrap' => TRUE
 			);
 			$key=md5(uniqid());
                         $message="<h3><b>Agile Project Management Software</h3></b><br/>";
@@ -64,7 +60,7 @@ account.";
 			
                         $this->load->library('email');
                         $this->email->set_newline("\r\n");
-                        $this->email->from('clementshamil@gmail.com'); 
+                        $this->email->from('fadilanuzha@gmail.com'); 
                         $this->email->to($this->input->post('email'));
                         $this->email->subject('Agile Project Management Software');
 			$this->email->message($message);
@@ -97,11 +93,8 @@ account.";
                     $this->load->view('view_registration_success');
                     $this->load->view('view_login');
 //					$this->load->view('footer');
-                    
-
-                    
-                    
-                    
+                         
+                                   
                     
                     
                 } else {
@@ -536,9 +529,9 @@ public function assign_member(){
         $this->load->view('restricted');
     }
 
+    
     public function login_validation() {
         $this->load->library('form_validation');
-
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_validate_credentials');
         $this->form_validation->set_rules('password', 'Password', 'required|md5');
 
@@ -563,10 +556,16 @@ public function assign_member(){
                 'USERNAME' => $get_user,
                 'email' => $this->input->post('email'),
                 'userid' => $id,
-                'is_logged_in' => 1
+                'is_logged_in' => 1,
+                'loginTime' => time(),
             );
+            
             $this->session->set_userdata($data);
+            $this->model_users->recordLoggedInTime();  
             redirect('main/members');
+            
+          //  $this->load->model('s_dev_iterationModel', '', TRUE);         
+            
         } else {
             // $this->load->view('view_login');
 
