@@ -10,10 +10,8 @@ class Burndown extends CI_Controller {
     }
 
     public function get_it_burndown(){
-        $numOfus = $this->load->model('model_burndown');
-       
-        $data['num'] = $numOfus;
-        echo $numOfus;
+        $this->load->model('model_burndown'); 
+        $data['query'] = $this->model->getDays();
         $this->load->view('it_burndown', $data);
     }
     

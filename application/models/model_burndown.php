@@ -15,7 +15,7 @@ class Chart extends CI_Model {
                                   FROM  `iteration` 
                                   WHERE `i_name` = 'Iteration 01'");
         if ($query->num_rows() > 0) {
-            return $query->result();
+            return $query->row_array();
         } else {
             return NULL;
         }
