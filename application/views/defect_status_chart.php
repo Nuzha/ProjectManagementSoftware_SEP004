@@ -1,10 +1,9 @@
-
 <?php
 //$con=mysql_connect("localhost","root","") or die("Failed to connect with database!!!!");
 //mysql_select_db("chart", $con); 
 // The Chart table contains two fields: weekly_task and percentage
 // This example will display a pie chart. If you need other charts such as a Bar chart, you will need to modify the code a little to make it work with bar chart and other charts
-$sth = mysql_query("SELECT status,count FROM userstorystatus");
+$sth = mysql_query("SELECT status,count FROM defect_status");
 
  
 $rows = array();
@@ -54,14 +53,15 @@ $jsonTable = json_encode($table);
       // Create our data table out of JSON data loaded from server.
       var data = new google.visualization.DataTable(<?=$jsonTable?>);
       var options = {
-           title: 'User Story Staus',
-          is3D: 'true',
+           title: 'Defect Status Summarization',
+          //is3D: 'true',
+          pieHole: 0.4,
           width: 800,
           height: 600
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
-      var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+      var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
       chart.draw(data, options);
     }
     </script>
@@ -75,7 +75,7 @@ $jsonTable = json_encode($table);
 		
                    
 
-        <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+        <div id="donutchart" style="width: 900px; height: 500px;"></div>
                     </div>
               
         </div>

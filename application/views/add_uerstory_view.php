@@ -16,7 +16,9 @@
         
         <?php $this->load->helper('form'); ?>
   	<div>
-		<?php echo form_open('Main/create'); ?>
+		<?php echo form_open('Main/create');
+                 echo validation_errors(); ?>
+            
 		
 		<div class="form-group">
 	    <label >Project name:  </label>

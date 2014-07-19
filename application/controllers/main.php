@@ -332,13 +332,31 @@ public function assign_member(){
 
     function create() {
         $this->load->helper('url');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('user_story', 'User Story', 'required');
+        $this->form_validation->set_rules('email', 'Owner Email',  'trim|required|valid_email');
 
-        $this->load->model('Model_userStory', '', TRUE);
-        $this->Model_userStory->add_userStory();
-          $this->load->view('header');
-          $this->load->view('add_user_story_sucess');
-        $this->load->view('footer');
-      //  redirect('Main/userStory', 'refresh');
+		if ($this->form_validation->run() == FALSE)
+		{   
+                         
+                         $this->load->model('Model_userStory', '', TRUE);
+                         $data['title'] = "Add User Story";
+                         $data['headline'] = "";
+                         $data['include'] = 'add_uerstory_view';
+                         $data['email_list'] = $this->Model_userStory->get_mail();
+                         $pid=$this->session->userdata('project_id');
+                         $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
+                         $this->load->view('header');
+                         
+                          $this->load->view('template', $data);
+                        $this->load->view('footer');
+		}
+		else
+		{   
+                    $this->load->model('Model_userStory', '', TRUE);
+                    $this->Model_userStory->add_userStory();
+                    redirect('Main/userStory', 'refresh');
+		}
     }
 
     function listing() {

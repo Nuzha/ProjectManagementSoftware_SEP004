@@ -65,12 +65,14 @@
  <div class="collapse navbar-collapse ">
      <ul id="leftsidemenu" class="nav navbar-nav side-nav">
                                 
-                                <li><a class ="menuItem" href =''><b>My Work</b></a></li>
+                                
+                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/defect_count" ?>'><b>my work</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."c_my_work/view_story_board" ?>'><b>Story Board</b> </a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/UserStorylisting" ?>'><b>Backlog</b></a></li>
                                  <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/add_defects" ?>'><b>Defect Log</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/index" ?>'><b>View current Progress Of User Story</b></a></li>
                                 <li><a class ="menuItem" href =''><b>Team Members</b></a></li>
+                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/defect_status_chart" ?>'><b>defect status chart</b></a></li>
                             </ul>
 
 <!--             ------------------------------------------------------------------------------------------------->
