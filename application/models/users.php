@@ -10,8 +10,7 @@ class Users extends CI_Model{
                         'tusername'=>$this->input->post('username'),
                         'full_name'=>$this->input->post('fname'),
                         'type'=>$this->input->post('type'),
-			'password'=>md5($this->input->post('password')),
-			
+			'password'=>md5($this->input->post('password')),	
 			
 			
 			'key'=>$key,
@@ -41,11 +40,19 @@ class Users extends CI_Model{
 				'email'=>$info->email,
 				'username'=>$info->tusername,
 				'password'=>$info->password,
-                                'img_path'=>$info->img_path);
+                                'img_path'=>$info->img_path,
+                                'signup_date' => time(),
+                                'loginTime' => time(),
+                                );
+                        
 			$query = $this->db->insert('member',$data);
-			if($query){
+			
+                        
+                        if($query){
 				$this->db->where('key',$key);
 				$this->db->delete('temp_users');
+                                
+                               
 				return true;
 			}else{ return false; }			
 		}else{ return false; } 

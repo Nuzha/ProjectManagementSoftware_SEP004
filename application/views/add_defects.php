@@ -6,14 +6,11 @@
          <thead>
         <tr>
          <th>Project ID</th>
- 
-          <th>User Story</th>
- 
-          <th>Description</th>
- 
-          <th>Iteration</th>
-          <th>Plan Estimation</th>
-          <th> </th>
+         <th>User Story</th>
+         <th>Description</th>
+         <th>Iteration</th>
+         <th>Plan Estimation</th>
+         <th> </th>
           
         </tr>
        

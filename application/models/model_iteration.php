@@ -16,7 +16,6 @@ class Model_iteration extends CI_Model {
     {
             $data=array(
                     'ProjectId'=>$id,
-                    
                     'i_name'=>$this->input->post('iterationname'),
                     'i_start_date'=>$this->input->post('I_start_date'),
                     'i_end_date'=>$this->input->post('I_end_date'),
