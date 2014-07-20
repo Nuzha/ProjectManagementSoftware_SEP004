@@ -170,8 +170,9 @@ activation-key in the user waiting list.</li>
     public function create_new_project() {
         $this->load->view('header');
        // $this->load->view('left_side');
-        $this->load->view('create_project');
-       //  $this->load->view('Right_side');
+        $data['include'] = 'n_right_side';
+        $this->load->view('create_project',$data);
+         //$this->load->view('n_right_side');
         $this->load->view('footer');
     }
 

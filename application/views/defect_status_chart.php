@@ -67,10 +67,7 @@ $jsonTable = json_encode($table);
     }
     </script>
     
-        <div id="page-wrapper">
-        <div id="row_44" class="row">
-            
-        <div class="col-lg-5">
+       
  
          <div id="donutchart" ></div>
 		
@@ -79,9 +76,4 @@ $jsonTable = json_encode($table);
        
 <!--                   style="width: 900px; height: 500px;" -->
               
-        </div>
         
-    
-        </div>
-        
-        </div>

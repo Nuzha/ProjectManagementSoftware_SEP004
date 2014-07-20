@@ -1,5 +1,13 @@
 <div id="page-wrapper">
     <div class="row">
+        <?php echo form_open('scrum_master/change_priority'); ?>
+        <div class="form-group">
+    	       <input class = 'btn btn-success' type='submit' value="change priority"/>
+        </div>
+         <?php echo form_close(); ?>
+    </div>
+    <div class="row">
+        
         <div class="col-lg-12">
         <h3><center> <span class="label label-default">List of User Stories</span></center></h3>
         <table class="table table-striped">

@@ -66,15 +66,29 @@
      <ul id="leftsidemenu" class="nav navbar-nav side-nav">
                                 
                                 
-                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/view_charts" ?>'><b>my work</b></a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."c_my_work/view_story_board" ?>'><b>Story Board</b> </a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/UserStorylisting" ?>'><b>Backlog</b></a></li>
-                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/add_defects" ?>'><b>Defect Log</b></a></li>
-                                <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/index" ?>'><b>View current Progress Of User Story</b></a></li>
-                                <li><a class ="menuItem" href =''><b>Team Members</b></a></li>
-                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/defect_status_chart" ?>'><b>defect status chart</b></a></li>
-                                <li><a  class ="menuItem" href ='<?php echo base_url()."burndown/get_it_burndown" ?>'><b>Burndown</b></a></li>
-     </ul>
+                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/view_charts" ?>'><span class="glyphicon glyphicon-th-list"></span><b>  My work</b></a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."c_my_work/view_story_board" ?>'><span class="glyphicon glyphicon-indent-left"></span><b>  Story Board</b> </a></li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/UserStorylisting" ?>'><span class="glyphicon glyphicon-list"></span><b>  Backlog</b></a></li>
+                                
+                                
+                                
+<!--                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/add_defects" ?>'><span class="glyphicon glyphicon-list-alt"></span><b>  Defect Log</b></a></li>-->
+                                 <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span><b>  Defects </b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href='<?php echo base_url() . "main/userStory" ?>'>Defect Log</a></li>
+                                <li><a href='<?php echo base_url() . "main/userStory" ?>'>Add User story</a></li>
+                                <li><a href='<?php echo base_url() . "scrum_master/UserStorylisting" ?>'>List all user stories</a></li>
+
+                            </ul>
+                        </li>
+                                <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/index" ?>'><span class="glyphicon glyphicon-sort-by-attributes"></span><b>  View current Progress Of User Story</b></a></li>
+                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/defect_status_chart" ?>'><span class="glyphicon glyphicon-stats"></span><b>  Defect status chart</b></a></li>
+                            </ul>
+
+                       
+   
+
 
 <!--             ------------------------------------------------------------------------------------------------->
        
@@ -143,7 +157,7 @@
                             <?php endwhile; ?>
 
 
-                            <!--                                                       ------------------------------------------------------->
+                            
                         </div>
                         <div class = "modal-footer">
 

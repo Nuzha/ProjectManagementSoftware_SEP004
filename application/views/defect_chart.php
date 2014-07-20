@@ -1,5 +1,3 @@
-<div id="page-wrapper">
-    <div id="row_44" class="row">
 
 
 <?php
@@ -70,15 +68,11 @@ $jsonTable = json_encode($table);
     
     <!--this is the div that will hold the pie chart-->
     
-    <div class="col-lg-5">
+   
       
     <div id="chart_div"></div>
         
-    </div>
-    </div>
-</div>
-
-
+   
 
 <!-------------------------------------------------defect status chart-------------------------------------------------
 

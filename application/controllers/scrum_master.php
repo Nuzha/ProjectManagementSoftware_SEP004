@@ -11,7 +11,8 @@ class scrum_master extends CI_Controller {
     }
     
     function index() {
-        $this->UserStorylisting();
+       // $this->UserStorylisting();
+        $this->update_priority();
     }
     
     
@@ -24,6 +25,26 @@ class scrum_master extends CI_Controller {
        $this->load->view('header');
        //$this->load->view('left_side');
         $this->load->view('scrum_backlog', $data);
+      }
+        public function change_priority(){
+           $this->load->view('header');
+           $this->load->view('change_priority');
+          
+      }
+      
+      public function update_priority(){
+          
+           $this->load->model('updateList','',TRUE);
+           $array	= $_POST['arrayorder'];
+          
+           $update      =$_POST['update'];
+          
+           $this->updateList->update($array, $update);
+           
+           
+           redirect('scrum_master/change_priority', 'refresh');
+    
+          //echo 'sdfsdf';
       }
 }
 

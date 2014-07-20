@@ -15,10 +15,19 @@ class S_dev_iteration extends CI_Controller {
        // $this->UserStorylisting();
         
     }
+    public function  noti(){
+        $data['include']='n_right_side';
+        $this->load->view('s_my_work', $data);
+    }
     public function view_charts(){
-        $this->load->view('dev_header');
-          $this->defect_count();
-       // $this->defect_status_chart();
+          $this->load->view('dev_header');
+        $this->defect_count();
+        //  $this->noti();
+         
+         $this->defect_status_chart();
+       
+      
+        
       
         
         
@@ -108,10 +117,12 @@ class S_dev_iteration extends CI_Controller {
            $mail = $this->session->userdata['email']; 
            $this->load->model('s_dev_iterationModel','',TRUE);
            $this->s_dev_iterationModel->get_defects($mail);
-           $this->load->view('dev_header');
+          // $this->load->view('dev_header');
 //          // $this->load->view('dev_leftside');
-           $this->load->view('defect_chart');
+           $data['include']='defect_chart';
+         //  $this->load->view('defect_chart');
 //          //$this->load->view('footer');
+           $this->load->view('s_my_work',$data);
            
            
            
@@ -177,9 +188,11 @@ class S_dev_iteration extends CI_Controller {
            $mail = $this->session->userdata['email']; 
            $this->load->model('s_dev_iterationModel','',TRUE);
            $this->s_dev_iterationModel->get_defects_status($mail);
-          $this->load->view('dev_header');
+         // $this->load->view('dev_header');
+          $data['include']='defect_status_chart';
           // $this->load->view('dev_leftside');
-           $this->load->view('defect_status_chart');
+          $this->load->view('s_my_work',$data);
+         //  $this->load->view('defect_status_chart');
           //$this->load->view('footer');
            
         }

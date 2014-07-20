@@ -9,6 +9,7 @@
         <link href="<?php echo base_url() . 'css/dashboardNew.css' ?>" rel = "stylesheet">
         <link href="<?php echo base_url() . 'css/datepicker.css' ?>" rel = "stylesheet">
         <link href="<?php echo base_url() . 'css/datepicker3.css' ?>" rel = "stylesheet">
+       
         <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap.js"></script>
         <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap-datepicker.js"></script>
@@ -50,6 +51,19 @@
                 });
             });
         </script>
+        
+        
+  <style type="text/css">
+	body{
+		background: url(<?php echo base_url().'img/new.jpg'; ?>) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		
+	}
+	
+</style>
     </head>
 
 <?php
@@ -65,7 +79,7 @@ if ($req1 === FALSE) {
     die(mysql_error());
 }
 ?>
-    <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/images.jpg'); ">
+    <body >
 
         <div id="wrapper">
             <!--Navigation bar-->
@@ -119,7 +133,7 @@ if ($req1 === FALSE) {
                                 </ul>
                             </li>
 
-                            <li><a href = "<?php echo base_url() . 'burndown/get_it_burndown'; ?>"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
+                            <li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
 
                             <li class = "dropdown">
                                 <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-user"> <?php echo $username; ?> <b class = "caret"></b></span></a>
