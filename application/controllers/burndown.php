@@ -16,8 +16,9 @@ class Burndown extends CI_Controller {
         
         $data['userStory_qry'] = $this->model_burndown->getUserStories($_POST)->result_array();
         $data['days'] = $this->model_burndown->getDuration($_POST)->result_array();
-        $data['end_dates'] = $this->model_burndown->getEndDates($_POSTT);
+        $data['end_dates'] = $this->model_burndown->getEndDates($_POST);
         $data['start_date'] = $this->model_burndown->getStartDate($_POST)->result_array();        
+        
         $this->load->view('it_burndown', $data);
         $this->load->view('footer');
     }

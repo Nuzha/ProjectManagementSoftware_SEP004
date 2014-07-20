@@ -29,10 +29,7 @@ class C_my_work extends CI_Controller{
          $this->load->view('project_not_selected');
          
          }
-        
-        
-        
-    }
+}
     public function work_by_person(){
         $this->load->view('header');
         $this->load->view('work_by_person');
