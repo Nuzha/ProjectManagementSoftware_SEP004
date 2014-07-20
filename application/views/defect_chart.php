@@ -1,3 +1,7 @@
+<div id="page-wrapper">
+    <div id="row_44" class="row">
+
+
 <?php
 //$con=mysql_connect("localhost","root","") or die("Failed to connect with database!!!!");
 //mysql_select_db("chart", $con); 
@@ -34,9 +38,7 @@ $table['rows'] = $rows;
 $jsonTable = json_encode($table);
 //echo $jsonTable;
 ?>
- 
-<html>
-  <head>
+
     <!--Load the Ajax API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -56,8 +58,8 @@ $jsonTable = json_encode($table);
            title: 'Defect Count',
            vAxis: {title: 'Story Id',  titleTextStyle: {color: 'red'}},
           is3D: 'true',
-          width: 800,
-          height: 600
+          width: 460,
+          height: 400
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
@@ -65,9 +67,20 @@ $jsonTable = json_encode($table);
       chart.draw(data, options);
     }
     </script>
-    </head>
-     <body>
+    
     <!--this is the div that will hold the pie chart-->
+    
+    <div class="col-lg-5">
+      
     <div id="chart_div"></div>
-  </body>
-    </html>
+        
+    </div>
+    </div>
+</div>
+
+
+
+<!-------------------------------------------------defect status chart-------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------->

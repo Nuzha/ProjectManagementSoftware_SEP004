@@ -1,3 +1,5 @@
+
+
 <?php
 //$con=mysql_connect("localhost","root","") or die("Failed to connect with database!!!!");
 //mysql_select_db("chart", $con); 
@@ -35,8 +37,7 @@ $jsonTable = json_encode($table);
 //echo $jsonTable;
 ?>
  
-<html>
-  <head>
+
     <!--Load the Ajax API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -56,8 +57,8 @@ $jsonTable = json_encode($table);
            title: 'Defect Status Summarization',
           //is3D: 'true',
           pieHole: 0.4,
-          width: 800,
-          height: 600
+          width: 460,
+          height: 400
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
@@ -65,46 +66,22 @@ $jsonTable = json_encode($table);
       chart.draw(data, options);
     }
     </script>
-    </head>
-     <body>
+    
         <div id="page-wrapper">
-        <div class="row">
-        <div class="col-lg-8">
+        <div id="row_44" class="row">
+            
+        <div class="col-lg-5">
  
-        <div class="col-md-7 col-md-offset-2">
+         <div id="donutchart" ></div>
 		
                    
 
-        <div id="donutchart" style="width: 900px; height: 500px;"></div>
-                    </div>
+       
+<!--                   style="width: 900px; height: 500px;" -->
               
         </div>
         
-         <div class="col-lg-4">
-             <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-clock-o"></i> What these labels mean? </h3>
-              </div>
-              <div class="panel-body">
-                <div class="list-group">
-                  
-                  <a href="#" class="list-group-item">
-                    <span class="badge">Active</span>
-                    <i class="fa fa-comment"></i>The user stories which are in progress.
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">Success</span>
-                    <i class="fa fa-truck"></i>The user stories which are completed.
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">Warning</span>
-                    <i class="fa fa-money"></i>The user stories which are blocked and cannot proceed further because of problems.
-                  </a>
-                </div>
-              </div>
-         </div>
-        </div>
+    
         </div>
         
-     </body>
-    </html>
+        </div>

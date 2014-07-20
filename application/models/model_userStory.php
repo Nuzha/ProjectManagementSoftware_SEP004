@@ -25,7 +25,8 @@ class Model_userStory extends CI_Model {
 	
     function listUserStories($pro_id)
     {
-      return $this->db->get_where('user_stories',array('ProjectId'=> $pro_id));
+//      return $this->db->get_where('user_stories',array('ProjectId'=> $pro_id));
+        return $this->db->query("select * from user_stories where ProjectId=$pro_id order by listorder");
     }
 
     function getStory($id)

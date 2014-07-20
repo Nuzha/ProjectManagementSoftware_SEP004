@@ -119,7 +119,7 @@ if ($req1 === FALSE) {
                                 </ul>
                             </li>
 
-                            <li><a href = "#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
+                            <li><a href = "<?php echo base_url() . 'burndown/get_it_burndown'; ?>"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
 
                             <li class = "dropdown">
                                 <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-user"> <?php echo $username; ?> <b class = "caret"></b></span></a>

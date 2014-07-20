@@ -66,7 +66,7 @@
      <ul id="leftsidemenu" class="nav navbar-nav side-nav">
                                 
                                 
-                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/defect_count" ?>'><b>my work</b></a></li>
+                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/view_charts" ?>'><b>my work</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."c_my_work/view_story_board" ?>'><b>Story Board</b> </a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/UserStorylisting" ?>'><b>Backlog</b></a></li>
                                  <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/add_defects" ?>'><b>Defect Log</b></a></li>

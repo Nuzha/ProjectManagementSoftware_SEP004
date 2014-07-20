@@ -12,9 +12,17 @@ class S_dev_iteration extends CI_Controller {
     
     function index() {
        
-        $this->UserStorylisting();
+       // $this->UserStorylisting();
+        
     }
-
+    public function view_charts(){
+        $this->load->view('dev_header');
+          $this->defect_count();
+       // $this->defect_status_chart();
+      
+        
+        
+    }
     function Iterationlisting()
       {
         //$this->load->library('table');
@@ -105,32 +113,23 @@ class S_dev_iteration extends CI_Controller {
            $this->load->view('defect_chart');
 //          //$this->load->view('footer');
            
+           
+           
+           
+           
+            // $this->load->helper('url');
+          // $mail = $this->session->userdata['email']; 
+        //   $this->load->model('s_dev_iterationModel','',TRUE);
+           $this->s_dev_iterationModel->get_defects_status($mail);
+        //  $this->load->view('dev_header');
+          // $this->load->view('dev_leftside');
+           $this->load->view('defect_status_chart');
+          //$this->load->view('footer');
+           
         }
         
-        function view_defects() {
-        $this->load->helper('form');
-//        $this->load->model('Model_userStory', '', TRUE);
-//        
-//        $data['email_list'] = $this->Model_userStory->get_mail();
-//        $pid=$this->session->userdata('project_id');
-//        $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
-//
-//        $id = $this->uri->segment(3);
-//        $this->load->model('Model_userStory', '', TRUE);
-//        $data['row'] = $this->Model_userStory->getStory($id)->result();
-//
-//        // display information for the view
-//        $data['title'] = "Edit User Story";
-//        $data['headline'] = "";
-//        $data['include'] = 'userStoryEdit';
-//
-//        $this->load->view('header');
-//        $this->load->view('left_side');
-//
-//        $this->load->view('template', $data);
-        
-        $uid = $this->uri->segment(3);
-        $this->session->set_flashdata('u_id', $uid);
+        function view_defects($uid) {
+            
        
         $this->load->model('s_dev_iterationModel','',TRUE);
         $data['defect_qry'] =$this->s_dev_iterationModel->get_defects_for_uid($uid);
@@ -145,29 +144,29 @@ class S_dev_iteration extends CI_Controller {
     
     function defect_listing()
     {
-        $u_id=$this->session->flashdata('u_id');
-        echo $u_id;
-       
-       $this->load->model('s_dev_iterationModel','',TRUE);
-        $data['defect_qry'] =$this->s_dev_iterationModel->get_defects_for_uid($u_id);
-        //$this->load->view('dev_header');
+        $u_id = $this->session->userdata('u_id');
+
+        var_dump($u_id);
+        $this->load->model('s_dev_iterationModel', '', TRUE);
+        $data['defect_qry'] = $this->s_dev_iterationModel->get_defects_for_uid($u_id);
+        $this->load->view('dev_header');
         //$this->load->view('dev_leftside');
         $this->load->view('view_defects', $data);
-       // $this->load->view('footer');
+        $this->load->view('footer');
         
     }
     
     function update_defect_status() {
         $this->load->helper('url');
-        $did=  $this->input->post('ID');
-        $dstatus=  $this->input->post('category');
+        $did = $this->input->post('ID');
+        $dstatus = $this->input->post('category');
 
         $this->load->model('s_dev_iterationModel', '', TRUE);
-       $this->s_dev_iterationModel->update_defect_status($did, $dstatus);
-       
-      
-       
-      //$this->load->view('view_defects', $data);
+        $this->s_dev_iterationModel->update_defect_status($did, $dstatus);
+
+
+
+        //$this->load->view('view_defects', $data);
         redirect('s_dev_iteration/defect_listing', 'refresh');
        
     }
@@ -178,7 +177,7 @@ class S_dev_iteration extends CI_Controller {
            $mail = $this->session->userdata['email']; 
            $this->load->model('s_dev_iterationModel','',TRUE);
            $this->s_dev_iterationModel->get_defects_status($mail);
-           $this->load->view('dev_header');
+          $this->load->view('dev_header');
           // $this->load->view('dev_leftside');
            $this->load->view('defect_status_chart');
           //$this->load->view('footer');
