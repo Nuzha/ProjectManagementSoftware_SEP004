@@ -10,9 +10,15 @@ class Burndown extends CI_Controller {
     }
 
     public function get_it_burndown(){
-        $this->load->model('model_burndown'); 
-        $data['query'] = $this->model_burndown->getDays();
+       
+        $this->load->model('model_burndown','',TRUE);
+        
+        $data['userStory_qry'] = $this->model_burndown->getUserStories()->result_array();
+        $data['days'] = $this->model_burndown->getDuration()->result_array();
+        $data['end_dates'] = $this->model_burndown->getEndDates();
+        $data['start_date'] = $this->model_burndown->getStartDate()->result_array();
+        
         $this->load->view('it_burndown', $data);
     }
     
- }
+}
