@@ -5,23 +5,22 @@
    
     //Total user stories
     $totalUs = $userStory_qry[0]['num_of_userstories'];
-    echo $totalUs;
+    //echo $totalUs;
 
     //Iteration Duration
     $duration = $days[0]['Duration'];
-    echo $duration;
+    //echo $duration;
    
     //Iteration Start date
-    $s_date = $start_date[0]['i_start_date'];
-    echo $s_date;
+    $s_date = strtotime($start_date[0]['i_start_date']);
+    //echo $s_date;
   
     //Worked dates for actual values
+    $dateArr = array();
+    $i = 0;
     foreach ($end_dates->result() as $dates)
     {
-         //echo $dates->end_date; 
-         //echo date('y/m/d', strtotime($dates->end_date));   
-        
-         $dateArr[] = (date('d-m-y', strtotime($dates->end_date))); 
+        $dateArr[$i++] = strtotime($dates->end_date);
     }
     ?>
     
@@ -41,9 +40,18 @@
         
         var days = <?php echo json_encode($duration); ?>;
         var userStories = <?php echo json_encode($totalUs); ?>;
-        var itrStartDate = new Date(2014, 7, 1); //<?php //echo json_encode($s_date); ?>;
-        //var usEndDates = <?php //echo json_encode($dateArr); ?>;
-        var usEndDates = [new Date(2014, 7, 2), new Date(2014, 7, 10), new Date(2014, 7, 20), new Date(2014, 7, 22), new Date(2014, 7, 24)];
+        
+        var timeStamp  = <?php echo json_encode($s_date); ?>;
+        var itrStartDate = new Date(timeStamp*1000);
+               
+        var timeStamps = <?php echo json_encode($dateArr); ?>;
+        var usEndDates = [];
+        var i = 0;
+        timeStamps.forEach(function(stamp) {
+                usEndDates[i++] = new Date(stamp*1000);
+        });
+        //[new Date(2014, 7, 2), new Date(2014, 7, 10), new Date(2014, 7, 20), new Date(2014, 7, 22), new Date(2014, 7, 24)];
+        alert(usEndDates);
         
         var daysPerUserStory = days / userStories;
         
@@ -54,7 +62,7 @@
         var currentUS = 0;
         
         for (var i = 0; i <= days; i++) {
-          if (currentUS < usEndDates.length && currentDate.getTime() == usEndDates[currentUS].getTime()) {
+          if (currentUS < usEndDates.length && currentDate.getTime() <= usEndDates[currentUS].getTime()) {
             i--; // have to check the same day next time. there could be two or more user stories ending on the same day
             currentUS++;
           } else {
