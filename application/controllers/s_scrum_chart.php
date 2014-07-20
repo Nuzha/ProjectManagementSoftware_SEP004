@@ -81,7 +81,7 @@ class S_scrum_chart extends CI_Controller {
     }
     
     function getchart(){
-          $this->load->view('dev_header');
+        $this->load->view('dev_header');
         $this->load->view('dev_leftside');
         $this->load->view('getchart');
         $this->load->view('footer');

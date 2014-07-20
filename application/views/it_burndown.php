@@ -41,8 +41,8 @@
         
         var days = <?php echo json_encode($duration); ?>;
         var userStories = <?php echo json_encode($totalUs); ?>;
-        var itrStartDate = <?php echo json_encode($s_date); ?>;// new Date(2014, 7, 1);
-      
+        var itrStartDate = new Date(2014, 7, 1);
+      //<?php //echo json_encode($s_date); ?>;
         //var usEndDates = <?php //echo json_encode($dateArr); ?>;
         var usEndDates = [new Date(2014, 7, 2), new Date(2014, 7, 10), new Date(2014, 7, 20), new Date(2014, 7, 22), new Date(2014, 7, 24)];
         
@@ -75,9 +75,9 @@
 
         // Set chart options
         var options = {'title':'Burnt Down Chart',
-                       'width':400,
-                       'height':300,
-                       'colors': ['red', 'green'],
+                       'width':500,
+                       'height':400,
+                       'colors': ['blue', 'red'],
                        'vAxis': {
                           viewWindow:{
                             'max': Math.ceil(userStories / 4) * 4
@@ -95,5 +95,6 @@
   <body>
     <!--Div that will hold the chart-->
     <div id="chart_div"></div>
+   
   </body>
 </html>

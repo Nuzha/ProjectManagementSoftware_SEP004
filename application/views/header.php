@@ -111,12 +111,12 @@ if ($req1 === FALSE) {
 
                         <li><a  class ="menuItem" href ='<?php echo base_url() . "main/project_listing" ?>'><span class="glyphicon glyphicon-th-list"></span><b>  View current Projects</b></a></li>
                         <li><a  class ="menuItem" href ='<?php echo base_url() . "c_my_work/work_by_person" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-align-left"></span><b>  Work By Person</b></a></li>
-                        <li><a class ="menuItem" href ='<?php echo base_url() . "s_scrum_chart/scrum_master_chk_u_status" ?>'><span class="glyphicon glyphicon-stats"></span><b>  Progress Charts</b></a></li>
+                        <!--<li><a class ="menuItem" href ='<?php //echo base_url() . "s_scrum_chart/scrum_master_chk_u_status" ?>'><span class="glyphicon glyphicon-stats"></span><b>  Progress Charts</b></a></li>-->
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-statss"></span><b>  Progress Charts</b></a>
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span><b>  Progress Charts</b></a>
                             <ul class="dropdown-menu">
                                 <li><a href='<?php echo base_url() . "s_scrum_chart/scrum_master_chk_u_status" ?>'> Progress of User Stories</a></li>
-                                <li><a href='<?php echo base_url() . "burndown/get_it_burndown" ?>'> Iteration Burndown</a></li>
+                                <li><a href='<?php echo base_url() . "burndown/getDetails" ?>'> Iteration Burndown</a></li>
 
                             </ul>
                         </li>
