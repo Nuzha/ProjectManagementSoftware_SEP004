@@ -1,47 +1,25 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-6">
-        <div class="panel panel-success">
+        <div class="panel panel-default">
                     <div class="panel-heading">
         <h3>Change Priority Of a User Story</h3>
                     </div>
         </div>
     </div>
+        
+        <div class="col-lg-5">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h5>Selected project details : <?php echo $this->session->userdata('project_name')?></h5>
+                </div>
+            </div>
+        </div>
+                
+            
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h5>Selected project details</h5>
-                </div>
-                <div class="panel-body">
-            <div class="form-group">
-	    <label >Project name:  </label>
-            <input class="form-control" id="disabledInput" type="text" placeholder="<?php echo $this->session->userdata('project_name')?>" disabled>
-	   	
-	    </div>
-            <?php  
-              $pro_id=$this->session->userdata('project_id');
-             $sql1 = "SELECT `project_id`,`start_date`,`end_date` FROM `project_summary` WHERE project_id=$pro_id ";
-             $query_resource = mysql_query($sql1);
-             
-              while ($project = mysql_fetch_assoc($query_resource)):
-            ?>
-            <div class="form-group">
-	    <label >Project start date:  </label>
-            <input class="form-control"  type="text" placeholder="<?php echo $project['start_date']?>" disabled>
-	   	
-	    </div>
-            <div class="form-group">
-	    <label >Project end date:  </label>
-            <input class="form-control"  type="text" placeholder="<?php echo $project['end_date']?>" disabled>
-	   	
-	    </div>
-            
-            <?php  endwhile; ?>
-                </div>    
-        </div>
-        </div>
+       
     </div>
     <div class="row">
         <div class="col-lg-11">
