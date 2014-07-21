@@ -56,8 +56,8 @@ $jsonTable = json_encode($table);
            title: 'Defect Count',
            vAxis: {title: 'Story Id',  titleTextStyle: {color: 'red'}},
           is3D: 'true',
-          width: 460,
-          height: 400
+          width: 800,
+          height: 600
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
@@ -70,7 +70,7 @@ $jsonTable = json_encode($table);
     
    
       
-    <div id="chart_div"></div>
+    <div id="chart_div" style="width: 1000px; height: 600px;"></div>
         
    
 

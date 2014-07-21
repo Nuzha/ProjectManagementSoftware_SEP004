@@ -117,26 +117,11 @@ class S_dev_iteration extends CI_Controller {
            $mail = $this->session->userdata['email']; 
            $this->load->model('s_dev_iterationModel','',TRUE);
            $this->s_dev_iterationModel->get_defects($mail);
-          // $this->load->view('dev_header');
-//          // $this->load->view('dev_leftside');
-           $data['include']='defect_chart';
-         //  $this->load->view('defect_chart');
-//          //$this->load->view('footer');
-           $this->load->view('s_my_work',$data);
-           
-           
-           
-           
-           
-            // $this->load->helper('url');
-          // $mail = $this->session->userdata['email']; 
-        //   $this->load->model('s_dev_iterationModel','',TRUE);
-           $this->s_dev_iterationModel->get_defects_status($mail);
-        //  $this->load->view('dev_header');
-          // $this->load->view('dev_leftside');
-           $this->load->view('defect_status_chart');
-          //$this->load->view('footer');
-           
+            $this->load->view('dev_header');
+
+            $this->load->view('defect_chart');
+            //$this->load->view('footer');
+         
         }
         
         function view_defects($uid) {
@@ -188,13 +173,20 @@ class S_dev_iteration extends CI_Controller {
            $mail = $this->session->userdata['email']; 
            $this->load->model('s_dev_iterationModel','',TRUE);
            $this->s_dev_iterationModel->get_defects_status($mail);
-         // $this->load->view('dev_header');
-          $data['include']='defect_status_chart';
+            $this->load->view('dev_header');
+            $data['include']='defect_status_chart';
           // $this->load->view('dev_leftside');
-          $this->load->view('s_my_work',$data);
-         //  $this->load->view('defect_status_chart');
+          //$this->load->view('s_my_work',$data);
+             $this->load->view('defect_status_chart');
           //$this->load->view('footer');
            
+        }
+        
+        function dev_mywork()
+        {
+            $this->load->view('dev_header');
+            $this->load->view('dev_mywork');
+            $this->load->view('footer');
         }
     
     

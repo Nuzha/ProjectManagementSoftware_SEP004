@@ -57,8 +57,14 @@ $jsonTable = json_encode($table);
            title: 'Defect Status Summarization',
           //is3D: 'true',
           pieHole: 0.4,
-          width: 460,
-          height: 400
+          width: 1000,
+          height: 600,
+          chartArea: {
+            backgroundColor: {
+                stroke: '#4322c0',
+                strokeWidth: 10
+                }
+                }
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
@@ -70,6 +76,7 @@ $jsonTable = json_encode($table);
        
  
          <div id="donutchart" ></div>
+
 		
                    
 
