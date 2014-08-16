@@ -56,8 +56,8 @@ $jsonTable = json_encode($table);
       var options = {
            title: 'User Story Staus',
           is3D: 'true',
-          width: 800,
-          height: 600
+          width: 600,
+          height: 400
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
@@ -67,7 +67,15 @@ $jsonTable = json_encode($table);
     </script>
     </head>
      <body>
-        <div id="page-wrapper">
+     <div id="page-wrapper">
+
+     <div class="row">
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <h3>User Story Progress Chart</h3>
+            </div>
+        </div>
+    </div>    
         <div class="row">
         <div class="col-lg-8">
  

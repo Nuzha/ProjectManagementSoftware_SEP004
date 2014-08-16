@@ -57,8 +57,8 @@ $jsonTable = json_encode($table);
            title: 'Defect Status Summarization',
           //is3D: 'true',
           pieHole: 0.4,
-          width: 1000,
-          height: 600,
+          width: 600,
+          height: 400,
           chartArea: {
             backgroundColor: {
                 stroke: '#4322c0',
@@ -74,7 +74,16 @@ $jsonTable = json_encode($table);
     </script>
     
        
- 
+  <div id="page-wrapper">
+
+    <div class="row">
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <h3>Defect Status Summarization</h3>
+            </div>
+        </div>
+    </div>
+      
          <div id="donutchart" ></div>
 
 		

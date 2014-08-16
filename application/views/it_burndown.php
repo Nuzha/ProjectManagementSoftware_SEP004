@@ -51,7 +51,7 @@
                 usEndDates[i++] = new Date(stamp*1000);
         });
         //[new Date(2014, 7, 2), new Date(2014, 7, 10), new Date(2014, 7, 20), new Date(2014, 7, 22), new Date(2014, 7, 24)];
-        alert(usEndDates);
+        //alert(usEndDates);
         
         var daysPerUserStory = days / userStories;
         
@@ -100,8 +100,16 @@
   </head>
 
   <body>
+      <div id="page-wrapper"> 
+      <div class="row">
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <h3>Iteration Burndown Chart</h3>
+            </div>
+        </div>
+    </div>
     <!--Div that will hold the chart-->
     <div id="chart_div"></div>
-   
+      </div>
   </body>
 </html>

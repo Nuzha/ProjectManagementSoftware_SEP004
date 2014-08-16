@@ -70,7 +70,7 @@
                                 <li><a class ="menuItem" href ='<?php echo base_url()."c_my_work/view_story_board" ?>'><span class="glyphicon glyphicon-indent-left"></span><b>  Story Board</b> </a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/UserStorylisting" ?>'><span class="glyphicon glyphicon-list"></span><b>  Backlog</b></a></li>
                                 
-                                
+                                <li><a class ="menuItem" href ='<?php echo base_url()."su_new/index" ?>'><span class="glyphicon glyphicon-list"></span><b>new</b></a></li> 
                                 
 <!--                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/add_defects" ?>'><span class="glyphicon glyphicon-list-alt"></span><b>  Defect Log</b></a></li>-->
                                  <li class="dropdown">

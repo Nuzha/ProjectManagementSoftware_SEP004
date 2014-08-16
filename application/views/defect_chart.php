@@ -56,8 +56,8 @@ $jsonTable = json_encode($table);
            title: 'Defect Count',
            vAxis: {title: 'Story Id',  titleTextStyle: {color: 'red'}},
           is3D: 'true',
-          width: 800,
-          height: 600
+          width: 650,
+          height: 500
         };
       // Instantiate and draw our chart, passing in some options.
       // Do not forget to check your div ID
@@ -69,9 +69,19 @@ $jsonTable = json_encode($table);
     <!--this is the div that will hold the pie chart-->
     
    
-      
+   <div id="page-wrapper">
+
+    <div class="row">
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <h3>Defect Count Chart</h3>
+            </div>
+        </div>
+    </div>
+       
     <div id="chart_div" style="width: 1000px; height: 600px;"></div>
-        
+     
+   </div>
    
 
 <!-------------------------------------------------defect status chart-------------------------------------------------
