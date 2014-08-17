@@ -47,6 +47,7 @@
 
               $(document).ready(function() {
                 checkNotification();
+                setInterval(function() {checkNotification();}, 60000);
               });
         </script>
         
