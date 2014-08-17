@@ -32,23 +32,18 @@
 <!--Notifications-->
         <script>
         
-        function checkNotification() {
+            function checkNotification() {
                 $.ajax({
-                type: "get",
-                //url : "notification.php",
-                url: "<?php echo base_url() . 'c_notify/notify'; ?>",
-                
-            
-                success: function(data){
-                //alert('done');
-                $('#notification-bar').html(data);
-                
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                alert(errorThrown);
-               }
+                    type: "get",
+                    url: "<?php echo base_url() . 'c_notify/notify'; ?>",
+                    success: function(data){
+                        $('#notification-bar').html(data);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
                 });
-              }
+            }
 
               $(document).ready(function() {
                 checkNotification();
