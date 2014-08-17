@@ -121,7 +121,7 @@
     <body >
                 
         <!-- Right menu element-->
-        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
+        <nav id="notification-bar" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
             
          <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
               
