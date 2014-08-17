@@ -33,10 +33,21 @@
                 });
             }
             $(document).ready(myFunction);
-        </script>            
+        </script>   
+        <style type="text/css">
+	body{
+		background: url(<?php echo base_url().'img/new.jpg'; ?>) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		
+	}
+	
+</style>
     </head>
 
-    <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/images.jpg'); ">
+    <body >
          <div id="wrapper">
         <!--Navigation bar-->
          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -84,7 +95,9 @@
                         </li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_scrum_chart/index" ?>'><span class="glyphicon glyphicon-sort-by-attributes"></span><b>  View current Progress Of User Story</b></a></li>
                                  <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/defect_status_chart" ?>'><span class="glyphicon glyphicon-stats"></span><b>  Defect status chart</b></a></li>
+                                   <li><a  class ="menuItem" href ='<?php echo base_url()."upload_ducument/list_attachment" ?>'><span class="glyphicon glyphicon-th-list"></span><b>Additional Documents</b></a></li>
                             </ul>
+     
 
                        
    

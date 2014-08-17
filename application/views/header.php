@@ -215,7 +215,14 @@
                             </ul>
                         </li>
                         <li><a class ="menuItem" href ='<?php echo base_url() . "c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon glyphicon-question-sign"></span><b>  Discussions</b></a></li>
+                         <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span><b>  Upload Additional Document</b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href='<?php echo base_url() . "scrum_master/view_page" ?>'> Upload Files</a></li>
+                                <li><a href='<?php echo base_url() . "scrum_master/list_all_attachment" ?>'> List All Upload Files</a></li>
 
+                            </ul>
+                        </li>
                     </ul>
 
             <!--Navigation Bar-->

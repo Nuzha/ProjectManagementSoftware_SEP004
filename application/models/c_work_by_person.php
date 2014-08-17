@@ -93,6 +93,23 @@ class C_work_by_person extends CI_Model{
         }
     }
     
+    public function get_all_user_story($owner_email){
+          $pro_id=$this->session->userdata('project_id');
+         
+         
+             $this->db->select();
+        $query = $this->db->query("SELECT u_status,StoryId,name, Description FROM `user_stories` WHERE OwnerEmail='$owner_email' AND ProjectId=$pro_id ");
+
+        if ($query->num_rows > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+         
+         
+        
+    }
+    
     
 }
 ?>
