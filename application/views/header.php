@@ -121,12 +121,12 @@
     <body >
                 
         <!-- Right menu element-->
-        <nav id="notification-bar" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
             
          <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
               
               <div class="panel-body" id="">
-                <div class="list-group">
+                <div id="notification-bar" class="list-group">
                   <a href="#" class="list-group-item">
                     <span class="badge">just now</span>
                     <i class="fa fa-calendar"></i> Calendar updated
