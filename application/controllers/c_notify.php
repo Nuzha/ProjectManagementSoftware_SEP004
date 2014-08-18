@@ -14,6 +14,7 @@ class C_notify extends CI_Controller {
         //$input = '/application/views/notification.php';
         //echo $input;
         $this->load->view('notification');
+        
     }
 }
 ?>

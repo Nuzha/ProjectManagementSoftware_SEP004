@@ -45,8 +45,8 @@ class Model_burndown extends CI_Model {
     
      public function getIterations($data) {
          $pro_name=$_POST['project_category'];
-        // $it_name=$_POST['release'];
-         return $this->db->query("SELECT  i_id FROM release WHERE `ProjectId` =$pro_name");
+         $it_name=$_POST['release'];
+         return $this->db->query("SELECT  `it_id` FROM  `release` WHERE `project_id` = $pro_name");
     }
 }
 

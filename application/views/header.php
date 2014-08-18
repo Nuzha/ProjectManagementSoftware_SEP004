@@ -40,7 +40,7 @@
                 
             
                 success: function(data){
-                alert('done');
+                //alert('done');
                 $('#notification-bar').html(data);
                 
                 },
@@ -117,6 +117,7 @@
         die(mysql_error());
     }
     ?>
+    
     <body >
                 
         <!-- Right menu element-->
@@ -210,7 +211,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href='<?php echo base_url() . "s_scrum_chart/scrum_master_chk_u_status" ?>'> Progress of User Stories</a></li>
                                 <li><a href='<?php echo base_url() . "burndown/getDetails" ?>'> Iteration Burndown</a></li>
-                                <li><a href='<?php echo base_url() . "burndown/get_release_burndown" ?>'> Release Burndown</a></li>
+                                <li><a href='<?php echo base_url() . "burndown/get_r_details" ?>'> Release Burndown</a></li>
                             </ul>
                         </li>
                         <li><a class ="menuItem" href ='<?php echo base_url() . "c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon glyphicon-question-sign"></span><b>  Discussions</b></a></li>
