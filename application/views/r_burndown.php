@@ -4,7 +4,7 @@
   <?php 
    
     //Total plan estimation
-    $totalPlanEst = $planEst[0]['PlanEst'];
+    $totalPlanEst = $planEstimation[0]['PlanEst'];
     echo $totalPlanEst;
   
     //Numer of iterations for selected release
@@ -16,13 +16,14 @@
         $itArr[$i++] = strtotime($list->it_id);
         echo $itArr[$i];
     }
-    ?>
+  
  
-<!--   
+  
     //Total user stories
     $totalUs = $userStory_qry[0]['num_of_userstories'];
     //echo $totalUs;
-
+    ?>
+<!-- 
     //Iteration Duration
     $duration = $days[0]['Duration'];
     //echo $duration;

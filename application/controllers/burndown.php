@@ -39,17 +39,17 @@ class Burndown extends CI_Controller {
         $this->load->view('header');
         $this->load->model('model_burndown','',TRUE);  
         
-        $data['planEst'] = $this->model_burndown->getPlanEst($_POST)->result_array();
+        $data['planEstimation'] = $this->model_burndown->getPlanEst($_POST)->result_array();
         $data['iterations'] = $this->model_burndown->getIterations($_POST)->result_array();
               
-        $this->load->view('r_burndown', $data);
+        $this->load->view('it_burndown', $data);
         $this->load->view('footer');
     }
     
     public function release(){       
         
         $this->load->view('header');
-        $this->load->view('releaseView');
+        $this->load->view('add_release');
         $this->load->view('footer');
     }
     

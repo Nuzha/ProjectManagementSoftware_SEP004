@@ -192,7 +192,7 @@
                     <ul class="nav navbar-nav side-nav">
                         <li><a class ="menuItem" href ='<?php echo base_url() . "main/create_new_project" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Create Project</b></a></li>
                         <li><a class ="menuItem" href ='<?php echo base_url() . "main/Iteration" ?>'><span class="glyphicon glyphicon-align-center"></span><b>  Iteration Plan</b></a></li>
-                        <li><a class ="menuItem" href ='<?php echo base_url() . "releasePlan/release" ?>'><span class="glyphicon glyphicon-indent-left"></span><b>  Release Plan</b></a></li>
+                        <li><a class ="menuItem" href ='<?php echo base_url() . "burndown/release" ?>'><span class="glyphicon glyphicon-indent-left"></span><b>  Release Plan</b></a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span><b>  Backlog</b></a>
