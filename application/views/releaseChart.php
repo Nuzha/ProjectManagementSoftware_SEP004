@@ -1,26 +1,18 @@
 <html>
   <head>
-    <!--Load the AJAX API-->
+    
   <?php 
    
-    //Total user stories
-    $totalUs = $userStory_qry[0]['num_of_userstories'];
-    //echo $totalUs;
-
-    //Iteration Duration
-    $duration = $days[0]['Duration'];
-    //echo $duration;
-   
-    //Iteration Start date
-    $s_date = strtotime($start_date[0]['i_start_date']);
-    //echo $s_date;
+    //Total plan estimation
+    $totalPlanEst = $planEs[0]['PlanEst'];
+    echo $totalPlanEst;
   
     //Worked dates for actual values
-    $dateArr = array();
+    $itArr = array();
     $i = 0;
-    foreach ($end_dates->result() as $dates)
+    foreach ($iterations->result() as $list)
     {
-        $dateArr[$i++] = strtotime($dates->end_date);
+        $itArr[$i++] = strtotime($list->it_id);
     }
     ?>
     
@@ -52,12 +44,7 @@
         });
         //[new Date(2014, 7, 2), new Date(2014, 7, 10), new Date(2014, 7, 20), new Date(2014, 7, 22), new Date(2014, 7, 24)];
         //alert(usEndDates);
-//        
-//        for(var j=0; j<timeStamps.length; j++){
-//            
-//            usEndDates[j++] = timeStamps[j];
-//        }
-//        
+        
         var daysPerUserStory = days / userStories;
         
         var DAY = 24 * 60 * 60 * 1000;
@@ -109,7 +96,7 @@
       <div class="row">
         <div class="panel panel-default ">
             <div class="panel-heading">
-                <h3>Iteration Burndown Chart</h3>
+                <h3>Release Burndown Chart</h3>
             </div>
         </div>
     </div>
