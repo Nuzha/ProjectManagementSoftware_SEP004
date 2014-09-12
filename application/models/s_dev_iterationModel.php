@@ -1,8 +1,10 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class S_dev_iterationModel  extends CI_Model {
-    
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class S_dev_iterationModel extends CI_Model {
+
     public function __construct() {
         parent::__construct();
         $this->load->database();
@@ -25,7 +27,7 @@ class S_dev_iterationModel  extends CI_Model {
         $this->db->where('i_id', $id);
         $this->db->update('iteration', $data);
     }
-    
+
     public function update_u_story_status($id, $status) {
 
         $data = array(
@@ -35,7 +37,7 @@ class S_dev_iterationModel  extends CI_Model {
         $this->db->where('StoryId', $id);
         $this->db->update('user_stories', $data);
     }
-    
+
     function add_defects_m($id, $des, $stat, $mail) {
         $data = array(
             'story_id' => $id,
@@ -47,7 +49,7 @@ class S_dev_iterationModel  extends CI_Model {
 
         $this->db->insert('defect_log', $data);
     }
-    
+
     function get_defects($mail) {
 
         $query = $this->db->query("SELECT COUNT(defect_id)as coun,story_id from defect_log where defect_founder='$mail' GROUP BY story_id");
@@ -68,6 +70,10 @@ class S_dev_iterationModel  extends CI_Model {
         return $this->db->get_where('defect_log', array('story_id' => $uid));
     }
     
+    function get_tasks_for_uid($uid) {
+        return $this->db->get_where('add_task', array('UStory_Id' => $uid));
+    }
+
     public function update_defect_status($did, $dstatus) {
         $data = array(
             'defect_stat' => $dstatus,
@@ -76,7 +82,7 @@ class S_dev_iterationModel  extends CI_Model {
         $this->db->where('defect_id', $did);
         $this->db->update('defect_log', $data);
     }
-    
+
     function get_defects_status($mail) {
 
         //$query = $this->db->query("SELECT COUNT(defect_id) from defect_log where defect_stat='In-Progress' AND defect_founder='kasun91@gmail.com'");
@@ -114,4 +120,5 @@ class S_dev_iterationModel  extends CI_Model {
     }
 
 }
+
 ?>

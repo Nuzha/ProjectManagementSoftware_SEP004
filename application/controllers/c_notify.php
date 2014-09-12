@@ -12,6 +12,6 @@ class C_notify extends CI_Controller {
 
     function notify(){
             $this->load->view('notification');
-    }
+     }
 }
 ?>

@@ -2,15 +2,15 @@
     <div class="row">
         <?php echo form_open('scrum_master/change_priority'); ?>
         <div class="form-group">
-    	       <input class = 'btn btn-success' type='submit' value="change priority"/>
+            <input class = 'btn btn-success' type='submit' value="change priority"/>
         </div>
-         <?php echo form_close(); ?>
+        <?php echo form_close(); ?>
     </div>
     <div class="row">
-        
+
         <div class="col-lg-12">
-        <h3><center> <span class="label label-default">List of User Stories</span></center></h3>
-        <table class="table table-striped">
+            <h3><center> <span class="label label-default">List of User Stories</span></center></h3>
+            <table class="table table-striped">
 
                 <thead>
                     <tr>
@@ -26,9 +26,14 @@
                 </thead>
                 <tbody>
 
-                <?php
+                    <?php
+                    $notice_des ="Description NOT Added";
+                    $notice_it="Iteration NOT Added";
+                    $notice_email="NOT Assigned Yet";
+                    $notice_planes="Estimation NOT Added";
+                    
                     foreach ($userStory_qry->result() as $story) {
-                        // Print out the contents of the entry 
+                        // Print  the contents of the entry 
                         echo '<tr class="' . $story->u_status . '">';
                         echo'<td><nobr>' .
                         anchor('Main/edit/' . $story->StoryId, 'edit') . ' | ' .
@@ -38,23 +43,43 @@
                         '</nobr></td>';
                         echo '<td>' . $story->ProjectId . '</td>';
                         echo '<td>' . $story->name . '</td>';
-                        echo '<td>' . $story->Description . '</td>';
-                        echo '<td>' . $story->IterationId . '</td>';
-                        echo '<td>' . $story->PlanEst . '</td>';
-                        echo '<td>' . mailto($story->OwnerEmail) . '</td>';
+                        if ($story->Description == null) {
+                            echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_des . '</span></td>';
+                        } else {
+                            echo '<td>' . $story->Description . '</td>';
+                        }
+
+                        if ($story->IterationId == null) {
+                            echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_it . '</span></td>';
+                        } else {
+                            echo '<td>' . $story->IterationId . '</td>';
+                        }
+
+                        if ($story->PlanEst == null) {
+                            echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_planes . '</span></td>';
+                        } else {
+                            echo '<td>' . $story->PlanEst . '</td>';
+                        }
+
+                        if ($story->OwnerEmail == null) {
+                            echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_email . '</span></td>';
+                        } else {
+                            echo '<td>' . mailto($story->OwnerEmail) . '</td>';
+                        }
+                        
+                        
                         echo '<td>' . $story->u_status . '</td>';
                     }
                     ?>
                 </tbody>
-                
-          </table>
+
+            </table>
 
 
         </div>
     </div>
-    </div>
-<!--</div>-->
-<!-- /container -->
+</div>
+
 
 
 

@@ -74,9 +74,9 @@
                                         <?php
                                         echo '<select class="form-control" name="category">
                                                                     <option value="Defined">Defined</option>
-                                                                    <option value="In-Progress">In-Progress</option>
+                                                                    <option value="Active">Active</option>
                                                                     <option value="Testing">Testing</option>
-                                                                    <option value="Completed">Completed</option>
+                                                                    <option value="Success">Success</option>
                                                                     </select> ';
                                         ?>  
                                     </div>

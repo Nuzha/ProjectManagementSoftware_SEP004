@@ -319,7 +319,7 @@ public function assign_member(){
         $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
         $this->load->view('header');
       //  $this->load->view('left_side');
-        $this->load->view('template', $data);
+        $this->load->view('template1', $data);
         $this->load->view('footer');
     }
 
@@ -406,15 +406,15 @@ public function assign_member(){
         $data['data_table'] = $userStory_table;
         $this->load->view('header');
         $this->load->view('left_side');
-        $this->load->view('template', $data);
+        $this->load->view('template1', $data);
     }
 
     function edit() {
         $this->load->helper('form');
         $this->load->model('Model_userStory', '', TRUE);
-        
+
         $data['email_list'] = $this->Model_userStory->get_mail();
-        $pid=$this->session->userdata('project_id');
+        $pid = $this->session->userdata('project_id');
         $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
 
         $id = $this->uri->segment(3);
@@ -429,7 +429,7 @@ public function assign_member(){
         $this->load->view('header');
         $this->load->view('left_side');
 
-        $this->load->view('template', $data);
+        $this->load->view('template1', $data);
     }
 
     function update() {
@@ -466,7 +466,7 @@ public function assign_member(){
         $this->load->view('header');
         $this->load->view('left_side');
 
-        $this->load->view('template', $data);
+        $this->load->view('template1', $data);
     }
 
     function re_add_task() {
@@ -487,7 +487,9 @@ public function assign_member(){
         $data['headline'] = "";
         $data['include'] = 'add_task';
 
-        $this->load->view('template', $data);
+        $this->load->view('header');
+        $this->load->view('left_side'); 
+        $this->load->view('template1', $data);
     }
 
     public function insert_Task() {

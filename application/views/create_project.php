@@ -1,30 +1,60 @@
 <script>
-$(function(){
+    
+    $(function(){
+var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+ 
+var checkin = $('#dpd1').datepicker({
+  onRender: function(date) {
+    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  if (ev.date.valueOf() > checkout.date.valueOf()) {
+    var newDate = new Date(ev.date)
+    newDate.setDate(newDate.getDate() + 1);
+    checkout.setValue(newDate);
+  }
+  checkin.hide();
+  $('#dpd2')[0].focus();
+}).data('datepicker');
+var checkout = $('#dpd2').datepicker({
+  onRender: function(date) {
+    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  checkout.hide();
+}).data('datepicker');
+});
+</script>
+<script>
+    $(function(){
    $('.datepicker').datepicker({
       format: 'yyyy-mm-dd'
     });
 });
 
-
-
 </script>
 
 <div id="page-wrapper">
+    
     <div class="row">
+      
+        <div class="panel panel-default ">
         <h3>Create Project</h3>
+        </div>
         <div class="alert alert-info alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
               You can create a new project here. Please fill your project details here.
             </div>
     </div>
     
-<div id="main_c" class="row">
+<div class="row">
 <div class="col-lg-8">
 
 
 		<div class="panel panel-default ">
 			<div class="panel-heading">
-    			<center><h3 class="panel-title"><strong>Create Project</strong></h3></center>
+    			<h3 class="panel-title"><strong>Create Project</strong></h3>
     		</div>
     <div class="panel-body"> 
 	<?php
@@ -47,7 +77,7 @@ $(function(){
     		<label for="inputStartDate" class="col-sm-3 control-label" style="color: #0088cc">Start Date &nbsp;&nbsp;</label>
     		<div class="col-sm-7">
       			<?php
-      				$StartDateattributes = array('class' => 'datepicker','name'=>'startdate','id'=>'dp1','placeholder'=>'mm-dd-yyyy');
+      				$StartDateattributes = array('class' => 'form-control','name'=>'startdate','id'=>'dpd1','placeholder'=>'mm-dd-yyyy');
       				echo form_input($StartDateattributes,$this->input->post('startdate'));
 					if(form_error('startdate')!=null)
 						echo '<div class="alert alert-danger">'.form_error('startdate').'</div>';
@@ -58,8 +88,9 @@ $(function(){
   		<div class="form-group">
     		<label for="inputEndDate" class="col-sm-3 control-label" style="color: #0088cc">End Date &nbsp;&nbsp;</label>
     		<div class="col-sm-7">
+                    
       			<?php
-      				$emailattributes = array('class' => 'datepicker','name'=>'enddate', 'id'=>'dp2', 'placeholder'=>'mm-dd-yyyy');
+      				$emailattributes = array('class' => 'form-control','name'=>'enddate', 'id'=>'dpd2', 'placeholder'=>'mm-dd-yyyy');
       				echo form_input($emailattributes,$this->input->post('enddate'));
 					if(form_error('enddate')!=null)
 						echo '<div class="alert alert-danger">'.form_error('enddate').'</div>';
@@ -124,13 +155,11 @@ $(function(){
 </div>
     
     <div class="col-lg-4">
-        <?php $this->load->view($include);?>
+       
     </div>
 
 
 </div>
     </div>
-    
-
 </body>
 </html>

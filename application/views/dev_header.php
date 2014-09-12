@@ -15,6 +15,9 @@
         <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap-twispy.js"></script>
         <link href="<?php echo base_url() . 'css/style.css' ?>" rel = "stylesheet">
         
+<!--        <script src="http://localhost/ProjectManagementSoftware_SEP004/js/attc.googleCharts.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php //echo base_url() . 'css/attc.css' ?>">-->
+        
         <script>
             function myFunction()
             {
@@ -77,7 +80,7 @@
      <ul id="leftsidemenu" class="nav navbar-nav side-nav">
                                 
                                 
-                                 <li><a  class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/dev_mywork" ?>'><span class="glyphicon glyphicon-th-list"></span><b>  My work</b></a></li>
+                                 <li><a  class ="menuItem" href ='<?php echo base_url()."cmulti_xml/display" ?>'><span class="glyphicon glyphicon-th-list"></span><b>  My work</b></a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."c_my_work/view_story_board" ?>'><span class="glyphicon glyphicon-indent-left"></span><b>  Story Board</b> </a></li>
                                 <li><a class ="menuItem" href ='<?php echo base_url()."s_dev_iteration/UserStorylisting" ?>'><span class="glyphicon glyphicon-list"></span><b>  Backlog</b></a></li>
                                 

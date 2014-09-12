@@ -8,7 +8,7 @@
         <link href="<?php echo base_url() . 'css/styles.css' ?>" rel = "stylesheet">
         <link href="<?php echo base_url() . 'css/dashboardNew.css' ?>" rel = "stylesheet">
         <link href="<?php echo base_url() . 'css/datepicker.css' ?>" rel = "stylesheet">
-        <link href="<?php echo base_url() . 'css/datepicker3.css' ?>" rel = "stylesheet">
+        
 	<link href="<?php echo base_url() . 'css/style.css' ?>" rel = "stylesheet">
         <link href="<?php echo base_url() . 'css/jPushMenu.css' ?>" rel = "stylesheet">
 
@@ -32,22 +32,26 @@
 <!--Notifications-->
         <script>
         
-            function checkNotification() {
+        function checkNotification() {
                 $.ajax({
-                    type: "get",
-                    url: "<?php echo base_url() . 'c_notify/notify'; ?>",
-                    success: function(data){
-                        $('#notification-bar').html(data);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        alert(errorThrown);
-                    }
+                type: "get",
+                //url : "notification.php",
+                url: "<?php echo base_url() . 'c_notify/notify'; ?>",
+                
+            
+                success: function(data){
+                //alert('done');
+                $('#notification-bar').html(data);
+                
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+               }
                 });
-            }
+              }
 
               $(document).ready(function() {
                 checkNotification();
-                setInterval(function() {checkNotification();}, 60000);
               });
         </script>
         
@@ -122,7 +126,7 @@
          <h3 class="panel-title"><i class="fa fa-clock-o"></i> Recent Activity</h3>
               
               <div class="panel-body" id="">
-                <div id="notification-bar" class="list-group">
+                <div class="list-group">
                   <a href="#" class="list-group-item">
                     <span class="badge">just now</span>
                     <i class="fa fa-calendar"></i> Calendar updated
@@ -175,8 +179,8 @@
             <!--Navigation bar-->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-                <div class="navbar-header">
-                    <div class="navbar-brand">Agile Project Management Software</div>
+                <div class="navbar-right">
+                    <div class="navbar-brand "><font color="white" >Agile Project Management Software</font></div>
                     <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
                         <span class = "icon-bar"></span>
                         <span class = "icon-bar"></span>
@@ -186,12 +190,14 @@
 
                 <div class="collapse navbar-collapse ">
                     <ul class="nav navbar-nav side-nav">
-                        <li><a class ="menuItem" href ='<?php echo base_url() . "main/create_new_project" ?>'><span class="glyphicon glyphicon-th-large"></span><b>  Create Project</b></a></li>
-                        <li><a class ="menuItem" href ='<?php echo base_url() . "main/Iteration" ?>'><span class="glyphicon glyphicon-align-center"></span><b>  Iteration Plan</b></a></li>
-                        <li><a class ="menuItem" href ='<?php echo base_url() . "burndown/release" ?>'><span class="glyphicon glyphicon-indent-left"></span><b>  Release Plan</b></a></li>
+                        <br>
+                        <br>
+                        <li><a class ="menuItem" href ='<?php echo base_url() . "main/create_new_project" ?>'><span class="glyphicon glyphicon-th-large" style="color: white"></span><b>  Create Project</b></a></li>
+                        <li><a class ="menuItem" href ='<?php echo base_url() . "main/Iteration" ?>'><span class="glyphicon glyphicon-align-center" style="color: white"></span><b>  Iteration Plan</b></a></li>
+                        <li><a class ="menuItem" href ='<?php echo base_url() . "releasePlan/release" ?>'><span class="glyphicon glyphicon-indent-left" style="color: white"></span><b>  Release Plan</b></a></li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span><b>  Backlog</b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify" style="color: white"></span><b>  Backlog</b></a>
                             <ul class="dropdown-menu">
                                 <li><a href='<?php echo base_url() . "main/userStory" ?>'>Add User story</a></li>
                                 <li><a href='<?php echo base_url() . "scrum_master/UserStorylisting" ?>'>List all user stories</a></li>
@@ -199,8 +205,8 @@
                             </ul>
                         </li>
 
-                        <li><a  class ="menuItem" href ='<?php echo base_url() . "main/project_listing" ?>'><span class="glyphicon glyphicon-th-list"></span><b>  View current Projects</b></a></li>
-                        <li><a  class ="menuItem" href ='<?php echo base_url() . "c_my_work/work_by_person" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-align-left"></span><b>  Work By Person</b></a></li>
+                        <li><a  class ="menuItem" href ='<?php echo base_url() . "main/project_listing" ?>'><span class="glyphicon glyphicon-th-list" style="color: white"></span><b>  View current Projects</b></a></li>
+                        <li><a  class ="menuItem" href ='<?php echo base_url() . "c_my_work/work_by_person" ?>'><span class="glyphicon glyphicon-user" style="color: white"></span><span class="glyphicon glyphicon-align-left"></span><b>  Work By Person</b></a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span><b>  Progress Charts</b></a>
@@ -210,9 +216,9 @@
                                 <li><a href='<?php echo base_url() . "burndown/get_r_details" ?>'> Release Burndown</a></li>
                             </ul>
                         </li>
-                        <li><a class ="menuItem" href ='<?php echo base_url() . "c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon glyphicon-question-sign"></span><b>  Discussions</b></a></li>
+                        <li><a class ="menuItem" href ='<?php echo base_url() . "c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-user" style="color: white"></span><span class="glyphicon glyphicon glyphicon-question-sign"></span><b>  Discussions</b></a></li>
                          <li class="dropdown">
-                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats"></span><b>  Upload Additional Document</b></a>
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats" style="color: white"></span><b>  Upload Additional Document</b></a>
                             <ul class="dropdown-menu">
                                 <li><a href='<?php echo base_url() . "scrum_master/view_page" ?>'> Upload Files</a></li>
                                 <li><a href='<?php echo base_url() . "scrum_master/list_all_attachment" ?>'> List All Upload Files</a></li>
@@ -222,14 +228,14 @@
                     </ul>
 
             <!--Navigation Bar-->
-                    <div class = "collapse navbar-collapse navHeaderCollapse">
-                        <ul class = "nav navbar-nav navbar-right">
+            <div class = "collapse navbar-collapse navHeaderCollapse" >
+                        <ul class = "nav navbar-nav navbar-left">
 
-                            <li><a  href ="#contact"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span> Projects</a></li>
-                            <li ><a   id="" href='<?php echo base_url() . "main/assign_member" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span>Assign Members</a></li>
+                            <li><a  href ="#contact"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span><font color="white" > Projects</font></a></li>
+                            <li ><a   id="" href='<?php echo base_url() . "main/assign_member" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span><font color="white" >Assign Members</font></a></li>
 
                             <li class = "dropdown">
-                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span>  Messages </span> <b class = "caret"></b></a>
+                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"> <span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span><font color="white" >  Messages</font> </span> <b class = "caret"></b></a>
                                 <ul class = "dropdown-menu">
                                     <li><a href = "<?php echo base_url() . 'msg/inbox'; ?>"><span class="badge"><?php echo intval(mysql_num_rows($req1)); ?></span> Inbox</a></li>
                                     <li><a href = "<?php echo base_url() . 'msg/newmsger'; ?>"> New Message</a></li> 
@@ -238,7 +244,7 @@
                             </li>
 
                             <li class = "dropdown">
-                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-user"> <?php echo $username; ?> <b class = "caret"></b></span></a>
+                                <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-user"><font color="white" ><?php echo $username; ?> </font><b class = "caret"></b></span></a>
                                 <ul class = "dropdown-menu">
                                     <li><a href = "<?php echo base_url() . 'main/show_profile'; ?>"data-toggle="modal">My profile</a></li> 
                                     <li><a href = "<?php echo base_url() . 'msg/edit'; ?>"data-toggle="modal">Settings</a></li> 

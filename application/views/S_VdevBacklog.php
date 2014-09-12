@@ -1,6 +1,6 @@
 
-<div class="col-md-8 col-md-offset-2">
-
+<div id="page-wrapper">
+    <div class="row">
     <h3><center><span class="label label-default"> List of User Stories</span></center></h3>
    <table class="table table-striped">
    

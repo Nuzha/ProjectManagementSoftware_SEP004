@@ -192,4 +192,22 @@ class S_dev_iteration extends CI_Controller {
     
 
 }
+
+//-----------------------------------------Task----------------------------------------------------------------------------
+
+function get_tasks($uid) {
+            
+       
+        $this->load->model('s_dev_iterationModel','',TRUE);
+        $data['task_qry'] =$this->s_dev_iterationModel->get_tasks_for_uid($uid);
+        $this->load->view('dev_header');
+        //$this->load->view('dev_leftside');
+        $this->load->view('view_defects', $data);
+        $this->load->view('footer');
+        
+        
+        
+    }
+
+
 ?>

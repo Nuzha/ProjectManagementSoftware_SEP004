@@ -43,7 +43,9 @@ $route['controller']="s_dev_iteration";
 $route['controller']="scrum_master";
 $route['controller']="su_new";
 $route['404_override'] = '';
-
+//cmulti_xml
+//calendar
+//ajax_demo
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

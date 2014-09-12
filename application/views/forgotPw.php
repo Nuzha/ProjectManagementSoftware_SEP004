@@ -15,7 +15,7 @@
 
     <div class="container">
 
-      <form class="form-forgotPw" role="form">
+      <form class="form-horizontal" role="form" action='<?= base_url();?>c_forgotpw/load_view_forgotpw' method="post">
         <h4 class="form-forgotPw-heading">Please enter your email address</h4>
         <input type="email" class="form-control" name="submit_pw" placeholder="Email address" required autofocus>
         <button id="warn-me" class="navbar-btn btn-info btn pull-left" onclick="show()">Submit</button>
