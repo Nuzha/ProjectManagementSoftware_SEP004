@@ -188,26 +188,59 @@ class S_dev_iteration extends CI_Controller {
             $this->load->view('dev_mywork');
             $this->load->view('footer');
         }
+        
+        
+        function get_tasks($uuid) {
+            
+       
+        $this->load->model('s_dev_iterationModel','',TRUE);
+        $data['task_qry'] =$this->s_dev_iterationModel->get_tasks_for_uid($uuid);
+        $this->load->view('dev_header');
+        //$this->load->view('dev_leftside');
+        $this->load->view('dev_task',$data);
+       // $this->load->view('footer');
+        
+        
+        
+    }
+    
+    
+    function update_task_status() {
+        $this->load->helper('url');
+        $tid = $this->input->post('ID');
+        $tstatus = $this->input->post('category');
+
+        $this->load->model('s_dev_iterationModel', '', TRUE);
+        $this->s_dev_iterationModel->update_task_status($tid, $tstatus);
+
+
+
+        //$this->load->view('view_defects', $data);
+        redirect('s_dev_iteration/task_listing', 'refresh');
+       
+    }
+    
+    function task_listing()
+    {
+        $tu_id = $this->session->userdata('tu_id');
+
+        var_dump($tu_id);
+        $this->load->model('s_dev_iterationModel', '', TRUE);
+        $data['task_qry'] = $this->s_dev_iterationModel->get_tasks_for_uid($tu_id);
+        $this->load->view('dev_header');
+        //$this->load->view('dev_leftside');
+        $this->load->view('dev_task', $data);
+       // $this->load->view('footer');
+        
+    }
+    
     
     
 
 }
 
-//-----------------------------------------Task----------------------------------------------------------------------------
 
-function get_tasks($uid) {
-            
-       
-        $this->load->model('s_dev_iterationModel','',TRUE);
-        $data['task_qry'] =$this->s_dev_iterationModel->get_tasks_for_uid($uid);
-        $this->load->view('dev_header');
-        //$this->load->view('dev_leftside');
-        $this->load->view('view_defects', $data);
-        $this->load->view('footer');
-        
-        
-        
-    }
+
 
 
 ?>

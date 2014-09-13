@@ -15,6 +15,7 @@
           <th>Iteration</th>
           <th>Plan Estimation</th>
           <th>Owner Email</th>
+          <th> Tasks</th>
           <th>Status</th>
         </tr>
        
@@ -45,6 +46,7 @@
                 echo '<td>' . $story->PlanEst . '</td>';
                 
                 echo '<td>' . mailto($story->OwnerEmail) . '</td>';
+                echo '<td>' . anchor('s_dev_iteration/get_tasks/'. $story->StoryId, 'View Task Sheet') . '</td>';
                 echo '<td>'.'<a href = "#u_status_'.$story->StoryId.'" data-toggle="modal" >' . $story->u_status . '</a>'.'</td>';
                  
              ?>    

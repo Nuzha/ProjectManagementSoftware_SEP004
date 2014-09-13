@@ -112,7 +112,8 @@ class Model_userStory extends CI_Model {
             'UStory_Id' => $_POST['StoryId'],
             'UStory_name' => $_POST['Story'],
             'T_name' => $_POST['task_name'],
-            'T_Description' => $_POST['task_des']
+            'T_Description' => $_POST['task_des'],
+            'T_status'=>'Defined'
         );
         $this->db->insert('add_Task', $data);
     }
