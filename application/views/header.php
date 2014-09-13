@@ -179,7 +179,7 @@
             <!--Navigation bar-->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-                <div class="navbar-right">
+                <div class="navbar-left">
                     <div class="navbar-brand "><font color="white" >Agile Project Management Software</font></div>
                     <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
                         <span class = "icon-bar"></span>
@@ -229,7 +229,7 @@
 
             <!--Navigation Bar-->
             <div class = "collapse navbar-collapse navHeaderCollapse" >
-                        <ul class = "nav navbar-nav navbar-left">
+                        <ul class = "nav navbar-nav navbar-right">
 
                             <li><a  href ="#contact"  data-toggle="modal"><span class="glyphicon glyphicon-th-large"></span><font color="white" > Projects</font></a></li>
                             <li ><a   id="" href='<?php echo base_url() . "main/assign_member" ?>'><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-user"></span><font color="white" >Assign Members</font></a></li>

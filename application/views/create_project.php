@@ -1,9 +1,13 @@
-<script>
-    
-    $(function(){
+<script type="text/javascript">
+  
+</script>
+
+<div id="page-wrapper">
+    <script>
+   $(document).ready(function(){
 var nowTemp = new Date();
 var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
- 
+  
 var checkin = $('#dpd1').datepicker({
   onRender: function(date) {
     return date.valueOf() < now.valueOf() ? 'disabled' : '';
@@ -13,6 +17,7 @@ var checkin = $('#dpd1').datepicker({
     var newDate = new Date(ev.date)
     newDate.setDate(newDate.getDate() + 1);
     checkout.setValue(newDate);
+    
   }
   checkin.hide();
   $('#dpd2')[0].focus();
@@ -24,20 +29,10 @@ var checkout = $('#dpd2').datepicker({
 }).on('changeDate', function(ev) {
   checkout.hide();
 }).data('datepicker');
-});
+   });
 </script>
-<script>
-    $(function(){
-   $('.datepicker').datepicker({
-      format: 'yyyy-mm-dd'
-    });
-});
-
-</script>
-
-<div id="page-wrapper">
-    
     <div class="row">
+      
       
         <div class="panel panel-default ">
         <h3>Create Project</h3>
@@ -75,14 +70,15 @@ var checkout = $('#dpd2').datepicker({
   		<br />
   		<div class="form-group">
     		<label for="inputStartDate" class="col-sm-3 control-label" style="color: #0088cc">Start Date &nbsp;&nbsp;</label>
-    		<div class="col-sm-7">
+                <div class="col-sm-7">
       			<?php
-      				$StartDateattributes = array('class' => 'form-control','name'=>'startdate','id'=>'dpd1','placeholder'=>'mm-dd-yyyy');
+      				$StartDateattributes = array('class' => 'form-control','name'=>'startdate','value'=>"",'id'=>'dpd1','placeholder'=>'mm-dd-yyyy');
       				echo form_input($StartDateattributes,$this->input->post('startdate'));
 					if(form_error('startdate')!=null)
 						echo '<div class="alert alert-danger">'.form_error('startdate').'</div>';
       			?>
-    		</div>
+                </div>
+                
   		</div>
   		<br />
   		<div class="form-group">
@@ -95,7 +91,7 @@ var checkout = $('#dpd2').datepicker({
 					if(form_error('enddate')!=null)
 						echo '<div class="alert alert-danger">'.form_error('enddate').'</div>';
       			?>
-    		</div>
+                </div>
   		</div>
   		<br />
   		<div class="form-group">
@@ -157,7 +153,7 @@ var checkout = $('#dpd2').datepicker({
     <div class="col-lg-4">
        
     </div>
-
+    
 
 </div>
     </div>

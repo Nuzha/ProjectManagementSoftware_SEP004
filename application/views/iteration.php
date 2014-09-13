@@ -1,7 +1,9 @@
 
 <div id="page-wrapper"> 
     <script type="text/javascript">
+      
 $(document).ready(function(){ 	
+    
 	  function slideout(){
   setTimeout(function(){
   $("#response").slideUp("slow", function () {

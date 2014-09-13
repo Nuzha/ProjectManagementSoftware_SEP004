@@ -52,10 +52,14 @@
                                 <div class="form-group">
 
                                     <div class="col-md-6 col-md-offset-2"> 
+                                        <?php
+      				$registerbtnattributes = array('class' => 'btn btn-primary','name'=>'Submit','value'=>'Submit');
+					echo form_submit($registerbtnattributes);
+      			?>
       
                                        <!--<button type="submit" class="btn btn-success">Sign In</button>-->
                                         
-                                       <a class="btn btn-primary" href="<?php echo base_url() . 'c_forgotpw/send_pw_email';?>"> Submit </a>
+<!--                                       <a class="btn btn-primary" href="<?php echo base_url() . 'c_forgotpw/send_pw_email';?>"> Submit </a>-->
                                                                                
                                     </div>
 
