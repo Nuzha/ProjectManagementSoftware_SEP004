@@ -41,15 +41,22 @@
                     
 
                     <div class="form-group">
-
+                      <?php  if($iteration_list == null){ 
+                          $iteration_notice = 'New Project. No iterations created yet.';
+                            echo'<span class="glyphicon glyphicon-info-sign" style="color:red"> ' . $iteration_notice . '</span>';}
+                        else {?>
                         <label for="email">Iteration Id </label>
-                        <?php echo form_dropdown('IterationId', $iteration_list, $row[0]->IterationId, 'class="form-control"'); ?>
+                        <?php echo form_dropdown('IterationId', $iteration_list, $row[0]->IterationId, 'class="form-control"'); }?>
                     </div>
                    
 
                     <div class="form-group">
+                        <?php  if($email_list == null){
+                           $mail_notice = 'New Project. No members assigned yet.';
+                            echo'<span class="glyphicon glyphicon-info-sign" style="color:red"> ' . $mail_notice . '</span>';}
+                        else {?>
                         <label for="email">Owner e-mail </label>
-                        <?php echo form_dropdown('OwnerEmail', $email_list, $row[0]->OwnerEmail, 'class="form-control"'); ?>
+                        <?php echo form_dropdown('OwnerEmail', $email_list, $row[0]->OwnerEmail, 'class="form-control"');} ?>
 
                     </div>
                     
@@ -57,7 +64,18 @@
                     <div class="form-group">
                         <label>Plan Estimation</label>
                         <?php
-                        echo form_input('PlanEst', $row[0]->PlanEst, 'class="form-control"');
+                        
+                        $options = array(
+                            '0'=>'0',
+                            '1' => '1',
+                            '2' => '2',
+                            '3' => '3',
+                            '5' => '5',
+                            '8' => '8',
+                            '13' => '13',
+                            '21' => '21',
+                        );
+                        echo form_dropdown('PlanEst',$options, $row[0]->PlanEst, 'class="form-control"');
                         ?>
                     </div>
                     
