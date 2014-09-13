@@ -26,8 +26,8 @@
                 <div class="center">
                     <label for="username">Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="username" id="username" value="<?php echo $username; ?>" /><br /><br>
                     <label for="password">Password <span class="small">(6 characters min.)&nbsp;&nbsp;&nbsp; </span></label><input type="password" name="password" id="password" value="<?php echo $password; ?>" /><br /><br>
-                    <label for="passverif">Password <span class="small">(verification)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></label><input type="password" name="repassword" id="passverif" value="<?php echo $password; ?>" /><br /><br>
-                    <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br /><br>
+                    <label for="passverif">Password <span class="small">(verification)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></label><input type="password" name="repassword" id="passverif" value="<?php echo $password; ?> " /><br /><br>
+                    <label for="email">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" disabled name="email" id="email" value="<?php echo $email; ?>" /><br /><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" class="btn btn-primary"  value="Update" />
                     <a class="btn btn-warning"  href="<?php echo base_url() . 'msg/profile'; ?>">back to your profile</a>

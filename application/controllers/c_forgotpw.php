@@ -21,21 +21,23 @@ class C_forgotpw extends CI_Controller {
             $this->load->model('model_users');
             $email = $this->input->post('email');
             $query = "SELECT * FROM member WHERE `email`='$email'";
-     
+            $pw = "SELECT `password` FROM member WHERE `email`='$email'";
+           
             if ($query === FALSE) {
                     die(mysql_error()); // TODO: better error handling
                     echo 'error';
                     redirect('c_forgotpw/load_view_forgotpw');
                 }
            else{
-                $this->resetpassword($email);
+                $this->resetpassword($pw);
                 redirect('c_forgotpw/email_sent');
           }
         }
     }
  
-    private function resetpassword($email)
+    private function resetpassword($pw)
    {
+                     
                      $config = Array(
 				'protocol' => 'smtp',
 			  	'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -47,11 +49,8 @@ class C_forgotpw extends CI_Controller {
 			  	'wordwrap' => TRUE
 			);
               
-			$key=md5(uniqid());
-                        $message="Your Password is..";			
-			//$message.="<a href='" . base_url(). "main/activate/$key'><i>click here</i></a> to activate your account.";
-			
-                        $this->load->library('email');
+			$message="Your Password is..".$pw;			
+			$this->load->library('email');
                         $this->email->set_newline("\r\n");
                         $this->email->from('fadilanuzha@gmail.com'); 
                         $this->email->to($this->input->post('email'));

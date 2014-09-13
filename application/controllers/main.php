@@ -540,20 +540,15 @@ public function assign_member(){
 
         if ($this->form_validation->run()) {
 
-            // -----------------------------newly added-------------------------------------------------------------
             $this->load->model('model_users');
             $temp_email = $this->input->post('email');
-            //   $username['re']= $this->model_users->get_username($temp_email);
-
             $query = "SELECT `username` ,`type`, `id` FROM member WHERE `email`='$temp_email'";
-            
             $query_run = mysql_query($query);
             $user = mysql_fetch_assoc($query_run);
             $get_user = $user['username'];
             $type = $user['type'];
             $id = $user['id'];
             
-            //------------------------------------------------------------------------------------------
             $data = array(
                 'type' => $type,
                 'USERNAME' => $get_user,
@@ -566,12 +561,8 @@ public function assign_member(){
             $this->session->set_userdata($data);
             $this->model_users->recordLoggedInTime();  
             redirect('main/members');
-            
-          //  $this->load->model('s_dev_iterationModel', '', TRUE);         
-            
+                
         } else {
-            // $this->load->view('view_login');
-
             redirect('main/restricted');
         }
     }
