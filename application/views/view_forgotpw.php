@@ -9,8 +9,6 @@
         <script src = "<?php echo base_url() . 'js/jquery-1.4.2.min.css' ?>"></script>
     </head>
 
-    <body style="background-image: url('http://localhost/ProjectManagementSoftware_SEP004/img/new.jpg');">
-        
     <!--Navigation bar-->
             <div class = "navbar navbar-inverse navbar-static-top">
                 <div class = "container">
@@ -28,18 +26,18 @@
         
             
         
-     <form class="form-horizontal" role="form" action='<?= base_url();?>main/login_validation' method="post">
+     <form class="form-horizontal" role="form" action='<?= base_url();?>c_forgotpw/send_pw_email' method="post">
 
             <div class="container">
 
                 <div class="col-md-6 col-md-offset-2">  
-                    <h2 class="form-signin-heading">Please sign in</h2>
+                    <h2 class="form-signin-heading">Please enter your Email address</h2>
 
                     <div class="panel panel-default ">
                         <div class="panel-body"> 
 
                          <?php
-                            echo form_open('main/login_validation');
+                            echo form_open('c_forgotpw/send_pw_email');
                             echo validation_errors();?>
                 
                             <fieldset>
@@ -52,22 +50,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-
-                                    <div class="col-lg-10">
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
 
                                     <div class="col-md-6 col-md-offset-2"> 
       
-                                       <button type="submit" class="btn btn-success">Sign In</button>
-                                        Or 
-                                        <a href="<?php echo base_url() . 'main/registration_form';?>" class="btn btn-primary"> Sign Up </a>
-                                        <br> <br>
-                                        <a href="<?php echo base_url() . 'c_forgotpw/load_view_forgotpw';?>"> Forgot Password</a>
+                                       <!--<button type="submit" class="btn btn-success">Sign In</button>-->
+                                        
+                                       <a class="btn btn-primary" href="<?php echo base_url() . 'c_forgotpw/send_pw_email';?>"> Submit </a>
+                                                                               
                                     </div>
 
                                     <?php
