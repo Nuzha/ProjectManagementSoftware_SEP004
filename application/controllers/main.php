@@ -12,11 +12,8 @@ class Main extends CI_Controller {
     }
 
     function index() {
-        
-        //$this->load->view('it_burndown');
         $this->login();
     }
-
  
 //-------------------------------------------shamil----------------------------------------------------------
     public function registration_form() {
@@ -165,13 +162,10 @@ activation-key in the user waiting list.</li>
     }
       public function show_profile(){
          $this->load->view('header');
-        //$this->load->view('left_side');
-        $this->load->model('users');
-        $data['profile']=  $this->users->get_profile_details();
+         $this->load->model('users');
+         $data['profile']=  $this->users->get_profile_details();
          $this->load->view('User_profile', $data);
-         $this->load->view('footer');
-        
-    }
+     }
 
     //starting my other function
     public function create_new_project() {

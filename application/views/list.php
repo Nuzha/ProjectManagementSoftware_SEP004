@@ -81,7 +81,7 @@
                 <tr>
                     <td class="left"><a href="readmsg?id=<?php echo $dn2['id']; ?>"><?php echo htmlentities($dn2['title'], ENT_QUOTES, 'UTF-8'); ?></a></td>
                     <td><?php echo $dn2['reps'] - 1; ?></td>
-                    <td><a href="profile?id=<?php echo $dn2['userid']; ?>"><?php echo htmlentities($dn2['username'], ENT_QUOTES, 'UTF-8'); ?></a></td>
+                    <td><?php echo htmlentities($dn2['username'], ENT_QUOTES, 'UTF-8'); ?></a></td>
                     <td><?php echo date('Y/m/d H:i:s', $dn2['timestamp']); ?></td>
                 </tr>
                 <?php

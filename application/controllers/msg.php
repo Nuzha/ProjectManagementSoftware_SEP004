@@ -21,19 +21,15 @@ class Msg extends CI_Controller {
     }
 
     function inbox() {
-        $data['obj'] = $this->session;
-        
-          $type=$this->session->userdata('type');
+         $type=$this->session->userdata('type');
+       
         if($type == "Scrum Master"){
             $this->load->view('header');
         }
         else{
         $this->load->view('dev_header');
-       // $this->load->view('dev_leftside');
         }
-        
-      //  $this->load->view('dev_leftside');
-        $this->load->view('inbox', $data);
+        $this->load->view('inbox');
         $this->load->view('footer');
     }
 
@@ -45,27 +41,21 @@ class Msg extends CI_Controller {
         }
         else{
         $this->load->view('dev_header');
-       // $this->load->view('dev_leftside');
         }
-        
-       // $this->load->view('dev_leftside');
         $this->load->view('users', $data);
         $this->load->view('footer');
     }
 
     public function load_list() {
-        $data['obj'] = $this->session;
-          $type=$this->session->userdata('type');
+       
+        $type=$this->session->userdata('type');
         if($type == "Scrum Master"){
             $this->load->view('header');
         }
         else{
         $this->load->view('dev_header');
-       // $this->load->view('dev_leftside');
-        }
-       
-       // $this->load->view('dev_leftside');
-        $this->load->view('list', $data);
+               }
+        $this->load->view('list');
         $this->load->view('footer');
     }
  
@@ -84,7 +74,6 @@ class Msg extends CI_Controller {
       
      //   $this->load->view('dev_leftside');
         $this->load->view('read', $data);
-        $this->load->view('footer');
     }
     
    
@@ -93,20 +82,16 @@ class Msg extends CI_Controller {
 
         $data['msg'] = $msg;
         $this->load->helper(array('form', 'url'));
-        $data['obj'] = $this->session;
+        $type=$this->session->userdata('type');
         
-          $type=$this->session->userdata('type');
         if($type == "Scrum Master"){
             $this->load->view('header');
         }
         else{
         $this->load->view('dev_header');
-       // $this->load->view('dev_leftside');
         }
         $this->load->view('footer');
-        
-      //  $this->load->view('dev_leftside');
-        $this->load->view('new_msg', $data);
+        $this->load->view('new_msg');
     }
     
     
@@ -150,30 +135,29 @@ class Msg extends CI_Controller {
         }
         else{
         $this->load->view('dev_header');
-       // $this->load->view('dev_leftside');
         }
-        
-     //   $this->load->view('dev_leftside');
+     
         $this->load->view('profile', $data);
         $this->load->view('footer');
     }
 
     public function edit($msg = NULL) {
-        $data['msg'] = $msg;
+        //$data['msg'] = $msg;
         $this->load->helper(array('form', 'url'));
         $data['obj'] = $this->session;
-          $type=$this->session->userdata('type');
+        $type=$this->session->userdata('type');
         if($type == "Scrum Master"){
             $this->load->view('header');
         }
         else{
         $this->load->view('dev_header');
-       // $this->load->view('dev_leftside');
         }
-     
-      //  $this->load->view('dev_leftside');
-        $this->load->view('edit', $data);
+        $this->load->view('view_edit');
         $this->load->view('footer');
+    }
+    
+    public function update_details(){
+        
     }
 
 }

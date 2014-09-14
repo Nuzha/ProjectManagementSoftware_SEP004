@@ -37,8 +37,7 @@
                         <fieldset>
                             <div class="form-group">                                                             
                                     <input type="email" class="form-control" name="email" placeholder="Email address" required autofocus>
-                                    <!--<input type="text" class="form-control" id="email" name="email" placeholder="Email">-->
-                             
+                                                             
                                      <?php
                                     $registerbtnattributes = array('class' => 'navbar-btn btn-info btn pull-left', 'name' => 'Submit', 'value' => 'Submit');
                                     echo form_submit($registerbtnattributes);

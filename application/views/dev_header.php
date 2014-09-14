@@ -129,7 +129,7 @@
 
                                 <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown"><b class = "caret"></b><span class="glyphicon glyphicon-user"><?php echo $this->session->userdata('USERNAME'); ?></span></a>
                                 <ul class = "dropdown-menu">
-                                    <li><a href = "<?php echo base_url() . 'msg/profile'; ?>">My Profile</a></li>
+                                    <li><a href = "<?php echo base_url() . 'main/show_profile'; ?>"data-toggle="modal">My profile</a></li>
                                     <li><a href = "<?php echo base_url() . 'msg/edit'; ?>">Update Profile</a></li>
                                     <li><a href = "<?php echo base_url() . 'main/logout'; ?>"> Logout</a></li>
                                 </ul>
