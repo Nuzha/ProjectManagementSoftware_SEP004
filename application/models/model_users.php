@@ -24,11 +24,9 @@
 //            
 //            $user=  mysql_fetch_assoc($query_run);
 //            $get_user=$user['username'];
-            return  $query->result();
-            
-            
-            
+            return  $query->result();         
         }
+        
         public function add_temp_users($key){
             $data = array(
                 'email' => $this->input->post('email'),
@@ -59,10 +57,5 @@
             return TRUE;
             
         }
-        public function get_details($email){
-        
-            return $this->db->get_where('member', array('email'=> $email));
-            
-        }
-   }
+    }
 ?>

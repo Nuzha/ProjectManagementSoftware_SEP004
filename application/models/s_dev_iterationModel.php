@@ -82,6 +82,16 @@ class S_dev_iterationModel extends CI_Model {
         $this->db->where('defect_id', $did);
         $this->db->update('defect_log', $data);
     }
+    
+    
+    public function update_task_status($tid, $tstatus) {
+        $data = array(
+            'T_status' => $tstatus,
+        );
+
+        $this->db->where('Task_Id', $tid);
+        $this->db->update('add_task', $data);
+    }
 
     function get_defects_status($mail) {
 

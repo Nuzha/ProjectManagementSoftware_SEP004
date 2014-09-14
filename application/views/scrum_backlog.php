@@ -55,7 +55,7 @@
                             echo '<td>' . $story->IterationId . '</td>';
                         }
 
-                        if ($story->PlanEst == null) {
+                        if ($story->PlanEst == 0) {
                             echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_planes . '</span></td>';
                         } else {
                             echo '<td>' . $story->PlanEst . '</td>';

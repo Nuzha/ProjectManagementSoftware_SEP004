@@ -322,8 +322,8 @@ public function assign_member(){
         $data['include'] = 'add_uerstory_view';
         $this->load->model('Model_userStory', '', TRUE);
         
-        $data['email_list'] = $this->Model_userStory->get_mail();
         $pid=$this->session->userdata('project_id');
+        $data['email_list'] = $this->Model_userStory->get_mail($pid);
         $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
         $this->load->view('header');
       //  $this->load->view('left_side');
@@ -335,7 +335,7 @@ public function assign_member(){
         $this->load->helper('url');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('user_story', 'User Story', 'required');
-        $this->form_validation->set_rules('email', 'Owner Email',  'trim|required|valid_email');
+        //$this->form_validation->set_rules('email', 'Owner Email',  'trim|required|valid_email');
 
 		if ($this->form_validation->run() == FALSE)
 		{   
@@ -344,12 +344,13 @@ public function assign_member(){
                          $data['title'] = "Add User Story";
                          $data['headline'] = "";
                          $data['include'] = 'add_uerstory_view';
-                         $data['email_list'] = $this->Model_userStory->get_mail();
-                         $pid=$this->session->userdata('project_id');
+                          $pid=$this->session->userdata('project_id');
+                         $data['email_list'] = $this->Model_userStory->get_mail($pid);
+                        
                          $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
-                         $this->load->view('header');
+                          $this->load->view('header');
                          
-                          $this->load->view('template', $data);
+                          $this->load->view('template1', $data);
                         $this->load->view('footer');
 		}
 		else
@@ -420,9 +421,9 @@ public function assign_member(){
     function edit() {
         $this->load->helper('form');
         $this->load->model('Model_userStory', '', TRUE);
-
-        $data['email_list'] = $this->Model_userStory->get_mail();
         $pid = $this->session->userdata('project_id');
+        $data['email_list'] = $this->Model_userStory->get_mail($pid);
+        
         $data['iteration_list'] = $this->Model_userStory->get_iteration($pid);
 
         $id = $this->uri->segment(3);
@@ -547,20 +548,15 @@ public function assign_member(){
 
         if ($this->form_validation->run()) {
 
-            // -----------------------------newly added-------------------------------------------------------------
             $this->load->model('model_users');
             $temp_email = $this->input->post('email');
-            //   $username['re']= $this->model_users->get_username($temp_email);
-
             $query = "SELECT `username` ,`type`, `id` FROM member WHERE `email`='$temp_email'";
-            
             $query_run = mysql_query($query);
             $user = mysql_fetch_assoc($query_run);
             $get_user = $user['username'];
             $type = $user['type'];
             $id = $user['id'];
             
-            //------------------------------------------------------------------------------------------
             $data = array(
                 'type' => $type,
                 'USERNAME' => $get_user,
@@ -573,12 +569,8 @@ public function assign_member(){
             $this->session->set_userdata($data);
             $this->model_users->recordLoggedInTime();  
             redirect('main/members');
-            
-          //  $this->load->model('s_dev_iterationModel', '', TRUE);         
-            
+                
         } else {
-            // $this->load->view('view_login');
-
             redirect('main/restricted');
         }
     }

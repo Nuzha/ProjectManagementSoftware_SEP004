@@ -30,6 +30,13 @@
         </script>                 
      
     </head>
+    
+    <?php 
+    
+    if ($this->session->userdata('is_logged_in')) {
+         $un = $this->session->userdata['USERNAME'];
+    ?>
+
       <body>
 
         <!--Navigation bar-->
@@ -94,5 +101,6 @@
 
         <script src = "js/bootstrap.js"></script>
     </body>
-
+    <?php }
+    ?>
 </html>
