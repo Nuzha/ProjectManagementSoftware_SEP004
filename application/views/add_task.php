@@ -14,6 +14,7 @@ echo form_open('main/insert_Task');
 
 echo form_hidden('StoryId', $row[0]->StoryId);
 echo form_hidden('Story', $row[0]->name);
+echo form_hidden('ProjectId',$row[0]->ProjectId);
 
 // an array of the fields in the student table
 $field_array = array('ProjectId','name','Description','IterationId','OwnerEmail','PlanEst');
@@ -48,7 +49,7 @@ echo form_label($row[0]->name,'Story_n') ;
 <?php echo form_close(); ?>
 
 
-<h5>Already Existing Tasks : </h5>
+<h5> <b>Already Existing Tasks :</b> </h5>
 <?php
 foreach($query as $row1)
 {
@@ -60,7 +61,7 @@ foreach($query as $row1)
     <p>
        	Task description:<?php echo $row1->T_Description; ?>
     </p>
-    <?php echo"------------------------------------------------------------------------------------------------------------------------" ?>
+    <?php echo'<span class="glyphicon glyphicon-check" style="color:green">------------------------------------------------------------------------------------------------------------------------</span>' ?>
     </div>
    
 <?php

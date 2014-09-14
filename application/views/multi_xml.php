@@ -250,7 +250,7 @@ setTimeout('refreshdiv_otherdiv()',seconds*1000);
         
 </script> 
 
-    
+<br>    
 <div id="page-wrapper">
 <div class="row">
  <div class="col-lg-6">
@@ -280,7 +280,7 @@ refreshdiv_timediv();
               </span></a>
            <br>
           <a href="<?php echo base_url() ."ajax_demo/giveMoreData" ?>" class="btn btn-primary btn-link" role="button"><span class="glyphicon glyphicon-check">
-            Quick view on user story and defect logs
+            User Story and Defect Logs
               </span></a>
           
 </div>
@@ -293,7 +293,7 @@ refreshdiv_timediv();
 </div>
     
 
-<div class="row">
+<!--<div class="row">
  <div class="col-lg-6">
  <div class="panel panel-warning">
  <div class="panel-heading">
@@ -306,7 +306,7 @@ refreshdiv_timediv();
 
 <script type="text/javascript">
 refreshdiv_timeinwashington();
-</script>
+</script>-->
 
 <div name="timeinwashington" id="timeinwashington"></div>
 
@@ -336,7 +336,7 @@ refreshdiv_otherdiv();
 </div>-->
     
 <div class="row">
- <div class="col-lg-12">
+ <div class="col-lg-12 col-md-offset-2">
  <div class="panel panel-success">
  <div class="panel-heading">
           <h5>Defects & UserStories Summary</h5>

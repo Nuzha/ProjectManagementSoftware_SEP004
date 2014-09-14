@@ -111,6 +111,7 @@ class Model_userStory extends CI_Model {
         $data = array(
             'UStory_Id' => $_POST['StoryId'],
             'UStory_name' => $_POST['Story'],
+            'T_Pid'=>$_POST['ProjectId'],
             'T_name' => $_POST['task_name'],
             'T_Description' => $_POST['task_des'],
             'T_status'=>'Defined'

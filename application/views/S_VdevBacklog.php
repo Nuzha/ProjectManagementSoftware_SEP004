@@ -7,14 +7,14 @@
          <thead>
         <tr>
          <th>Project ID</th>
- 
+         <th> Story ID</th>
           <th>User Story</th>
  
           <th>Description</th>
  
           <th>Iteration</th>
           <th>Plan Estimation</th>
-          <th>Owner Email</th>
+<!--          <th>Owner Email</th>-->
           <th> Tasks</th>
           <th>Status</th>
         </tr>
@@ -34,18 +34,38 @@
             
             
                <?php
+                     $notice_des = "Description NOT Added";
+                   $notice_it = "Iteration NOT Added";
+
+                   $notice_planes = "Estimation NOT Added";
  
             
                 // Print out the contents of the entry 
                 echo '<tr class="'.$story->u_status.'">';
                 
                 echo '<td>' . $story->ProjectId. '</td>';
+                echo '<td>' . $story->StoryId. '</td>';
                 echo '<td>' . $story->name . '</td>';
-                echo '<td>' . $story->Description . '</td>';
-                echo '<td>' . $story->IterationId . '</td>';
-                echo '<td>' . $story->PlanEst . '</td>';
+                   if ($story->Description == null) {
+                       echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_des . '</span></td>';
+                   } else {
+                       echo '<td>' . $story->Description . '</td>';
+                   }
+                   
+                   if ($story->IterationId == null) {
+                       echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_it . '</span></td>';
+                   } else {
+
+                       echo '<td>' . $story->IterationId . '</td>';
+                   }
+                   if ($story->PlanEst == null) {
+                       echo '<td> <span class="glyphicon glyphicon-question-sign" style="color:red">' . $notice_planes . '</span></td>';
+                   } else {
+
+                       echo '<td>' . $story->PlanEst . '</td>';
+                   }
                 
-                echo '<td>' . mailto($story->OwnerEmail) . '</td>';
+                //echo '<td>' . mailto($story->OwnerEmail) . '</td>';
                 echo '<td>' . anchor('s_dev_iteration/get_tasks/'. $story->StoryId, 'View Task Sheet') . '</td>';
                 echo '<td>'.'<a href = "#u_status_'.$story->StoryId.'" data-toggle="modal" >' . $story->u_status . '</a>'.'</td>';
                  
@@ -128,7 +148,7 @@
          
       
   </div>
-    <!-- /container -->
+   
     
 </body>
 </html>

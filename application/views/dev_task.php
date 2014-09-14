@@ -8,6 +8,7 @@
                     <th>Task Name</th>
 
                     <th> Task Description</th>
+                    <th> Task Status </th>
 
                 </tr>
 
