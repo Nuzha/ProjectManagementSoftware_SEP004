@@ -19,7 +19,7 @@ $(document).ready(function(){
 	$('#1 .sortable-list').sortable({
 		connectWith: '#1 .sortable-list',
 		placeholder: 'placeholder',update: function() {
-			alert('sdfffffffffffffffffffffffffffffffffffffffffffff');
+
 			var order = $(this).sortable("serialize") + '&update=update'; 
 			$.post("Change_priority/iteration_update_priority'", order, function(theResponse){
                             $("#response").html(theResponse);

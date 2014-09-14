@@ -1,35 +1,38 @@
-<script type="text/javascript">
-  
-</script>
 
+   <script src = "http://localhost/ProjectManagementSoftware_SEP004/js/bootstrap-datepicker.js"></script>
 <div id="page-wrapper">
-    <script>
-   $(document).ready(function(){
+    <script type="text/javascript">
+        $(function(){
+            
 var nowTemp = new Date();
 var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
   
-var checkin = $('#dpd1').datepicker({
-  onRender: function(date) {
-    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+var checkin = $('#dpd1').datepicker({ format: 'yyyy-mm-dd',onRender: function(Date) {
+      alert(now);
+    return Date.valueOf() < now.valueOf() ? 'disabled' :'';
+   
   }
 }).on('changeDate', function(ev) {
   if (ev.date.valueOf() > checkout.date.valueOf()) {
+      
     var newDate = new Date(ev.date)
     newDate.setDate(newDate.getDate() + 1);
     checkout.setValue(newDate);
-    
   }
   checkin.hide();
   $('#dpd2')[0].focus();
 }).data('datepicker');
 var checkout = $('#dpd2').datepicker({
+    
+      format: 'yyyy-mm-dd',
+
   onRender: function(date) {
     return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
   }
 }).on('changeDate', function(ev) {
   checkout.hide();
 }).data('datepicker');
-   });
+        });
 </script>
     <div class="row">
       
@@ -45,7 +48,8 @@ var checkout = $('#dpd2').datepicker({
     
 <div class="row">
 <div class="col-lg-8">
-
+  
+    
 
 		<div class="panel panel-default ">
 			<div class="panel-heading">
