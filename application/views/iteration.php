@@ -1,10 +1,11 @@
 
 <div id="page-wrapper"> 
-    <script type="text/javascript">
-      
-$(document).ready(function(){ 	
-    
-	  function slideout(){
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+ <script type="text/javascript">
+
+$(document).ready(function(){
+      function slideout(){
   setTimeout(function(){
   $("#response").slideUp("slow", function () {
       });
@@ -12,22 +13,28 @@ $(document).ready(function(){
 }, 2000);}
 	
     $("#response").hide();
-	$(function() {
-	$("#1 ul").sortable({ opacity: 0.8, cursor: 'move', update: function() {
-			
+    
+	// Example 1.3: Sortable and connectable lists with visual helper
+        $(function() {
+	$('#1 .sortable-list').sortable({
+		connectWith: '#1 .sortable-list',
+		placeholder: 'placeholder',update: function() {
+			alert('sdfffffffffffffffffffffffffffffffffffffffffffff');
 			var order = $(this).sortable("serialize") + '&update=update'; 
-			$.post("http://localhost/ProjectManagementSoftware_SEP004/application/models/updateList.php", order, function(theResponse){
-				$("#response").html(theResponse);
+			$.post("Change_priority/iteration_update_priority'", order, function(theResponse){
+                            $("#response").html(theResponse);
 				$("#response").slideDown('slow');
 				slideout();
+				
 			}); 															 
-		}								  
-		});
+		}
 	});
+        
+});
+});
 
-});	
 </script>
-    <div class="row">
+<div class="row">
         <div class="col-lg-12">
              
              <!-- BEGIN: XHTML for example 1.3 -->
@@ -89,12 +96,12 @@ $(document).ready(function(){
                                 <ul class="sortable-list">
 						   <?php
                            
-                            $sqls = "SELECT `name`  FROM `user_stories` WHERE IterationId='$itr_id ' ";
+                            $sqls = "SELECT `name`,`StoryId`,`IterationId`  FROM `user_stories` WHERE IterationId='$itr_id ' AND ProjectId=$pro_id ";
                             $query_resources = mysql_query($sqls);
                             while ($projects = mysql_fetch_assoc($query_resources)):
                                
                                 ?>
-                                 <li class="sortable-item"><?php echo $projects['name']; ?></li>
+                                 <li class="sortable-item" id="arrayorder_<?php echo $projects['IterationId']; ?>"><?php echo $projects['name']; ?></li>
 				
 
                             <?php endwhile; ?>
@@ -113,21 +120,7 @@ $(document).ready(function(){
                
   
              
-               <script type="text/javascript" src = "http://localhost/ProjectManagementSoftware_SEP004/js/jquery-1.4.2.min.js"></script>
-                  <script type="text/javascript" src = "http://localhost/ProjectManagementSoftware_SEP004/js/jquery-ui-1.8.custom.min.js"></script>
-             
- <script type="text/javascript">
 
-$(document).ready(function(){
-	// Example 1.3: Sortable and connectable lists with visual helper
-	$('#1 .sortable-list').sortable({
-		connectWith: '#1 .sortable-list',
-		placeholder: 'placeholder',
-	});
-        
-});
-
-</script>
         </div>
     </div>
 </div>

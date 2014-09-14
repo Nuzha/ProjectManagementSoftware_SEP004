@@ -107,8 +107,7 @@
                    <div class="form-group">
                    <label for="inputConfirmPassword" class="col-sm-3 control-label">Profile Image&nbsp;&nbsp;</label> 
                    <div class="col-sm-7">
-                      <input name="userfile" name="userfile" type="file"
-                class="input-xlarge">
+                      <input name="userfile" name="userfile" type="file" class="input-xlarge">
                    </div>
                 </div>
   		<div class="form-group">

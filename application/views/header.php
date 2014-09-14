@@ -247,7 +247,7 @@
                                 <a href = "#dropdown-menu" class = "dropdown-toggle" data-toggle = "dropdown"><span class="glyphicon glyphicon-user"><font color="white" ><?php echo $username; ?> </font><b class = "caret"></b></span></a>
                                 <ul class = "dropdown-menu">
                                     <li><a href = "<?php echo base_url() . 'main/show_profile'; ?>"data-toggle="modal">My profile</a></li> 
-                                    <li><a href = "<?php echo base_url() . 'msg/edit'; ?>"data-toggle="modal">Settings</a></li> 
+                                    <li><a href = "<?php echo base_url() . 'register/edit_profile'; ?>"data-toggle="modal">Settings</a></li> 
                                     <li><a href = "<?php echo base_url() . 'main/logout'; ?>"> Logout</a></li>
                                 </ul>
                             </li>

@@ -78,6 +78,17 @@ class Register extends CI_Controller {
          
             
         }
+        public function edit_profile(){
+            $this->load->view('header');
+           $email= $this->session->userdata('email');
+            $this->load->model('model_users', '', TRUE);
+            $data['user_data']=  $this->model_users->get_details($email)->result();
+            
+             $this->load->view('profile_edit', $data);
+            $this->load->view('footer');
+           
+            
+        }
 }
 
 /* End of file welcome.php */

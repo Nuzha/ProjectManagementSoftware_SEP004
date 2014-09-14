@@ -59,5 +59,10 @@
             return TRUE;
             
         }
+        public function get_details($email){
+        
+            return $this->db->get_where('member', array('email'=> $email));
+            
+        }
    }
 ?>
