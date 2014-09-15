@@ -25,3 +25,6 @@
               <?php
                 foreach ($task_qry->result() as $task):
         
+?>
+                
+                <?php endforeach; ?>

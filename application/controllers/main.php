@@ -12,9 +12,12 @@ class Main extends CI_Controller {
     }
 
     function index() {
-        $this->login();
+        $this->start_page();
     }
  
+    public function start_page(){
+        $this->load->view('start_page');
+    }
 //-------------------------------------------shamil----------------------------------------------------------
     public function registration_form() {
         $this->load->view('register_header');
