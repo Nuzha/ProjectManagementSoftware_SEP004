@@ -215,6 +215,13 @@
                                 <li><a href='<?php echo base_url() . "burndown/get_r_details" ?>'> Release Burndown</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span><b>  Events</b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href='<?php echo base_url() . "calendar/display" ?>'>Create Events</a></li>
+                            </ul>
+                        </li>
+                        
                         <li><a class ="menuItem" href ='<?php echo base_url() . "c_discuss/view_discuss/general" ?>'><span class="glyphicon glyphicon-user" style="color: white"></span><span class="glyphicon glyphicon glyphicon-question-sign"></span><b>  Discussions</b></a></li>
                          <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-stats" style="color: white"></span><b>  Upload Additional Document</b></a>
@@ -224,6 +231,8 @@
 
                             </ul>
                         </li>
+                        
+                        
                     </ul>
 
             <!--Navigation Bar-->

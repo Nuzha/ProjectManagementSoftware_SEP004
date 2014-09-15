@@ -275,7 +275,7 @@ refreshdiv_timediv();
 <div class="col-lg-6">
  <div class="panel panel-success">
  <div class="panel-heading">
-          <a href="<?php echo base_url() ."calendar/display_cal" ?>" class="btn btn-primary btn-link" role="button"><span class="glyphicon glyphicon-calendar">
+          <a href="<?php echo base_url() ."calendar/display_cal_dev" ?>" class="btn btn-primary btn-link" role="button"><span class="glyphicon glyphicon-calendar">
             Get Events
               </span></a>
            <br>

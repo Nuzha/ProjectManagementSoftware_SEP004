@@ -109,6 +109,7 @@ td.calendar-day, td.calendar-day-np {
         <div id="container">
         <?php if (isset($members)):?>
         <?php
+            
                     foreach($members->result() as $story):
                                         ?>
 
@@ -116,7 +117,7 @@ td.calendar-day, td.calendar-day-np {
             <input  type="checkbox" name="members[]" id="members[]" value="<?php echo $story->member_email; ?>" />
            <span><?php echo $story->member_email;  ?></span><br/>
 
-                    <?php endforeach; ?>
+            <?php endforeach; ?>
         
             
             

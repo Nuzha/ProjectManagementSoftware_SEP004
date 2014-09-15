@@ -61,7 +61,7 @@
                             <?php
                             //Create the query
                             $email1=$this->session->userdata('email');
-                            $sql = "SELECT `project_id`,`project_name` FROM project_summary ";
+                            $sql = "select project_summary.project_id ,project_summary.project_name from assign_members ,project_summary where assign_members.`project_id`=project_summary.project_id AND assign_members.`member_email`='$email1';";
 
                             //Run the query
                             $query_resource = mysql_query($sql);

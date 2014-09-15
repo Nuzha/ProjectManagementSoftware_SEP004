@@ -34,7 +34,7 @@ class calendar extends CI_Controller {
     
     function display(){
       $data['ajax_req'] = FALSE;
-      $this->load->view('dev_header');
+      $this->load->view('header');
       $this->load->view('create_events',$data);
       
 //        $this->load->view('calendar');
@@ -42,11 +42,19 @@ class calendar extends CI_Controller {
     }
     
     function display_cal(){
-       $this->load->view('dev_header');
+       $this->load->view('header');
        $data['year']= 2014;
        $data['month']=08;
        
        $this->load->view('calendar',$data); 
+    }
+    
+    function display_cal_dev(){
+      $this->load->view('dev_header');
+       $data['year']= 2014;
+       $data['month']=08;
+       
+       $this->load->view('calendar',$data);  
     }
     
     function submit(){
